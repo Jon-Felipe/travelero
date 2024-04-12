@@ -1,7 +1,13 @@
+import './components/Navbar';
+import Navbar from './components/Navbar';
+
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <Navbar />
+      <main>
+        <h1 className='text-4xl'>Hello World</h1>
+      </main>
     </>
   );
 }

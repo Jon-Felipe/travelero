@@ -1,4 +1,31 @@
+import { useState } from 'react';
+
+type FormDataType = {
+  location: string;
+  date: string;
+  checkOut: string;
+};
+
 function Hero() {
+  const [formData, setFormData] = useState<FormDataType>({
+    location: '',
+    date: '',
+    checkOut: '',
+  });
+
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
+  function onFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    console.log(formData);
+  }
+
   return (
     <section className='bg-[url(./assets/heroImage.jpg)] w-full h-[500px] bg-center bg-cover flex items-center justify-center'>
       <div className='w-full px-4'>
@@ -19,8 +46,10 @@ function Hero() {
                 type='text'
                 id='location'
                 name='location'
+                value={formData.location}
+                onChange={handleOnChange}
                 placeholder='Where are you going?'
-                className='text-sm text-slate-400 w-full focus:outline-none'
+                className='text-sm text-slate-400 w-full focus:outline-none focus:'
               />
             </div>
           </div>
@@ -33,7 +62,9 @@ function Hero() {
               <input
                 type='date'
                 id='date'
-                name='Date'
+                name='date'
+                value={formData.date}
+                onChange={handleOnChange}
                 className='text-sm text-slate-400 focus:outline-none'
               />
             </div>
@@ -46,11 +77,17 @@ function Hero() {
                 type='date'
                 id='checkOut'
                 name='checkOut'
+                value={formData.checkOut}
+                onChange={handleOnChange}
                 className='text-sm text-slate-400 focus:outline-none'
               />
             </div>
           </div>
-          <button className='bg-blue-600 text-white font-bold text-base w-full py-4 lg:rounded-full'>
+          <button
+            type='submit'
+            className='bg-blue-600 text-white font-bold text-base w-full py-4 lg:rounded-full'
+            onClick={onFormSubmit}
+          >
             Search
           </button>
         </form>

@@ -5,7 +5,7 @@ function Navbar() {
   const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
   return (
-    <header className='h-20 flex items-center justify-between px-8'>
+    <header className='h-20 flex items-center justify-between px-8 border-b border-b-slate-300'>
       <div>
         <h1 className='text-4xl'>Travelero</h1>
       </div>
@@ -18,17 +18,17 @@ function Navbar() {
           )}
         </button>
       </div>
-      <nav className='hidden md:flex md:gap-x-5'>
+      <nav className='hidden md:flex md:gap-x-10'>
         <a href='#'>Home</a>
         <a href='#'>About</a>
         <a href='#'>Contact</a>
       </nav>
-      <div className='hidden md:flex md:gap-5'>
+      <div className='hidden md:flex md:gap-4'>
         <div className='border rounded-full shadow p-3'>
-          <BsBasket className='w-6 h-6' />
+          <BsBasket className='w-5 h-5' />
         </div>
         <div className='border rounded-full shadow p-3'>
-          <BsPerson className='w-6 h-6' />
+          <BsPerson className='w-5 h-5' />
         </div>
       </div>
     </header>

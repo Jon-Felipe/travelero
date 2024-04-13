@@ -1,3 +1,6 @@
+// component
+import FormRow from '../components/FormRow';
+
 import loginImg from '../assets/login.svg';
 
 function Login() {
@@ -11,33 +14,18 @@ function Login() {
         </p>
         <form>
           <div className='mt-10 flex flex-col gap-y-2'>
-            <label
-              htmlFor='email'
-              className='text-sm font-semibold tracking-wide'
-            >
-              Email Address
-            </label>
-            <input
+            <FormRow
+              label='email address'
               type='text'
               name='email'
-              id='email'
               placeholder='you@example.com'
-              className='border-2 py-2 px-4 rounded-md'
             />
           </div>
           <div className='mt-4 flex flex-col gap-y-2'>
-            <label
-              htmlFor='password'
-              className='text-sm font-semibold tracking-wide'
-            >
-              Password
-            </label>
-            <input
+            <FormRow
               type='password'
               name='password'
-              id='password'
-              placeholder='Enter 6 character or more'
-              className='border-2 py-2 px-4 rounded-md'
+              placeholder='Enter 6 or more character'
             />
           </div>
           <button

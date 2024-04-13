@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <header className='h-20 flex items-center justify-between px-8 border-b border-b-slate-300'>
       <div>
-        <h1 className='text-4xl'>Travelero</h1>
+        <h1 className='text-4xl font-bold'>Travelero</h1>
       </div>
       <div className='md:hidden'>
         <button type='button' onClick={() => setShowNavLinks(!showNavLinks)}>
@@ -19,9 +19,15 @@ function Navbar() {
         </button>
       </div>
       <nav className='hidden md:flex md:gap-x-10'>
-        <a href='#'>Home</a>
-        <a href='#'>About</a>
-        <a href='#'>Contact</a>
+        <a href='#' className='font-medium text-xl'>
+          Home
+        </a>
+        <a href='#' className='font-medium text-xl'>
+          About
+        </a>
+        <a href='#' className='font-medium text-xl'>
+          Contact
+        </a>
       </nav>
       <div className='hidden md:flex md:gap-4'>
         <div className='border rounded-full shadow p-3'>

@@ -1,7 +1,7 @@
 // components
-import Hero from './components/Hero';
-import './components/Navbar';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import TopDestinations from './components/TopDestinations';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <h1 className='text-4xl'>Hello World</h1>
+        <TopDestinations />
       </main>
     </>
   );

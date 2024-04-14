@@ -18,7 +18,7 @@ function Login() {
           </Link>
         </p>
         <form>
-          <div className='mt-10 flex flex-col gap-y-2'>
+          <div className='mt-10'>
             <FormRow
               label='email address'
               type='text'
@@ -26,7 +26,7 @@ function Login() {
               placeholder='you@example.com'
             />
           </div>
-          <div className='mt-4 flex flex-col gap-y-2'>
+          <div className='mt-4'>
             <FormRow
               type='password'
               name='password'

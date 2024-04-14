@@ -12,7 +12,7 @@ function FormRow({ label, type, name, placeholder }: Props) {
     <>
       <label
         htmlFor={name}
-        className='text-sm font-semibold tracking-wide capitalize'
+        className='block text-sm font-semibold tracking-wide capitalize'
       >
         {label || name}
       </label>
@@ -21,7 +21,7 @@ function FormRow({ label, type, name, placeholder }: Props) {
         name={name}
         id={name}
         placeholder={placeholder}
-        className='border-2 py-2 px-4 rounded-md'
+        className='mt-2 border-2 py-2 px-4 rounded-md w-full'
       />
     </>
   );

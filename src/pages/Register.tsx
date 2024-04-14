@@ -18,12 +18,12 @@ function Register({}: Props) {
         <h3 className='text-2xl font-semibold'>Register</h3>
         <p className='text-slate-400 mt-1'>
           Already have an account?{' '}
-          <Link to='/register' className='text-blue-500'>
+          <Link to='/login' className='text-blue-500'>
             Sign In
           </Link>
         </p>
         <form>
-          <div className='mt-10 flex flex-col gap-y-2'>
+          <div className='mt-10'>
             <FormRow
               label='First Name'
               type='text'
@@ -31,7 +31,7 @@ function Register({}: Props) {
               placeholder='John'
             />
           </div>
-          <div className='mt-4 flex flex-col gap-y-2'>
+          <div className='mt-4'>
             <FormRow
               label='Last Name'
               type='text'
@@ -39,7 +39,7 @@ function Register({}: Props) {
               placeholder='Doe'
             />
           </div>
-          <div className='mt-4 flex flex-col gap-y-2'>
+          <div className='mt-4'>
             <FormRow
               label='email address'
               type='text'
@@ -47,14 +47,14 @@ function Register({}: Props) {
               placeholder='you@example.com'
             />
           </div>
-          <div className='mt-4 flex flex-col gap-y-2'>
+          <div className='mt-4'>
             <FormRow
               type='password'
               name='password'
               placeholder='Enter 6 or more character'
             />
           </div>
-          <div className='mt-4 flex flex-col gap-y-2'>
+          <div className='mt-4'>
             <FormRow
               type='password'
               label='confirm password'

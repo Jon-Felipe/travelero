@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom';
+
 // component
 import FormRow from '../components/FormRow';
 
+// extras
 import loginImg from '../assets/login.svg';
 
 function Login() {
@@ -10,7 +13,9 @@ function Login() {
         <h3 className='text-2xl font-semibold'>Login</h3>
         <p className='text-slate-400 mt-1'>
           Don't have an account yet?{' '}
-          <span className='text-blue-500'>Sign Up</span>
+          <Link to='/register' className='text-blue-500'>
+            Sign Up
+          </Link>
         </p>
         <form>
           <div className='mt-10 flex flex-col gap-y-2'>

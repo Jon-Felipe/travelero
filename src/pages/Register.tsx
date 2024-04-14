@@ -23,21 +23,23 @@ function Register({}: Props) {
           </Link>
         </p>
         <form>
-          <div className='mt-10'>
-            <FormRow
-              label='First Name'
-              type='text'
-              name='firstName'
-              placeholder='John'
-            />
-          </div>
-          <div className='mt-4'>
-            <FormRow
-              label='Last Name'
-              type='text'
-              name='lastName'
-              placeholder='Doe'
-            />
+          <div className='mt-10 flex flex-col lg:flex-row gap-y-3 lg:gap-y-0 lg:gap-x-4'>
+            <div className='w-full'>
+              <FormRow
+                label='First Name'
+                type='text'
+                name='firstName'
+                placeholder='John'
+              />
+            </div>
+            <div className='w-full'>
+              <FormRow
+                label='Last Name'
+                type='text'
+                name='lastName'
+                placeholder='Doe'
+              />
+            </div>
           </div>
           <div className='mt-4'>
             <FormRow

@@ -6,11 +6,9 @@ import FormRow from '../components/FormRow';
 // extras
 import registerImage from '../assets/registerImage.svg';
 
-type Props = {};
-
-function Register({}: Props) {
+function Register() {
   return (
-    <div className='p-10 mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
+    <div className='p-10 mt-16 lg:grid lg:grid-cols-[500px_1fr] lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
       <div className='hidden lg:inline-block'>
         <img src={registerImage} alt='register' className='w-full bg-cover' />
       </div>

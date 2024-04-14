@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import FormRow from '../components/FormRow';
 
 // extras
-import loginImg from '../assets/login.svg';
+import loginImage from '../assets/loginImage.svg';
 
 function Login() {
   return (
@@ -42,7 +42,7 @@ function Login() {
         </form>
       </div>
       <div className='hidden lg:inline-block'>
-        <img src={loginImg} alt='login' className='w-full bg-cover' />
+        <img src={loginImage} alt='login' className='w-full bg-cover' />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import express, { Express, Request, Response } from 'express';
+import mongoose from 'mongoose';
+
 const app: Express = express();
 
 // routes
@@ -18,4 +20,15 @@ app.use('/api/v1/auth', authRouter);
 
 const port = process.env.PORT || 5100;
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+async function connectDb() {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URL!);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    app.listen(port, () => console.log(`Server listening on port ${port}`));
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
+connectDb();

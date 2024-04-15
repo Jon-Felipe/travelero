@@ -3,6 +3,7 @@ const app: Express = express();
 
 // routes
 import tourRouter from './routes/tourRouter';
+import authRouter from './routes/authRouter';
 
 // middleware
 app.use(express.json());
@@ -12,6 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/auth', authRouter);
 
 const port = 5100;
 

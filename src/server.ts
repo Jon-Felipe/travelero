@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import 'dotenv/config';
 import express, { Express, Request, Response } from 'express';
 import mongoose from 'mongoose';

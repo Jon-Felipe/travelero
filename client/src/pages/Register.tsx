@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // components
@@ -6,7 +7,23 @@ import FormRow from '../components/FormRow';
 // extras
 import registerImage from '../assets/registerImage.svg';
 
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
 function Register() {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
   return (
     <div className='p-10 mt-16 lg:grid lg:grid-cols-[500px_1fr] lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
       <div className='hidden lg:inline-block'>
@@ -27,6 +44,7 @@ function Register() {
                 label='First Name'
                 type='text'
                 name='firstName'
+                value={formData.firstName}
                 placeholder='John'
               />
             </div>
@@ -35,6 +53,7 @@ function Register() {
                 label='Last Name'
                 type='text'
                 name='lastName'
+                value={formData.lastName}
                 placeholder='Doe'
               />
             </div>
@@ -44,6 +63,7 @@ function Register() {
               label='email address'
               type='text'
               name='email'
+              value={formData.email}
               placeholder='you@example.com'
             />
           </div>
@@ -51,6 +71,7 @@ function Register() {
             <FormRow
               type='password'
               name='password'
+              value={formData.password}
               placeholder='Enter 6 or more character'
             />
           </div>
@@ -59,6 +80,7 @@ function Register() {
               type='password'
               label='confirm password'
               name='confirmPassword'
+              value={formData.confirmPassword}
               placeholder='Type your password again'
             />
           </div>

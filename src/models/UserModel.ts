@@ -8,7 +8,13 @@ interface IUser {
   password: string;
 }
 
-const userSchema = new mongoose.Schema<IUser>(
+interface IUserMethods {
+  comparePasswords(password: string): Promise<boolean>;
+}
+
+type UserModel = mongoose.Model<IUser, {}, IUserMethods>;
+
+const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -18,9 +24,18 @@ const userSchema = new mongoose.Schema<IUser>(
   { timestamps: true }
 );
 
+userSchema.methods.comparePasswords = async function (
+  password: string
+): Promise<boolean> {
+  const passwordsMatch = await bcrypt.compare(password, this.password);
+  return passwordsMatch;
+};
+
 userSchema.pre('save', async function () {
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-export default mongoose.model<IUser>('User', userSchema);
+const User: UserModel = mongoose.model<IUser, UserModel>('User', userSchema);
+
+export default User;

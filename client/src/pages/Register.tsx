@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
+import { useRegisterMutation } from '../slices/apiSlice';
 
 // components
 import FormRow from '../components/FormRow';
@@ -24,6 +25,8 @@ function Register() {
     confirmPassword: '',
   });
 
+  const [register] = useRegisterMutation();
+
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
     const value = e.target.value;
@@ -32,8 +35,21 @@ function Register() {
     });
   }
 
-  function handleOnSubmit(e: FormEvent) {
+  async function handleOnSubmit(e: FormEvent) {
     e.preventDefault();
+
+    const { firstName, lastName, email, password, confirmPassword } = formData;
+
+    if (password !== confirmPassword) {
+      alert('Passwords do no match');
+    } else {
+      try {
+        await register({ firstName, lastName, email, password });
+        redirect('/');
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 
   return (

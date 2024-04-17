@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // components
@@ -32,6 +32,10 @@ function Register() {
     });
   }
 
+  function handleOnSubmit(e: FormEvent) {
+    e.preventDefault();
+  }
+
   return (
     <div className='p-10 mt-16 lg:grid lg:grid-cols-[500px_1fr] lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
       <div className='hidden lg:inline-block'>
@@ -45,7 +49,7 @@ function Register() {
             Sign In
           </Link>
         </p>
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <div className='mt-10 flex flex-col lg:flex-row gap-y-3 lg:gap-y-0 lg:gap-x-4'>
             <div className='w-full'>
               <FormRow

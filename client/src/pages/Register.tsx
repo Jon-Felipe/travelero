@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Link, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useRegisterMutation } from '../slices/apiSlice';
 
 // components
@@ -45,7 +45,6 @@ function Register() {
     } else {
       try {
         await register({ firstName, lastName, email, password });
-        redirect('/');
       } catch (error) {
         console.log(error);
       }

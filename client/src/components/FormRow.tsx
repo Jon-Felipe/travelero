@@ -6,9 +6,10 @@ type Props = {
   name: string;
   value: React.InputHTMLAttributes<HTMLInputElement>['value'];
   placeholder?: string;
+  onChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
 };
 
-function FormRow({ label, type, name, value, placeholder }: Props) {
+function FormRow({ label, type, name, value, onChange, placeholder }: Props) {
   return (
     <>
       <label
@@ -22,6 +23,7 @@ function FormRow({ label, type, name, value, placeholder }: Props) {
         id={name}
         name={name}
         value={value}
+        onChange={onChange}
         placeholder={placeholder}
         className='mt-2 border-2 py-2 px-4 rounded-md w-full'
       />

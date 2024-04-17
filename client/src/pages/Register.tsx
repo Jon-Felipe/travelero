@@ -24,6 +24,14 @@ function Register() {
     confirmPassword: '',
   });
 
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
   return (
     <div className='p-10 mt-16 lg:grid lg:grid-cols-[500px_1fr] lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
       <div className='hidden lg:inline-block'>
@@ -46,6 +54,7 @@ function Register() {
                 name='firstName'
                 value={formData.firstName}
                 placeholder='John'
+                onChange={handleOnChange}
               />
             </div>
             <div className='w-full'>
@@ -54,6 +63,7 @@ function Register() {
                 type='text'
                 name='lastName'
                 value={formData.lastName}
+                onChange={handleOnChange}
                 placeholder='Doe'
               />
             </div>
@@ -65,6 +75,7 @@ function Register() {
               name='email'
               value={formData.email}
               placeholder='you@example.com'
+              onChange={handleOnChange}
             />
           </div>
           <div className='mt-4'>
@@ -73,6 +84,7 @@ function Register() {
               name='password'
               value={formData.password}
               placeholder='Enter 6 or more character'
+              onChange={handleOnChange}
             />
           </div>
           <div className='mt-4'>
@@ -82,6 +94,7 @@ function Register() {
               name='confirmPassword'
               value={formData.confirmPassword}
               placeholder='Type your password again'
+              onChange={handleOnChange}
             />
           </div>
           <button

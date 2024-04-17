@@ -12,8 +12,8 @@ router.post('/register', async (req: Request, res: Response) => {
   if (userExists) {
     throw new Error('email already exists');
   }
-  const user = await User.create({ firstName, lastName, email, password });
-  res.status(200).json({ user });
+  await User.create({ firstName, lastName, email, password });
+  res.status(200).json({ msg: 'user created' });
 });
 
 // @desc    Login user

@@ -25,7 +25,7 @@ function Register() {
     confirmPassword: '',
   });
 
-  const [register] = useRegisterMutation();
+  const [register, { isLoading }] = useRegisterMutation();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
@@ -120,6 +120,7 @@ function Register() {
           <button
             type='submit'
             className='mt-8 w-full bg-blue-500 text-white font-bold py-2 rounded-md'
+            disabled={isLoading}
           >
             Register
           </button>

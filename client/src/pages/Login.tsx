@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // component
@@ -6,7 +7,25 @@ import FormRow from '../components/FormRow';
 // extras
 import loginImage from '../assets/loginImage.svg';
 
+type FormData = {
+  email: string;
+  password: string;
+};
+
 function Login() {
+  const [formData, setFormData] = useState<FormData>({
+    email: '',
+    password: '',
+  });
+
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
   return (
     <div className='p-10 mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-12 w-full max-w-screen-xl mx-auto'>
       <div className='lg:shadow-xl lg:p-6 xl:p-12 lg:rounded-xl'>
@@ -23,14 +42,18 @@ function Login() {
               label='email address'
               type='text'
               name='email'
+              value={formData.email}
               placeholder='you@example.com'
+              onChange={handleOnChange}
             />
           </div>
           <div className='mt-4'>
             <FormRow
               type='password'
               name='password'
+              value={formData.password}
               placeholder='Enter 6 or more character'
+              onChange={handleOnChange}
             />
           </div>
           <button

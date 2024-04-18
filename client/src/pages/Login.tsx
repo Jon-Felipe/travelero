@@ -37,7 +37,7 @@ function Login() {
     const { email, password } = formData;
 
     try {
-      await login({ email, password });
+      await login({ email, password }).unwrap();
       navigate('/');
     } catch (error) {
       console.log(error);

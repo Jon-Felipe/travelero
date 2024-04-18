@@ -46,7 +46,7 @@ function Register() {
       alert('Passwords do no match');
     } else {
       try {
-        await register({ firstName, lastName, email, password });
+        await register({ firstName, lastName, email, password }).unwrap();
         navigate('/');
       } catch (error) {
         console.log(error);

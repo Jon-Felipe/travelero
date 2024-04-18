@@ -6,6 +6,8 @@ export const store = configureStore({
   reducer: {
     [traveleroApi.reducerPath]: traveleroApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(traveleroApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRegisterMutation } from '../slices/apiSlice';
 
 // components
@@ -25,6 +25,8 @@ function Register() {
     confirmPassword: '',
   });
 
+  const navigate = useNavigate();
+
   const [register, { isLoading }] = useRegisterMutation();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -45,6 +47,7 @@ function Register() {
     } else {
       try {
         await register({ firstName, lastName, email, password });
+        navigate('/');
       } catch (error) {
         console.log(error);
       }

@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLoginMutation } from '../slices/apiSlice';
 
 // component
 import FormRow from '../components/FormRow';
@@ -18,12 +19,29 @@ function Login() {
     password: '',
   });
 
+  const navigate = useNavigate();
+
+  const [login, { isLoading }] = useLoginMutation();
+
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
     const value = e.target.value;
     setFormData((prevState) => {
       return { ...prevState, [name]: value };
     });
+  }
+
+  async function handleOnSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    const { email, password } = formData;
+
+    try {
+      await login({ email, password });
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -36,7 +54,7 @@ function Login() {
             Sign Up
           </Link>
         </p>
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <div className='mt-10'>
             <FormRow
               label='email address'
@@ -60,7 +78,7 @@ function Login() {
             type='submit'
             className='mt-8 w-full bg-blue-500 text-white font-bold py-2 rounded-md'
           >
-            Login
+            {isLoading ? 'Submitting...' : 'Login'}
           </button>
         </form>
       </div>

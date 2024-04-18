@@ -7,6 +7,11 @@ type RegisterArg = {
   password: string;
 };
 
+type loginArg = {
+  email: string;
+  password: string;
+};
+
 export const traveleroApi = createApi({
   reducerPath: 'traveleroApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api/v1' }),
@@ -18,7 +23,14 @@ export const traveleroApi = createApi({
         body: data,
       }),
     }),
+    login: builder.mutation<string, loginArg>({
+      query: (data) => ({
+        url: '/auth/login',
+        method: 'POST',
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation } = traveleroApi;
+export const { useRegisterMutation, useLoginMutation } = traveleroApi;

@@ -121,7 +121,7 @@ function Register() {
             className='mt-8 w-full bg-blue-500 text-white font-bold py-2 rounded-md'
             disabled={isLoading}
           >
-            Register
+            {isLoading ? 'Submitting...' : 'Register'}
           </button>
         </form>
       </div>

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import User from '../models/UserModel';
-import jwt from 'jsonwebtoken';
+import { createJWT } from '../utils/tokenUtils';
 
 // @desc    Register new user
 // @route   POST /api/v1/auth/register
@@ -23,13 +23,7 @@ async function loginUser(req: Request, res: Response) {
   const user = await User.findOne({ email });
 
   if (user && (await user.comparePasswords(password))) {
-    const token = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET as string,
-      {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-      }
-    );
+    const token = createJWT({ userId: user._id });
     res.status(200).json({ msg: 'user logged in', token });
   } else {
     res.status(401);

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import User from '../models/UserModel';
+import jwt from 'jsonwebtoken';
 
 // @desc    Register new user
 // @route   POST /api/v1/auth/register
@@ -19,10 +20,17 @@ async function registerUser(req: Request, res: Response) {
 // @access  Public
 async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
-
   const user = await User.findOne({ email });
+
   if (user && (await user.comparePasswords(password))) {
-    res.status(200).json({ msg: 'user logged in' });
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_SECRET as string,
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+      }
+    );
+    res.status(200).json({ msg: 'user logged in', token });
   } else {
     res.status(401);
     throw new Error('Invalid credentials');

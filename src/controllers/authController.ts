@@ -24,7 +24,13 @@ async function loginUser(req: Request, res: Response) {
 
   if (user && (await user.comparePasswords(password))) {
     const token = createJWT({ userId: user._id });
-    res.status(200).json({ msg: 'user logged in', token });
+    const oneDay = 1000 * 60 * 60 * 24;
+    res.cookie('token', token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + oneDay),
+      secure: process.env.NODE_ENV === 'production',
+    });
+    res.status(200).json({ msg: 'user logged in' });
   } else {
     res.status(401);
     throw new Error('Invalid credentials');

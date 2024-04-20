@@ -7,7 +7,7 @@ type RegisterArg = {
   password: string;
 };
 
-type loginArg = {
+type LoginArg = {
   email: string;
   password: string;
 };
@@ -23,7 +23,7 @@ export const traveleroApi = createApi({
         body: data,
       }),
     }),
-    login: builder.mutation<string, loginArg>({
+    login: builder.mutation<string, LoginArg>({
       query: (data) => ({
         url: '/auth/login',
         method: 'POST',

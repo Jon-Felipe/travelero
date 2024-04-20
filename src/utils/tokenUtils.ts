@@ -9,6 +9,6 @@ export function createJWT(payload: { userId: Types.ObjectId }) {
 }
 
 export function verifyJWT(token: string) {
-  const decoded = jwt.verify(token, process.env.JWT_TOKEN as string);
+  const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
   return decoded;
 }

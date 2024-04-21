@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../slices/apiSlice';
+import { useAppDispatch } from '../hooks/hooks';
 import { setUser } from '../slices/authSlice';
 
 // component
@@ -17,7 +17,7 @@ function Login() {
     password: '',
   });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();

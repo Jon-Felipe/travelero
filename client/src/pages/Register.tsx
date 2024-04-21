@@ -40,7 +40,7 @@ function Register() {
     } else {
       try {
         await register({ firstName, lastName, email, password }).unwrap();
-        navigate('/');
+        navigate('/login');
       } catch (error) {
         console.log(error);
       }

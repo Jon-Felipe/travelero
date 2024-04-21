@@ -1,3 +1,10 @@
+export type TopDestination = {
+  id: number;
+  image: string;
+  title: string;
+  toursTotal: number;
+};
+
 export type LoginFormData = {
   email: string;
   password: string;
@@ -36,4 +43,15 @@ export type User = {
     email: string;
     password: string;
   };
+};
+
+export type Tour = {
+  id: string;
+  title: string;
+  country: string;
+  countryCode: string;
+  rating: number;
+  reviews: number;
+  price: number;
+  duration: number;
 };

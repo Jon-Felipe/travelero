@@ -55,6 +55,7 @@ export const dummy_tours: Tour[] = [
   {
     id: '87aba4d1-090d-457d-98c0-1d6cb41b97ac',
     title: 'dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo',
+    image: './images/amsterdam.jpg',
     country: 'Indonesia',
     countryCode: 'ID',
     rating: 3.3,
@@ -66,6 +67,7 @@ export const dummy_tours: Tour[] = [
     id: '55751b3e-baef-4264-9c66-027457d7ddfe',
     title:
       'velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque',
+    image: './images/munich.jpg',
     country: 'Portugal',
     countryCode: 'PT',
     rating: 2.9,
@@ -76,6 +78,7 @@ export const dummy_tours: Tour[] = [
   {
     id: '05ab91d3-2e68-4423-812f-c3bb02ca7601',
     title: 'vehicula consequat morbi a ipsum integer',
+    image: './images/barcelona.jpg',
     country: 'Portugal',
     countryCode: 'PT',
     rating: 2.8,
@@ -86,6 +89,7 @@ export const dummy_tours: Tour[] = [
   {
     id: 'cb6d966c-4de9-4c91-a65c-70ba4d4c32cc',
     title: 'eu nibh quisque id justo sit amet sapien',
+    image: './images/madeira.jpg',
     country: 'China',
     countryCode: 'CN',
     rating: 3.1,
@@ -97,6 +101,7 @@ export const dummy_tours: Tour[] = [
     id: 'c01a87c5-18b5-4c08-ae91-b07a6e626550',
     title:
       'pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero',
+    image: './images/california.jpg',
     country: 'Brazil',
     countryCode: 'BR',
     rating: 2.0,
@@ -107,6 +112,7 @@ export const dummy_tours: Tour[] = [
   {
     id: '9f4712c5-0ec6-4ac6-9d5c-4c7c42613926',
     title: 'posuere metus vitae ipsum aliquam',
+    image: './images/london.jpg',
     country: 'Cameroon',
     countryCode: 'CM',
     rating: 1.0,

@@ -48,6 +48,7 @@ export type User = {
 export type Tour = {
   id: string;
   title: string;
+  image: string;
   country: string;
   countryCode: string;
   rating: number;

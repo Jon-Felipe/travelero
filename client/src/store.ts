@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { traveleroApi } from './slices/apiSlice';
+import authReducer from './slices/authSlice';
 
 export const store = configureStore({
   reducer: {
     [traveleroApi.reducerPath]: traveleroApi.reducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(traveleroApi.middleware),

@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../slices/apiSlice';
+import { setUser } from '../slices/authSlice';
 
 // component
 import FormRow from '../components/FormRow';
@@ -19,6 +21,7 @@ function Login() {
     password: '',
   });
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
@@ -37,7 +40,8 @@ function Login() {
     const { email, password } = formData;
 
     try {
-      await login({ email, password }).unwrap();
+      const data = await login({ email, password }).unwrap();
+      dispatch(setUser(data));
       navigate('/');
     } catch (error) {
       console.log(error);

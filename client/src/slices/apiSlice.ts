@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { AuthState } from './authSlice';
 
 type RegisterArg = {
   firstName: string;
@@ -23,7 +24,7 @@ export const traveleroApi = createApi({
         body: data,
       }),
     }),
-    login: builder.mutation<string, LoginArg>({
+    login: builder.mutation<AuthState, LoginArg>({
       query: (data) => ({
         url: '/auth/login',
         method: 'POST',

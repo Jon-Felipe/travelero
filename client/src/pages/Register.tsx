@@ -7,17 +7,10 @@ import FormRow from '../components/FormRow';
 
 // extras
 import registerImage from '../assets/registerImage.svg';
-
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+import { RegisterFormData } from '../utils/types';
 
 function Register() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<RegisterFormData>({
     firstName: '',
     lastName: '',
     email: '',

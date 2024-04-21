@@ -9,14 +9,10 @@ import FormRow from '../components/FormRow';
 
 // extras
 import loginImage from '../assets/loginImage.svg';
-
-type FormData = {
-  email: string;
-  password: string;
-};
+import { LoginFormData } from '../utils/types';
 
 function Login() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<LoginFormData>({
     email: '',
     password: '',
   });

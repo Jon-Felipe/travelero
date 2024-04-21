@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { BsGeoAlt } from 'react-icons/bs';
 
-type FormDataType = {
-  location: string;
-  date: string;
-  checkOut: string;
-};
+// extras
+import { HeroFormData } from '../utils/types';
 
 function Hero() {
-  const [formData, setFormData] = useState<FormDataType>({
+  const [formData, setFormData] = useState<HeroFormData>({
     location: '',
     date: '',
     checkOut: '',

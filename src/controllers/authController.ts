@@ -30,7 +30,7 @@ async function loginUser(req: Request, res: Response) {
       expires: new Date(Date.now() + oneDay),
       secure: process.env.NODE_ENV === 'production',
     });
-    res.status(200).json({ msg: 'user logged in' });
+    res.status(200).json({ user });
   } else {
     res.status(401);
     throw new Error('Invalid credentials');

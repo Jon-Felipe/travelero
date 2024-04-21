@@ -9,7 +9,6 @@ const app: Express = express();
 // routes
 import tourRouter from './routes/tourRouter';
 import authRouter from './routes/authRouter';
-import userRouter from './routes/userRouter';
 
 // middleware
 app.use(express.json());
@@ -21,7 +20,6 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/users', userRouter);
 
 const port = process.env.PORT || 5100;
 

@@ -11,6 +11,7 @@ import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import Register from './pages/Register.tsx';
 import Profile from './pages/Profile.tsx';
+import ProfileLayout from './pages/profile/ProfileLayout.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile />,
+        element: <ProfileLayout />,
+        children: [
+          {
+            path: 'personal-data',
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: '/login',

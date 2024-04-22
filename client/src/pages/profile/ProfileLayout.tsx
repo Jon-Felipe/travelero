@@ -27,7 +27,7 @@ function ProfileLayout({}: Props) {
           </div>
         </section>
         {/* profile pages */}
-        <section className='shadow rounded p-4'>
+        <section className='shadow rounded p-8'>
           <Outlet />
         </section>
       </div>

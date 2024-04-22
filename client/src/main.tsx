@@ -28,6 +28,7 @@ const router = createBrowserRouter([
         element: <ProfileLayout />,
         children: [
           {
+            index: true,
             path: 'personal-data',
             element: <Profile />,
           },

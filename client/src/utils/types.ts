@@ -5,6 +5,13 @@ export type TopDestination = {
   toursTotal: number;
 };
 
+export type ProfileLink = {
+  id: number;
+  text: string;
+  link: string;
+  icon: React.ReactNode;
+};
+
 export type LoginFormData = {
   email: string;
   password: string;

@@ -1,4 +1,6 @@
-import { TopDestination, Tour } from './types';
+import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
+
+import { ProfileLink, TopDestination, Tour } from './types';
 
 export const topDestinations: TopDestination[] = [
   {
@@ -48,6 +50,33 @@ export const topDestinations: TopDestination[] = [
     image: './images/london.jpg',
     title: 'Lodon',
     toursTotal: 83,
+  },
+];
+
+export const profileLinks: ProfileLink[] = [
+  {
+    id: 1,
+    text: 'Personal data',
+    link: '',
+    icon: <BsPerson className='w-6 h-6' />,
+  },
+  {
+    id: 2,
+    text: 'Favourites',
+    link: 'favourites',
+    icon: <BsHeart className='w-6 h-6' />,
+  },
+  {
+    id: 3,
+    text: 'My Tours',
+    link: 'my-tours',
+    icon: <BsBoxSeam className='w-6 h-6' />,
+  },
+  {
+    id: 4,
+    text: 'Change password',
+    link: 'change-password',
+    icon: <BsLock className='w-6 h-6' />,
   },
 ];
 

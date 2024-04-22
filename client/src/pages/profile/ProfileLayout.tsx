@@ -1,32 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
-import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
-const profileLinks = [
-  {
-    id: 1,
-    text: 'Personal data',
-    link: '',
-    icon: <BsPerson className='w-6 h-6' />,
-  },
-  {
-    id: 2,
-    text: 'Favourites',
-    link: 'favourites',
-    icon: <BsHeart className='w-6 h-6' />,
-  },
-  {
-    id: 3,
-    text: 'My Tours',
-    link: 'my-tours',
-    icon: <BsBoxSeam className='w-6 h-6' />,
-  },
-  {
-    id: 4,
-    text: 'Change password',
-    link: 'change-password',
-    icon: <BsLock className='w-6 h-6' />,
-  },
-];
+// extras
+import { profileLinks } from '../../utils/constants';
 
 type Props = {};
 

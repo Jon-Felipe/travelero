@@ -36,7 +36,9 @@ function Navbar() {
       <div className='hidden md:flex md:items-center md:gap-6'>
         {user.firstName ? (
           <div className='border rounded-full shadow p-3'>
-            <BsPerson className='w-5 h-5' />
+            <Link to='/profile'>
+              <BsPerson className='w-5 h-5' />
+            </Link>
           </div>
         ) : (
           <div>

@@ -4,9 +4,9 @@ import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 const profileLinks = [
   {
     id: 1,
-    text: 'My Tours',
-    link: 'my-tours',
-    icon: <BsBoxSeam className='w-6 h-6' />,
+    text: 'Personal data',
+    link: '',
+    icon: <BsPerson className='w-6 h-6' />,
   },
   {
     id: 2,
@@ -16,9 +16,9 @@ const profileLinks = [
   },
   {
     id: 3,
-    text: 'Personal data',
-    link: 'personal-data',
-    icon: <BsPerson className='w-6 h-6' />,
+    text: 'My Tours',
+    link: 'my-tours',
+    icon: <BsBoxSeam className='w-6 h-6' />,
   },
   {
     id: 4,

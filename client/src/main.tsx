@@ -10,8 +10,11 @@ import { Provider } from 'react-redux';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import Register from './pages/Register.tsx';
-import Profile from './pages/Profile.tsx';
 import ProfileLayout from './pages/profile/ProfileLayout.tsx';
+import PersonalData from './pages/profile/PersonalData.tsx';
+import MyTours from './pages/profile/MyTours.tsx';
+import Favourites from './pages/profile/Favourites.tsx';
+import ChangePassword from './pages/profile/ChangePassword.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +32,20 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            path: 'personal-data',
-            element: <Profile />,
+            path: '/profile',
+            element: <PersonalData />,
+          },
+          {
+            path: 'my-tours',
+            element: <MyTours />,
+          },
+          {
+            path: 'favourites',
+            element: <Favourites />,
+          },
+          {
+            path: 'change-password',
+            element: <ChangePassword />,
           },
         ],
       },

@@ -1,3 +1,4 @@
+import { JwtPayload } from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 // user model
@@ -45,4 +46,9 @@ export interface UpdateUserRequestBody {
   country: string;
   city: string;
   postalCode: string;
+}
+
+// auth middleware
+export interface IJwtPayload extends JwtPayload {
+  userId: string;
 }

@@ -1,8 +1,24 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-// extra
-import { IUser, IUserMethods, UserModel } from '../utils/types';
+interface IUser {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  address: string;
+  country: string;
+  city: string;
+  postalCode: string;
+  email: string;
+  password: string;
+}
+
+interface IUserMethods {
+  comparePasswords(password: string): Promise<boolean>;
+}
+
+type UserModel = mongoose.Model<IUser, {}, IUserMethods>;
 
 const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
   {

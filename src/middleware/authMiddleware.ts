@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
+import { JwtPayload } from 'jsonwebtoken';
 
 // extras
 import { verifyJWT } from '../utils/tokenUtils';
-import { IJwtPayload } from '../utils/types';
 
 declare module 'express-serve-static-core' {
   interface Request {
@@ -10,6 +10,10 @@ declare module 'express-serve-static-core' {
       userId: string;
     };
   }
+}
+
+interface IJwtPayload extends JwtPayload {
+  userId: string;
 }
 
 export function authenticateUser(

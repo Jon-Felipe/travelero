@@ -1,8 +1,18 @@
 import { Request, Response } from 'express';
 import User from '../models/UserModel';
 
-// extras
-import { UpdateUserRequestBody } from '../utils/types';
+interface UpdateUserRequestBody {
+  firstName: string;
+  lastName: string;
+  email?: string;
+  password?: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  address: string;
+  country: string;
+  city: string;
+  postalCode: string;
+}
 
 // @desc    Update User
 // @route   PATCH /api/v1/users/update-user

@@ -2,8 +2,12 @@ import { Request, Response } from 'express';
 import User from '../models/UserModel';
 import { createJWT } from '../utils/tokenUtils';
 
-// extras
-import { LoginRequestBody, RegisterRequestBody } from '../utils/types';
+interface RegisterRequestBody {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
 
 // @desc    Register new user
 // @route   POST /api/v1/auth/register
@@ -18,6 +22,11 @@ async function registerUser(req: Request, res: Response) {
   }
   await User.create({ firstName, lastName, email, password });
   res.status(200).json({ msg: 'user created' });
+}
+
+interface LoginRequestBody {
+  email: string;
+  password: string;
 }
 
 // @desc    Login user

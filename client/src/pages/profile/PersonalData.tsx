@@ -1,9 +1,46 @@
+import { useState } from 'react';
+
 // components
 import FormRow from '../../components/FormRow';
+
+// extras
+import { useAppSelector } from '../../hooks/hooks';
+
+type UserInfo = {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  address: string;
+  country: string;
+  city: string;
+  postalCode: string;
+};
 
 type Props = {};
 
 function PersonalData({}: Props) {
+  const { user } = useAppSelector((store) => store.auth);
+
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    firstName: user.firstName || '',
+    lastName: user.lastName || '',
+    dateOfBirth: '',
+    phoneNumber: '',
+    address: '',
+    country: '',
+    city: '',
+    postalCode: '',
+  });
+
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUserInfo((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
   return (
     <div>
       <h4 className='text-xl font-medium mb-4'>Update profile information</h4>
@@ -14,9 +51,9 @@ function PersonalData({}: Props) {
               label='First Name'
               type='text'
               name='firstName'
-              value=''
+              value={userInfo.firstName}
               placeholder='John'
-              onChange={() => console.log('firstName')}
+              onChange={handleOnChange}
             />
           </div>
           <div className='w-full mt-4 md:mt-0'>
@@ -24,9 +61,9 @@ function PersonalData({}: Props) {
               label='Last Name'
               type='text'
               name='lastName'
-              value=''
+              value={userInfo.lastName}
               placeholder='Doe'
-              onChange={() => console.log('lastName')}
+              onChange={handleOnChange}
             />
           </div>
         </div>
@@ -35,9 +72,9 @@ function PersonalData({}: Props) {
             <FormRow
               label='Date of birth'
               type='date'
-              name='dob'
-              value=''
-              onChange={() => console.log('dob')}
+              name='dateOfBirth'
+              value={userInfo.dateOfBirth}
+              onChange={handleOnChange}
             />
           </div>
           <div className='w-full mt-4 md:mt-0'>
@@ -45,9 +82,9 @@ function PersonalData({}: Props) {
               label='Phone number'
               type='text'
               name='phoneNumber'
-              value=''
+              value={userInfo.phoneNumber}
               placeholder='+12 345 6789'
-              onChange={() => console.log('phoneNumber')}
+              onChange={handleOnChange}
             />
           </div>
         </div>
@@ -55,9 +92,9 @@ function PersonalData({}: Props) {
           <FormRow
             type='text'
             name='address'
-            value=''
+            value={userInfo.address}
             placeholder='123 example street'
-            onChange={() => console.log('address')}
+            onChange={handleOnChange}
           />
         </div>
         <div className='block md:flex md:items-center md:gap-x-4 mt-4'>
@@ -65,18 +102,18 @@ function PersonalData({}: Props) {
             <FormRow
               type='text'
               name='country'
-              value=''
+              value={userInfo.country}
               placeholder='Portugal'
-              onChange={() => console.log('country')}
+              onChange={handleOnChange}
             />
           </div>
           <div className='w-full mt-4 md:mt-0'>
             <FormRow
               type='text'
               name='city'
-              value=''
+              value={userInfo.city}
               placeholder='Porto'
-              onChange={() => console.log('city')}
+              onChange={handleOnChange}
             />
           </div>
           <div className='w-full mt-4 md:mt-0'>
@@ -84,9 +121,9 @@ function PersonalData({}: Props) {
               type='text'
               label='Postal Code'
               name='postalCode'
-              value=''
+              value={userInfo.postalCode}
               placeholder='1234'
-              onChange={() => console.log('postalCode')}
+              onChange={handleOnChange}
             />
           </div>
         </div>

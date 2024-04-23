@@ -1,19 +1,13 @@
-import { Request, RequestHandler, Response } from 'express';
+import { Request, Response } from 'express';
 import User from '../models/UserModel';
 
 // extras
 import { UpdateUserRequestBody } from '../utils/types';
 
-interface IAuthUserRequest extends Request {
-  user?: {
-    userId: string;
-  };
-}
-
 // @desc    Update User
 // @route   PATCH /api/v1/users/update-user
 // @access  Private
-async function updateUser(req: IAuthUserRequest, res: Response) {
+async function updateUser(req: Request, res: Response) {
   const newUser = <UpdateUserRequestBody>{ ...req.body };
   delete newUser.email;
   delete newUser.password;

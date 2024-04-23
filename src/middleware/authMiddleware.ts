@@ -6,14 +6,16 @@ interface IJwtPayload extends JwtPayload {
   userId: string;
 }
 
-interface IAuthUserRequest extends Request {
-  user?: {
-    userId: string;
-  };
+declare module 'express-serve-static-core' {
+  interface Request {
+    user: {
+      userId: string;
+    };
+  }
 }
 
 export async function authenticateUser(
-  req: IAuthUserRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) {

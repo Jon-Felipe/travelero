@@ -12,7 +12,7 @@ declare module 'express-serve-static-core' {
   }
 }
 
-export async function authenticateUser(
+export function authenticateUser(
   req: Request,
   res: Response,
   next: NextFunction

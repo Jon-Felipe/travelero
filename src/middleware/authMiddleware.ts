@@ -3,21 +3,14 @@ import { JwtPayload } from 'jsonwebtoken';
 
 // extras
 import { verifyJWT } from '../utils/tokenUtils';
-
-declare module 'express-serve-static-core' {
-  interface Request {
-    user: {
-      userId: string;
-    };
-  }
-}
+import { RequestCustom } from '../utils/types';
 
 interface IJwtPayload extends JwtPayload {
   userId: string;
 }
 
 export function authenticateUser(
-  req: Request,
+  req: RequestCustom,
   res: Response,
   next: NextFunction
 ) {

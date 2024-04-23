@@ -1,5 +1,8 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+
+// extras
 import User from '../models/UserModel';
+import { RequestCustom } from '../utils/types';
 
 interface UpdateUserRequestBody {
   firstName: string;
@@ -17,7 +20,7 @@ interface UpdateUserRequestBody {
 // @desc    Update User
 // @route   PATCH /api/v1/users/update-user
 // @access  Private
-async function updateUser(req: Request, res: Response) {
+async function updateUser(req: RequestCustom, res: Response) {
   const newUser = <UpdateUserRequestBody>{ ...req.body };
   delete newUser.email;
   delete newUser.password;

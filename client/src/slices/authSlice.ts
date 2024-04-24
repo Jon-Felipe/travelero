@@ -8,6 +8,12 @@ const initialState: User = {
     lastName: '',
     email: '',
     password: '',
+    address: '',
+    city: '',
+    country: '',
+    dateOfBirth: '',
+    phoneNumber: '',
+    postalCode: '',
   },
 };
 

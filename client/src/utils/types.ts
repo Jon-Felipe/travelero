@@ -49,7 +49,24 @@ export type User = {
     lastName: string;
     email: string;
     password: string;
+    dateOfBirth: string;
+    phoneNumber: string;
+    address: string;
+    country: string;
+    city: string;
+    postalCode: string;
   };
+};
+
+export type UserInfo = {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  address: string;
+  country: string;
+  city: string;
+  postalCode: string;
 };
 
 export type Tour = {

@@ -5,17 +5,7 @@ import FormRow from '../../components/FormRow';
 
 // extras
 import { useAppSelector } from '../../hooks/hooks';
-
-type UserInfo = {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  phoneNumber: string;
-  address: string;
-  country: string;
-  city: string;
-  postalCode: string;
-};
+import { UserInfo } from '../../utils/types';
 
 type Props = {};
 
@@ -25,12 +15,12 @@ function PersonalData({}: Props) {
   const [userInfo, setUserInfo] = useState<UserInfo>({
     firstName: user.firstName || '',
     lastName: user.lastName || '',
-    dateOfBirth: '',
-    phoneNumber: '',
-    address: '',
-    country: '',
-    city: '',
-    postalCode: '',
+    dateOfBirth: user.dateOfBirth || '',
+    phoneNumber: user.phoneNumber || '',
+    address: user.address || '',
+    country: user.country || '',
+    city: user.city || '',
+    postalCode: user.postalCode || '',
   });
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {

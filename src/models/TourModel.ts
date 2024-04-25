@@ -20,8 +20,8 @@ const tourSchema = new mongoose.Schema<ITour>(
     countryISO: { type: String, required: true },
     countryCode: { type: String, required: true },
     city: { type: String, required: true },
-    rating: { type: Number, default: 0 },
-    price: { type: Number, required: true },
+    rating: { type: Number, min: 0, max: 5, default: 0 },
+    price: { type: Number, min: 0, default: 0 },
     duration: { type: String, required: true },
   },
   { timestamps: true }

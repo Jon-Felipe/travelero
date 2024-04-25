@@ -1,16 +1,16 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.send('get all tour listings');
-});
+import {
+  getAllTours,
+  getSingleTour,
+  createTour,
+} from '../controllers/tourController';
 
-router.get('/:id', (req: Request, res: Response) => {
-  res.send('get tour by id');
-});
+router.get('/', getAllTours);
 
-router.post('/', (req: Request, res: Response) => {
-  res.send('create tour');
-});
+router.get('/:id', getSingleTour);
+
+router.post('/', createTour);
 
 export default router;

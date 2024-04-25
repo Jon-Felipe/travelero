@@ -13,15 +13,20 @@ async function getAllTours(req: Request, res: Response) {
 // @desc    Get single tour
 // @route   GET /api/v1/tours/:id
 // @access  Public
-async function getSingleTour(req: Request, res: Response) {
-  res.send('get single tour');
+async function getSingleTour(req: Request<{ id: string }>, res: Response) {
+  const tour = await Tour.findById(req.params.id);
+  if (!tour) {
+    throw new Error('Tour not found');
+  } else {
+    res.status(200).json({ tour });
+  }
 }
 
 // @desc    Create tour
 // @route   POST /api/v1/tours
 // @access  Private
 async function createTour(
-  req: Request<ParamsDictionary, {}, ITour>,
+  req: Request<ParamsDictionary, unknown, ITour>,
   res: Response
 ) {
   const newTour = req.body;

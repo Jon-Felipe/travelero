@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
+import Tour from '../models/TourModel';
 
 // @desc    Get all tours
 // @route   GET /api/v1/tours
 // @access  Public
 async function getAllTours(req: Request, res: Response) {
-  res.send('get all tour listings');
+  const tours = await Tour.find({});
+  res.status(200).json({ tours });
 }
 
 // @desc    Get single tour

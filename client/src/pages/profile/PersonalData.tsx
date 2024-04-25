@@ -16,14 +16,14 @@ function PersonalData() {
   const [updateUser, { isLoading }] = useUpdateProfileMutation();
 
   const [userInfo, setUserInfo] = useState<Omit<User, 'email' | 'password'>>({
-    firstName: user.firstName || '',
-    lastName: user.lastName || '',
-    dateOfBirth: user.dateOfBirth || '',
-    phoneNumber: user.phoneNumber || '',
-    address: user.address || '',
-    country: user.country || '',
-    city: user.city || '',
-    postalCode: user.postalCode || '',
+    firstName: user?.firstName || '',
+    lastName: user?.lastName || '',
+    dateOfBirth: user?.dateOfBirth || '',
+    phoneNumber: user?.phoneNumber || '',
+    address: user?.address || '',
+    country: user?.country || '',
+    city: user?.city || '',
+    postalCode: user?.postalCode || '',
   });
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -45,7 +45,7 @@ export type User = {
 };
 
 export type AuthSliceState = {
-  user: User;
+  user: User | null;
 };
 
 export type UserPayload = {

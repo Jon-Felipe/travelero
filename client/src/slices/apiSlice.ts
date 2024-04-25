@@ -19,6 +19,12 @@ export const traveleroApi = createApi({
         body: data,
       }),
     }),
+    logoutUser: builder.mutation<string, void>({
+      query: () => ({
+        url: '/auth/logout',
+        method: 'POST',
+      }),
+    }),
     updateProfile: builder.mutation<UserPayload, Partial<User>>({
       query: (data) => ({
         url: '/users/update-user',
@@ -32,5 +38,6 @@ export const traveleroApi = createApi({
 export const {
   useRegisterMutation,
   useLoginMutation,
+  useLogoutUserMutation,
   useUpdateProfileMutation,
 } = traveleroApi;

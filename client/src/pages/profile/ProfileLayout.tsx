@@ -1,11 +1,28 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { BsArrowBarRight } from 'react-icons/bs';
+import { useAppDispatch } from '../../hooks/hooks';
 
 // extras
 import { profileLinks } from '../../utils/constants';
+import { useLogoutUserMutation } from '../../slices/apiSlice';
+import { clearUser } from '../../slices/authSlice';
 
 type Props = {};
 
 function ProfileLayout({}: Props) {
+  const [logout] = useLogoutUserMutation();
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  async function handleOnLogout() {
+    try {
+      await logout();
+      dispatch(clearUser());
+      navigate('/login');
+    } catch (error) {}
+  }
+
   return (
     <div className='p-8 max-w-screen-xl mx-auto'>
       <h2 className='text-3xl font-bold'>My account</h2>
@@ -24,6 +41,16 @@ function ProfileLayout({}: Props) {
                 </Link>
               );
             })}
+            <button
+              type='button'
+              onClick={handleOnLogout}
+              className='flex items-center gap-x-4 px-4 py-6 text-sm font-medium w-full'
+            >
+              <span>
+                <BsArrowBarRight className='w-6 h-6' />
+              </span>
+              Logout
+            </button>
           </div>
         </section>
         {/* profile pages */}

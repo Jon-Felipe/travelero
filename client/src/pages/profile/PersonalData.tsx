@@ -1,14 +1,19 @@
 import { useState } from 'react';
+import { useUpdateProfileMutation } from '../../slices/apiSlice';
+import { setUser } from '../../slices/authSlice';
 
 // components
 import FormRow from '../../components/FormRow';
 
 // extras
-import { useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { User } from '../../utils/types';
 
 function PersonalData() {
+  const dispatch = useAppDispatch();
   const { user } = useAppSelector((store) => store.auth);
+
+  const [updateUser, { isLoading }] = useUpdateProfileMutation();
 
   const [userInfo, setUserInfo] = useState<Omit<User, 'email' | 'password'>>({
     firstName: user.firstName || '',
@@ -29,10 +34,21 @@ function PersonalData() {
     });
   }
 
+  async function handleOnSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    try {
+      const { user } = await updateUser(userInfo).unwrap();
+      dispatch(setUser({ user }));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <h4 className='text-xl font-medium mb-4'>Update profile information</h4>
-      <form>
+      <form onSubmit={handleOnSubmit}>
         <div className='block md:flex md:items-center md:gap-x-4'>
           <div className='w-full'>
             <FormRow
@@ -119,8 +135,9 @@ function PersonalData() {
           <button
             type='submit'
             className='w-full md:w-auto bg-blue-500 text-white font-medium px-4 py-3 rounded-2xl mt-4'
+            disabled={isLoading}
           >
-            Update profile
+            {isLoading ? 'Submitting...' : 'Update profile'}
           </button>
         </div>
       </form>

@@ -19,7 +19,18 @@ export const traveleroApi = createApi({
         body: data,
       }),
     }),
+    updateProfile: builder.mutation<UserPayload, Partial<User>>({
+      query: (data) => ({
+        url: '/users/update-user',
+        method: 'PATCH',
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = traveleroApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useUpdateProfileMutation,
+} = traveleroApi;

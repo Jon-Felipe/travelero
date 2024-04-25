@@ -52,10 +52,14 @@ async function loginUser(req: Request, res: Response) {
 }
 
 // @desc    Logout user
-// @route   GET /api/v1/auth/logout
-// @access  Public
+// @route   POST /api/v1/auth/logout
+// @access  Private
 async function logoutUser(req: Request, res: Response) {
-  res.send('logout user');
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(200).json({ msg: 'user logged out' });
 }
 
 export { registerUser, loginUser, logoutUser };

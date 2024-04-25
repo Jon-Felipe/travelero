@@ -26,7 +26,7 @@ async function getSingleTour(req: Request<{ id: string }>, res: Response) {
 // @route   POST /api/v1/tours
 // @access  Private
 async function createTour(
-  req: Request<ParamsDictionary, unknown, ITour>,
+  req: Request<ParamsDictionary, any, ITour>,
   res: Response
 ) {
   const newTour = req.body;

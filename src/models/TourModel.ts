@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
 
-interface ITour {
+export interface ITour {
   title: string;
   image: string;
   country: string;
   countryISO: string;
-  countryCode: string;
   city: string;
-  rating: number;
-  price: number;
+  rating: number | undefined;
+  price: number | undefined;
   duration: string;
 }
 
@@ -18,7 +17,6 @@ const tourSchema = new mongoose.Schema<ITour>(
     image: { type: String, required: true },
     country: { type: String, required: true },
     countryISO: { type: String, required: true },
-    countryCode: { type: String, required: true },
     city: { type: String, required: true },
     rating: { type: Number, min: 0, max: 5, default: 0 },
     price: { type: Number, min: 0, default: 0 },

@@ -36,8 +36,8 @@ function Login() {
     const { email, password } = formData;
 
     try {
-      const data = await login({ email, password }).unwrap();
-      dispatch(setUser(data));
+      const { user } = await login({ email, password }).unwrap();
+      dispatch(setUser({ user }));
       navigate('/');
     } catch (error) {
       console.log(error);

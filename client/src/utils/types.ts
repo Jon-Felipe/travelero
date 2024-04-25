@@ -31,42 +31,25 @@ export type HeroFormData = {
   checkOut: string;
 };
 
-export type RegisterArg = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-};
-
-export type LoginArg = {
-  email: string;
-  password: string;
-};
-
 export type User = {
-  user: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    dateOfBirth: string;
-    phoneNumber: string;
-    address: string;
-    country: string;
-    city: string;
-    postalCode: string;
-  };
-};
-
-export type UserInfo = {
   firstName: string;
   lastName: string;
+  email: string;
+  password: string;
   dateOfBirth: string;
   phoneNumber: string;
   address: string;
   country: string;
   city: string;
   postalCode: string;
+};
+
+export type AuthSliceState = {
+  user: User;
+};
+
+export type UserPayload = {
+  user: User;
 };
 
 export type Tour = {

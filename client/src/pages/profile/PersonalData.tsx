@@ -5,14 +5,12 @@ import FormRow from '../../components/FormRow';
 
 // extras
 import { useAppSelector } from '../../hooks/hooks';
-import { UserInfo } from '../../utils/types';
+import { User } from '../../utils/types';
 
-type Props = {};
-
-function PersonalData({}: Props) {
+function PersonalData() {
   const { user } = useAppSelector((store) => store.auth);
 
-  const [userInfo, setUserInfo] = useState<UserInfo>({
+  const [userInfo, setUserInfo] = useState<Omit<User, 'email' | 'password'>>({
     firstName: user.firstName || '',
     lastName: user.lastName || '',
     dateOfBirth: user.dateOfBirth || '',

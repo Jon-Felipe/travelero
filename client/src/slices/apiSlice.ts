@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { User, LoginArg, RegisterArg } from '../utils/types';
+import { User, UserPayload } from '../utils/types';
 
 export const traveleroApi = createApi({
   reducerPath: 'traveleroApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api/v1' }),
   endpoints: (builder) => ({
-    register: builder.mutation<string, RegisterArg>({
+    register: builder.mutation<string, Partial<User>>({
       query: (data) => ({
         url: '/auth/register',
         method: 'POST',
         body: data,
       }),
     }),
-    login: builder.mutation<User, LoginArg>({
+    login: builder.mutation<UserPayload, Partial<User>>({
       query: (data) => ({
         url: '/auth/login',
         method: 'POST',

@@ -23,15 +23,15 @@ function Navbar() {
         </button>
       </div>
       <nav className='hidden md:flex md:gap-x-10'>
-        <a href='#' className='font-medium text-xl'>
+        <Link to='/' className='font-medium text-xl'>
           Home
-        </a>
-        <a href='#' className='font-medium text-xl'>
+        </Link>
+        <Link to='/' className='font-medium text-xl'>
           About
-        </a>
-        <a href='#' className='font-medium text-xl'>
+        </Link>
+        <Link to='/' className='font-medium text-xl'>
           Contact
-        </a>
+        </Link>
       </nav>
       <div className='hidden md:flex md:items-center md:gap-6'>
         {user ? (

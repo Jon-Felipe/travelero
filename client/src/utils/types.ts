@@ -53,7 +53,7 @@ export type UserPayload = {
 };
 
 export type Tour = {
-  id: string;
+  _id: string;
   title: string;
   image: string;
   country: string;

@@ -8,13 +8,14 @@ import { Provider } from 'react-redux';
 
 // pages
 import Home from './pages/Home.tsx';
-import Login from './pages/Login.tsx';
-import Register from './pages/Register.tsx';
+import Tours from './pages/Tours.tsx';
 import ProfileLayout from './pages/profile/ProfileLayout.tsx';
 import PersonalData from './pages/profile/PersonalData.tsx';
 import MyTours from './pages/profile/MyTours.tsx';
 import Favourites from './pages/profile/Favourites.tsx';
 import ChangePassword from './pages/profile/ChangePassword.tsx';
+import Login from './pages/Login.tsx';
+import Register from './pages/Register.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         index: true,
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/tours',
+        element: <Tours />,
       },
       {
         path: '/profile',

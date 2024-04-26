@@ -26,7 +26,7 @@ function Navbar() {
         <Link to='/' className='font-medium text-xl'>
           Home
         </Link>
-        <Link to='/' className='font-medium text-xl'>
+        <Link to='/tours' className='font-medium text-xl'>
           Tours
         </Link>
         <Link to='/' className='font-medium text-xl'>

@@ -26,16 +26,14 @@ async function registerUser(
   res.status(200).json({ msg: 'user created' });
 }
 
-interface LoginRequestBody {
-  email: string;
-  password: string;
-}
-
 // @desc    Login user
 // @route   POST /api/v1/auth/login
 // @access  Public
-async function loginUser(req: Request, res: Response) {
-  const { email, password } = <LoginRequestBody>req.body;
+async function loginUser(
+  req: Request<ParamsDictionary, any, Pick<IUser, 'email' | 'password'>>,
+  res: Response
+) {
+  const { email, password } = req.body;
   const user = await User.findOne({ email });
 
   if (user && (await user.comparePasswords(password))) {

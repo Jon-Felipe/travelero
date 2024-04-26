@@ -1,21 +1,23 @@
 import { Request, Response } from 'express';
+import { ParamsDictionary } from 'express-serve-static-core';
+
 import User from '../models/UserModel';
 import { createJWT } from '../utils/tokenUtils';
-
-interface RegisterRequestBody {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-}
+import { IUser } from '../utils/types';
 
 // @desc    Register new user
 // @route   POST /api/v1/auth/register
 // @access  Public
-async function registerUser(req: Request, res: Response) {
-  const { firstName, lastName, email, password } = <RegisterRequestBody>(
-    req.body
-  );
+async function registerUser(
+  req: Request<
+    ParamsDictionary,
+    any,
+    Pick<IUser, 'firstName' | 'lastName' | 'email' | 'password'>
+  >,
+  res: Response
+) {
+  const { email, firstName, lastName, password } = req.body;
+
   const userExists = await User.findOne({ email });
   if (userExists) {
     throw new Error('email already exists');

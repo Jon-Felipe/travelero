@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useLoginMutation } from '../slices/apiSlice';
+import { useLoginMutation } from '../slices/authSlice';
 import { useAppDispatch } from '../hooks/hooks';
 import { setUser } from '../slices/userSlice';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useUpdateProfileMutation } from '../../slices/apiSlice';
+import { useUpdateProfileMutation } from '../../slices/userSlice';
 import { setUser } from '../../slices/userSlice';
 
 // components

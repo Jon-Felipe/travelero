@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRegisterMutation } from '../slices/apiSlice';
+import { useRegisterMutation } from '../slices/authSlice';
 
 // components
 import FormRow from '../components/FormRow';

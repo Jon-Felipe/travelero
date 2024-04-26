@@ -27,6 +27,9 @@ function Navbar() {
           Home
         </Link>
         <Link to='/' className='font-medium text-xl'>
+          Tours
+        </Link>
+        <Link to='/' className='font-medium text-xl'>
           About
         </Link>
         <Link to='/' className='font-medium text-xl'>

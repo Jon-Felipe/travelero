@@ -6,7 +6,7 @@ import { useAppSelector } from '../hooks/hooks';
 function Navbar() {
   const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
-  const { user } = useAppSelector((store) => store.auth);
+  const { user } = useAppSelector((store) => store.user);
 
   return (
     <header className='h-20 flex items-center justify-between px-8 border-b border-b-slate-300'>

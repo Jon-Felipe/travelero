@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useUpdateProfileMutation } from '../../slices/apiSlice';
-import { setUser } from '../../slices/authSlice';
+import { setUser } from '../../slices/userSlice';
 
 // components
 import FormRow from '../../components/FormRow';
@@ -11,7 +11,7 @@ import { User } from '../../utils/types';
 
 function PersonalData() {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((store) => store.auth);
+  const { user } = useAppSelector((store) => store.user);
 
   const [updateUser, { isLoading }] = useUpdateProfileMutation();
 

@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../hooks/hooks';
 // extras
 import { profileLinks } from '../../utils/constants';
 import { useLogoutUserMutation } from '../../slices/apiSlice';
-import { clearUser } from '../../slices/authSlice';
+import { clearUser } from '../../slices/userSlice';
 
 type Props = {};
 

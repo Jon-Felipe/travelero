@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from '../slices/apiSlice';
 import { useAppDispatch } from '../hooks/hooks';
-import { setUser } from '../slices/authSlice';
+import { setUser } from '../slices/userSlice';
 
 // component
 import FormRow from '../components/FormRow';

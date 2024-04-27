@@ -1,5 +1,8 @@
-import TourCard from '../components/TourCard';
 import { useGetToursQuery } from '../slices/tourSlice';
+
+// components
+import Spinner from '../components/Spinner';
+import TourCard from '../components/TourCard';
 
 type Props = {};
 
@@ -7,7 +10,11 @@ function Tours({}: Props) {
   const { data, isLoading } = useGetToursQuery();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className='mt-20'>
+        <Spinner />;
+      </div>
+    );
   }
 
   return (

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AuthSliceState, User, UserPayload } from '../utils/types';
+import { AuthSliceState, User } from '../utils/types';
 
 import { traveleroApi } from './apiSlice';
 
@@ -11,7 +11,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<UserPayload>) => {
+    setUser: (state, action: PayloadAction<{ user: User }>) => {
       state.user = action.payload.user;
     },
     clearUser: (state) => {
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
 
 const userApi = traveleroApi.injectEndpoints({
   endpoints: (build) => ({
-    updateProfile: build.mutation<UserPayload, Partial<User>>({
+    updateProfile: build.mutation<{ user: User }, Partial<User>>({
       query: (data) => ({
         url: '/users/update-user',
         method: 'PATCH',

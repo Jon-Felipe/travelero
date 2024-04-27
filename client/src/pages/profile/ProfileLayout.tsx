@@ -4,13 +4,13 @@ import { useAppDispatch } from '../../hooks/hooks';
 
 // extras
 import { profileLinks } from '../../utils/constants';
-import { useLogoutUserMutation } from '../../slices/authSlice';
+import { useLogoutMutation } from '../../slices/authSlice';
 import { clearUser } from '../../slices/userSlice';
 
 type Props = {};
 
 function ProfileLayout({}: Props) {
-  const [logout] = useLogoutUserMutation();
+  const [logout] = useLogoutMutation();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { User, UserPayload } from '../utils/types';
+import { User } from '../utils/types';
 import { traveleroApi } from './apiSlice';
 
 const authApi = traveleroApi.injectEndpoints({
@@ -10,14 +10,14 @@ const authApi = traveleroApi.injectEndpoints({
         body: data,
       }),
     }),
-    login: build.mutation<UserPayload, Partial<User>>({
+    login: build.mutation<{ user: User }, Partial<User>>({
       query: (data) => ({
         url: '/auth/login',
         method: 'POST',
         body: data,
       }),
     }),
-    logoutUser: build.mutation<string, void>({
+    logout: build.mutation<string, void>({
       query: () => ({
         url: '/auth/logout',
         method: 'POST',
@@ -26,5 +26,5 @@ const authApi = traveleroApi.injectEndpoints({
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useLogoutUserMutation } =
+export const { useRegisterMutation, useLoginMutation, useLogoutMutation } =
   authApi;

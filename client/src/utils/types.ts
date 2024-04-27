@@ -48,10 +48,6 @@ export type AuthSliceState = {
   user: User | null;
 };
 
-export type UserPayload = {
-  user: User;
-};
-
 export type Tour = {
   _id: string;
   title: string;

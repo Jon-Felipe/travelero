@@ -16,6 +16,7 @@ import Favourites from './pages/profile/Favourites.tsx';
 import ChangePassword from './pages/profile/ChangePassword.tsx';
 import Login from './pages/Login.tsx';
 import Register from './pages/Register.tsx';
+import SingleTour from './pages/SingleTour.tsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/tours',
         element: <Tours />,
+      },
+      {
+        path: '/tours/:id',
+        element: <SingleTour />,
       },
       {
         path: '/profile',

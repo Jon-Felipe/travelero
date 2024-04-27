@@ -3,14 +3,21 @@ import { JwtPayload } from 'jsonwebtoken';
 
 // extras
 import { verifyJWT } from '../utils/tokenUtils';
-import { RequestCustom } from '../utils/types';
+
+declare module 'express-serve-static-core' {
+  interface Request {
+    user: {
+      userId: string;
+    };
+  }
+}
 
 interface IJwtPayload extends JwtPayload {
   userId: string;
 }
 
 export function authenticateUser(
-  req: RequestCustom,
+  req: Request,
   res: Response,
   next: NextFunction
 ) {
@@ -18,7 +25,6 @@ export function authenticateUser(
   if (!token) {
     throw new Error('authentication invalid');
   }
-
   try {
     const { userId } = verifyJWT(token) as IJwtPayload;
     req.user = { userId };

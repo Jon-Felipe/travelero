@@ -1,6 +1,6 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate, Navigate } from 'react-router-dom';
 import { BsArrowBarRight } from 'react-icons/bs';
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 
 // extras
 import { profileLinks } from '../../utils/constants';
@@ -14,6 +14,11 @@ function ProfileLayout({}: Props) {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { user } = useAppSelector((store) => store.user);
+
+  if (!user) {
+    return <Navigate to='/login' replace={true} />;
+  }
 
   async function handleOnLogout() {
     try {

@@ -20,7 +20,7 @@ function TourCard({ tour }: Props) {
           <span>
             <BsGeoAlt />
           </span>
-          {tour.country}, {tour.countryCode}
+          {tour.country}, {tour.countryISO}
         </p>
         <h3 className='text-lg font-bold mt-2 mb-4 capitalize truncate'>
           {tour.title}

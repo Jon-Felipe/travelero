@@ -57,7 +57,7 @@ export type Tour = {
   title: string;
   image: string;
   country: string;
-  countryCode: string;
+  countryISO: string;
   rating: number;
   reviews: number;
   price: number;

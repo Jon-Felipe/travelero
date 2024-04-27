@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
@@ -32,7 +33,11 @@ function Tours({}: Props) {
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-x-6'>
           {data?.tours?.map((tour) => {
-            return <TourCard key={tour._id} tour={tour} />;
+            return (
+              <Link key={tour._id} to={`/tours/${tour._id}`}>
+                <TourCard tour={tour} />
+              </Link>
+            );
           })}
         </div>
       </section>

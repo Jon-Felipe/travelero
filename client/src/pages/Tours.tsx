@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import { BsCaretDownFill } from 'react-icons/bs';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
 import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
+import Checkbox from '../components/Checkbox';
 
 type Props = {};
 
@@ -20,9 +22,37 @@ function Tours({}: Props) {
   }
 
   return (
-    <div className='grid md:grid-cols-[300px_1fr] p-4 max-w-screen-2xl mx-auto mt-12'>
+    <div className='grid md:grid-cols-[300px_1fr] md:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
       <section className='hidden md:block'>
-        <h3>Filers</h3>
+        {/* review filter */}
+        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
+          <div className='flex items-center justify-between'>
+            <h3 className='text-xl font-medium'>Categories</h3>
+            <BsCaretDownFill />
+          </div>
+          <div className='mt-4'>
+            <Checkbox label='City trips' />
+            <Checkbox label='Ecotourism' />
+            <Checkbox label='Escorted Tour' />
+            <Checkbox label='Group Tour' />
+            <Checkbox label='Hosted Tour' />
+          </div>
+        </article>
+        <br />
+        {/* languages filter */}
+        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
+          <div className='flex items-center justify-between'>
+            <h3 className='text-xl font-medium'>Languages</h3>
+            <BsCaretDownFill />
+          </div>
+          <div className='mt-4'>
+            <Checkbox label='English' />
+            <Checkbox label='Espanol' />
+            <Checkbox label='Portuguese' />
+            <Checkbox label='Francais' />
+            <Checkbox label='Japanese' />
+          </div>
+        </article>
       </section>
       <section>
         <div className='flex items-center justify-between mb-10'>

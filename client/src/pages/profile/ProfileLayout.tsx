@@ -34,7 +34,9 @@ function ProfileLayout({}: Props) {
       <div className='grid mt-8 lg:grid-cols-[350px_1fr] lg:gap-x-4'>
         {/* profile links */}
         <section className='hidden lg:block shadow rounded p-8'>
-          <h4 className='text-xl font-medium'>Welcome, John Doe</h4>
+          <h4 className='text-xl font-medium'>
+            Welcome, {user?.firstName} {user?.lastName}
+          </h4>
           <div className='mt-4'>
             {profileLinks.map((link) => {
               return (

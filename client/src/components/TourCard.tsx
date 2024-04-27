@@ -38,12 +38,12 @@ function TourCard({ tour }: Props) {
         </div>
         <hr />
         <div className='flex items-center justify-between mt-5'>
-          <p className='text-base font-bold'>${tour.price}</p>
+          <p className='text-base font-bold'>${tour.price.toFixed(2)}</p>
           <p className='flex items-center gap-x-2 text-sm font-normal text-gray-400'>
             <span>
               <BsClock />
             </span>
-            {tour.duration} day(s)
+            {tour.duration}
           </p>
         </div>
       </div>

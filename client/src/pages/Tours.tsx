@@ -3,6 +3,7 @@ import { useGetToursQuery } from '../slices/tourSlice';
 // components
 import Spinner from '../components/Spinner';
 import TourCard from '../components/TourCard';
+import Sort from '../components/Sort';
 
 type Props = {};
 
@@ -22,10 +23,18 @@ function Tours({}: Props) {
       <section className='hidden md:block'>
         <h3>Filers</h3>
       </section>
-      <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-x-6'>
-        {data?.tours?.map((tour) => {
-          return <TourCard key={tour._id} tour={tour} />;
-        })}
+      <section>
+        <div className='flex items-center justify-between mb-10'>
+          <h5 className='font-light text-base text-gray-500'>
+            {data?.tours.length} tours found
+          </h5>
+          <Sort />
+        </div>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-x-6'>
+          {data?.tours?.map((tour) => {
+            return <TourCard key={tour._id} tour={tour} />;
+          })}
+        </div>
       </section>
     </div>
   );

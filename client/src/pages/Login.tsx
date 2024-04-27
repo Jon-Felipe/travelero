@@ -77,6 +77,7 @@ function Login() {
           <button
             type='submit'
             className='mt-8 w-full bg-blue-500 text-white font-bold py-2 rounded-md'
+            disabled={isLoading}
           >
             {isLoading ? 'Submitting...' : 'Login'}
           </button>

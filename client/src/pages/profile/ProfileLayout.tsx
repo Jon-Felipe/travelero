@@ -10,7 +10,7 @@ import { clearUser } from '../../slices/userSlice';
 type Props = {};
 
 function ProfileLayout({}: Props) {
-  const [logout] = useLogoutMutation();
+  const [logout, { isLoading }] = useLogoutMutation();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -45,6 +45,7 @@ function ProfileLayout({}: Props) {
               type='button'
               onClick={handleOnLogout}
               className='flex items-center gap-x-4 px-4 py-6 text-sm font-medium w-full'
+              disabled={isLoading}
             >
               <span>
                 <BsArrowBarRight className='w-6 h-6' />

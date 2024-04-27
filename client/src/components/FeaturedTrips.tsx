@@ -14,7 +14,7 @@ function FeaturedTrips({}: Props) {
       </h2>
       <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 md:gap-x-6 mt-12 max-w-screen-xl xl:mx-auto'>
         {dummy_tours.map((tour) => (
-          <TourCard key={tour.id} tour={tour} />
+          <TourCard key={tour._id} tour={tour} />
         ))}
       </div>
     </section>

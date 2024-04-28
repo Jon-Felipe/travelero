@@ -59,3 +59,8 @@ export type Tour = {
   price: number;
   duration: number;
 };
+
+export type TourFilter = {
+  id: number;
+  text: string;
+};

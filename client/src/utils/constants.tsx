@@ -1,6 +1,6 @@
 import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
-import { ProfileLink, TopDestination, Tour } from './types';
+import { ProfileLink, TopDestination, Tour, TourFilter } from './types';
 
 export const topDestinations: TopDestination[] = [
   {
@@ -148,5 +148,51 @@ export const dummy_tours: Tour[] = [
     reviews: 162,
     price: 114,
     duration: 7,
+  },
+];
+
+export const tourCategories: TourFilter[] = [
+  {
+    id: 1,
+    text: 'city trips',
+  },
+  {
+    id: 2,
+    text: 'ecotourism',
+  },
+  {
+    id: 3,
+    text: 'escorted tour',
+  },
+  {
+    id: 4,
+    text: 'group tour',
+  },
+  {
+    id: 5,
+    text: 'hosted tour',
+  },
+];
+
+export const tourLanguages: TourFilter[] = [
+  {
+    id: 1,
+    text: 'english',
+  },
+  {
+    id: 2,
+    text: 'espanol',
+  },
+  {
+    id: 3,
+    text: 'portuguese',
+  },
+  {
+    id: 4,
+    text: 'francais',
+  },
+  {
+    id: 5,
+    text: 'japanese',
   },
 ];

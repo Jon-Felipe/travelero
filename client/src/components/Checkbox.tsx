@@ -12,7 +12,7 @@ function Checkbox({ label }: Props) {
       />
       <label
         htmlFor='checked-checkbox'
-        className='ms-2 text-base font-normal text-slate-600'
+        className='ms-2 text-base font-normal text-slate-600 capitalize'
       >
         {label}
       </label>

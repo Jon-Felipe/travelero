@@ -7,6 +7,7 @@ import Spinner from '../components/Spinner';
 import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
 import Checkbox from '../components/Checkbox';
+import { tourCategories, tourLanguages } from '../utils/constants';
 
 type Props = {};
 
@@ -31,11 +32,9 @@ function Tours({}: Props) {
             <BsCaretDownFill />
           </div>
           <div className='mt-4'>
-            <Checkbox label='City trips' />
-            <Checkbox label='Ecotourism' />
-            <Checkbox label='Escorted Tour' />
-            <Checkbox label='Group Tour' />
-            <Checkbox label='Hosted Tour' />
+            {tourCategories.map((category) => {
+              return <Checkbox key={category.id} label={category.text} />;
+            })}
           </div>
         </article>
         <br />
@@ -46,11 +45,9 @@ function Tours({}: Props) {
             <BsCaretDownFill />
           </div>
           <div className='mt-4'>
-            <Checkbox label='English' />
-            <Checkbox label='Espanol' />
-            <Checkbox label='Portuguese' />
-            <Checkbox label='Francais' />
-            <Checkbox label='Japanese' />
+            {tourLanguages.map((language) => {
+              return <Checkbox key={language.id} label={language.text} />;
+            })}
           </div>
         </article>
       </section>

@@ -8,6 +8,7 @@ import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
 import Checkbox from '../components/Checkbox';
 import { tourCategories, tourLanguages } from '../utils/constants';
+import Rating from '../components/Rating';
 
 type Props = {};
 
@@ -25,7 +26,22 @@ function Tours({}: Props) {
   return (
     <div className='grid md:grid-cols-[300px_1fr] md:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
       <section className='hidden md:block'>
-        {/* review filter */}
+        {/* review score filter */}
+        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
+          <div className='flex items-center justify-between'>
+            <h3 className='text-xl font-medium'>Review Score</h3>
+            <BsCaretDownFill />
+          </div>
+          <div className='mt-4'>
+            <Rating value={5} />
+            <Rating value={4} />
+            <Rating value={3} />
+            <Rating value={2} />
+            <Rating value={1} />
+          </div>
+        </article>
+        <br />
+        {/* category filter */}
         <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
           <div className='flex items-center justify-between'>
             <h3 className='text-xl font-medium'>Categories</h3>

@@ -1,6 +1,7 @@
 import { ParamsDictionary } from 'express-serve-static-core';
 import { Request, Response } from 'express';
 import Tour, { ITour } from '../models/TourModel';
+import { NotFoundError } from '../errors/customErrors';
 
 // @desc    Get all tours
 // @route   GET /api/v1/tours
@@ -16,7 +17,7 @@ async function getAllTours(req: Request, res: Response) {
 async function getSingleTour(req: Request<{ id: string }>, res: Response) {
   const tour = await Tour.findById(req.params.id);
   if (!tour) {
-    throw new Error('Tour not found');
+    throw new NotFoundError(`No tour found with id: ${req.params.id}`);
   } else {
     res.status(200).json({ tour });
   }

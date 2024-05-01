@@ -1,12 +1,6 @@
 import 'express-async-errors';
 import 'dotenv/config';
-import express, {
-  Express,
-  NextFunction,
-  Request,
-  Response,
-  ErrorRequestHandler,
-} from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 
@@ -18,6 +12,8 @@ import authRouter from './routes/authRouter';
 import userRouter from './routes/userRouter';
 
 // middleware
+import errorHandlerMiddleware from './middleware/errorHandlerMiddleware';
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -33,17 +29,7 @@ app.use('*', (req: Request, res: Response) => {
   res.status(404).json({ msg: 'not found' });
 });
 
-app.use(
-  (
-    err: ErrorRequestHandler,
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
-    console.log(err);
-    res.status(500).json({ msg: 'something went wrong' });
-  }
-);
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;
 

@@ -17,7 +17,7 @@ async function getAllTours(req: Request, res: Response) {
 async function getSingleTour(req: Request<{ id: string }>, res: Response) {
   const tour = await Tour.findById(req.params.id);
   if (!tour) {
-    throw new NotFoundError(`No tour found with id: ${req.params.id}`);
+    throw new NotFoundError(`no tour found with id: ${req.params.id}`);
   } else {
     res.status(200).json({ tour });
   }

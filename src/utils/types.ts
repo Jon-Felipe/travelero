@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongoose';
+
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -27,6 +29,7 @@ export interface ITour {
   tourType: TourType;
   groupSize: number;
   languages: string[];
+  createdBy: ObjectId;
 }
 
 type TourType =

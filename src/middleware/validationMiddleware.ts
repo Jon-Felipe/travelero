@@ -26,9 +26,5 @@ export const validateLoginInput = withValidationErrors([
     .isEmail()
     .withMessage('invalid email format')
     .normalizeEmail(),
-  body('password')
-    .notEmpty()
-    .withMessage('password is required')
-    .isLength({ min: 6 })
-    .withMessage('password length must be at least 6 characters'),
+  body('password').notEmpty().withMessage('password is required'),
 ]);

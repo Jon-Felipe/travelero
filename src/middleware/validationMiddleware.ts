@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { body, validationResult, ValidationChain } from 'express-validator';
+import { BadRequestError } from '../errors/customErrors';
 
 const withValidationErrors = (validations: ValidationChain[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -11,7 +12,7 @@ const withValidationErrors = (validations: ValidationChain[]) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       const errorMessages = errors.array().map((err) => err.msg);
-      res.status(400).json({ errors: errorMessages });
+      throw new BadRequestError(errorMessages.toString());
     }
 
     next();

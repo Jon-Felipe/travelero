@@ -19,6 +19,7 @@ const withValidationErrors = (validations: ValidationChain[]) => {
   };
 };
 
+// auth validation
 export const validateLoginInput = withValidationErrors([
   body('email')
     .notEmpty()
@@ -49,4 +50,14 @@ export const validateRegisterInput = withValidationErrors([
     .withMessage('password is required')
     .isLength({ min: 6 })
     .withMessage('password must be at least 6 characters long'),
+]);
+
+// tour validation
+export const validateTourInput = withValidationErrors([
+  body('title').notEmpty().withMessage('title is required').trim(),
+  body('image').notEmpty().withMessage('image url is required').trim(),
+  body('country').notEmpty().withMessage('country is required').trim(),
+  body('countryISO').notEmpty().withMessage('country iso is required').trim(),
+  body('city').notEmpty().withMessage('city is required').trim(),
+  body('duration').notEmpty().withMessage('duration is required').trim(),
 ]);

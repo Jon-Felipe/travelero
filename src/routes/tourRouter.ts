@@ -7,9 +7,10 @@ import {
   createTour,
 } from '../controllers/tourController';
 import { authenticateUser } from '../middleware/authMiddleware';
+import { validateTourInput } from '../middleware/validationMiddleware';
 
 router.get('/', getAllTours);
 router.get('/:id', getSingleTour);
-router.post('/', authenticateUser, createTour);
+router.post('/', validateTourInput, authenticateUser, createTour);
 
 export default router;

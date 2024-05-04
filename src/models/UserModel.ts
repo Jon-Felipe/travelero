@@ -13,14 +13,14 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true, min: 6 },
     dateOfBirth: { type: String },
     phoneNumber: { type: String },
     address: { type: String },
     country: { type: String },
     city: { type: String },
     postalCode: { type: String },
-    email: { type: String, required: true },
-    password: { type: String, required: true, min: 6 },
   },
   { timestamps: true }
 );

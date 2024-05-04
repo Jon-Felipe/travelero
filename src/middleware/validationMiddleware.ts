@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-
 import { body, validationResult, ValidationChain } from 'express-validator';
 import { BadRequestError } from '../errors/customErrors';
+import User from '../models/UserModel';
 
 const withValidationErrors = (validations: ValidationChain[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -27,4 +27,26 @@ export const validateLoginInput = withValidationErrors([
     .withMessage('invalid email format')
     .normalizeEmail(),
   body('password').notEmpty().withMessage('password is required'),
+]);
+
+export const validateRegisterInput = withValidationErrors([
+  body('firstName').notEmpty().withMessage('first name is required').trim(),
+  body('lastName').notEmpty().withMessage('last name is required').trim(),
+  body('email')
+    .notEmpty()
+    .withMessage('email is required')
+    .isEmail()
+    .withMessage('invalid email format')
+    .custom(async (email: string) => {
+      const user = await User.findOne({ email });
+      if (user) {
+        throw new BadRequestError('email already exists');
+      }
+    })
+    .normalizeEmail(),
+  body('password')
+    .notEmpty()
+    .withMessage('password is required')
+    .isLength({ min: 6 })
+    .withMessage('password must be at least 6 characters long'),
 ]);

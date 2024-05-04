@@ -5,11 +5,14 @@ import {
   logoutUser,
   registerUser,
 } from '../controllers/authController';
-import { validateLoginInput } from '../middleware/validationMiddleware';
+import {
+  validateLoginInput,
+  validateRegisterInput,
+} from '../middleware/validationMiddleware';
 
 const router = express.Router();
 
-router.post('/register', registerUser);
+router.post('/register', validateRegisterInput, registerUser);
 router.post('/login', validateLoginInput, loginUser);
 router.post('/logout', logoutUser);
 

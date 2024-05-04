@@ -4,7 +4,7 @@ import { ITour } from '../utils/types';
 const tourSchema = new mongoose.Schema<ITour>(
   {
     title: { type: String, required: true },
-    description: { type: String, required: true, maxLength: 150 },
+    description: { type: String, required: true, maxLength: 450 },
     image: { type: String, required: true },
     country: { type: String, required: true },
     countryISO: { type: String, required: true },

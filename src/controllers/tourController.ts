@@ -1,5 +1,6 @@
 import { ParamsDictionary } from 'express-serve-static-core';
 import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 import Tour from '../models/TourModel';
 import { ITour } from '../utils/types';
 import { NotFoundError } from '../errors/customErrors';
@@ -31,6 +32,7 @@ async function createTour(
   req: Request<ParamsDictionary, any, Omit<ITour, 'rating'>>,
   res: Response
 ) {
+  req.body.createdBy = new mongoose.Types.ObjectId(req.user.userId);
   const tour = await Tour.create(req.body);
   res.status(201).json({ tour });
 }

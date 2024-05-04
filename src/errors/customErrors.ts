@@ -15,3 +15,12 @@ export class BadRequestError extends Error {
     this.statusCode = 400;
   }
 }
+
+export class UnauthenticatedError extends Error {
+  public statusCode: number;
+  constructor(message: string) {
+    super(message);
+    this.name = 'BadRequestError';
+    this.statusCode = 401;
+  }
+}

@@ -4,6 +4,7 @@ import { ParamsDictionary } from 'express-serve-static-core';
 import User from '../models/UserModel';
 import { createJWT } from '../utils/tokenUtils';
 import { IUser } from '../utils/types';
+import { UnauthenticatedError } from '../errors/customErrors';
 
 // @desc    Register new user
 // @route   POST /api/v1/auth/register
@@ -41,8 +42,7 @@ async function loginUser(
     });
     res.status(200).json({ user });
   } else {
-    res.status(401);
-    throw new Error('Invalid credentials');
+    throw new UnauthenticatedError('invalid credentials');
   }
 }
 

@@ -1,5 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import { BadRequestError, NotFoundError } from '../errors/customErrors';
+import {
+  BadRequestError,
+  NotFoundError,
+  UnauthenticatedError,
+} from '../errors/customErrors';
 
 function errorHandlerMiddleware(
   err: unknown,
@@ -7,7 +11,11 @@ function errorHandlerMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  if (err instanceof NotFoundError || err instanceof BadRequestError) {
+  if (
+    err instanceof NotFoundError ||
+    err instanceof BadRequestError ||
+    err instanceof UnauthenticatedError
+  ) {
     const statusCode = err.statusCode || 500;
     const msg = err.message || 'something went wrong, try again later';
     res.status(statusCode).json({ msg });

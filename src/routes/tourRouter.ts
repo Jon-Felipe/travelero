@@ -5,12 +5,13 @@ import {
   getAllTours,
   getSingleTour,
   createTour,
+  updateTour,
 } from '../controllers/tourController';
 import { authenticateUser } from '../middleware/authMiddleware';
 import { validateTourInput } from '../middleware/validationMiddleware';
 
 router.get('/', getAllTours);
-router.get('/:id', getSingleTour);
 router.post('/', validateTourInput, authenticateUser, createTour);
+router.route('/:id').get(getSingleTour).patch(updateTour);
 
 export default router;

@@ -35,4 +35,11 @@ async function createTour(
   res.status(201).json({ tour });
 }
 
-export { getAllTours, getSingleTour, createTour };
+// @desc    Update tour
+// @route   PATCH /api/v1/tours/:id
+// @access  Private
+async function updateTour(req: Request, res: Response) {
+  res.send('update tour');
+}
+
+export { getAllTours, getSingleTour, createTour, updateTour };

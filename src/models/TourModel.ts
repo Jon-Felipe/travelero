@@ -1,15 +1,5 @@
 import mongoose from 'mongoose';
-
-export interface ITour {
-  title: string;
-  image: string;
-  country: string;
-  countryISO: string;
-  city: string;
-  rating: number | undefined;
-  price: number | undefined;
-  duration: string;
-}
+import { ITour } from '../utils/types';
 
 const tourSchema = new mongoose.Schema<ITour>(
   {

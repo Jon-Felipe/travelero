@@ -19,7 +19,7 @@ const tourSchema = new mongoose.Schema<ITour>(
     groupSize: { type: Number, required: true, min: 2 },
     languages: { type: [String], required: true },
     createdBy: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'Tour',
     },
   },

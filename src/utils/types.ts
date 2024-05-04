@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongoose';
+import mongoose from 'mongoose';
 
 export interface IUser {
   firstName: string;
@@ -29,7 +29,7 @@ export interface ITour {
   tourType: TourType;
   groupSize: number;
   languages: string[];
-  createdBy: ObjectId;
+  createdBy: mongoose.Types.ObjectId;
 }
 
 type TourType =

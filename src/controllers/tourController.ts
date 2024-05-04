@@ -1,6 +1,7 @@
 import { ParamsDictionary } from 'express-serve-static-core';
 import { Request, Response } from 'express';
-import Tour, { ITour } from '../models/TourModel';
+import Tour from '../models/TourModel';
+import { ITour } from '../utils/types';
 import { NotFoundError } from '../errors/customErrors';
 
 // @desc    Get all tours

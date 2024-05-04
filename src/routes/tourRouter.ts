@@ -12,6 +12,6 @@ import { validateTourInput } from '../middleware/validationMiddleware';
 
 router.get('/', getAllTours);
 router.post('/', validateTourInput, authenticateUser, createTour);
-router.route('/:id').get(getSingleTour).patch(updateTour);
+router.route('/:id').get(getSingleTour).patch(authenticateUser, updateTour);
 
 export default router;

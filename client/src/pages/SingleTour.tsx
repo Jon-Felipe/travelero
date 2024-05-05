@@ -42,7 +42,7 @@ function SingleTour({}: Props) {
       {/* tour body */}
       <section>
         {/* tour features */}
-        <article className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-0 gap-4 md:gap-y-0 mt-10'>
+        <article className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-4 md:gap-y-0 mt-10'>
           {/* duration */}
           <TourFeature
             icon={<BsClock className='w-5 h-5' />}

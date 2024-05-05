@@ -24,44 +24,49 @@ function SingleTour({}: Props) {
 
   return (
     <div className='px-6 py-14 max-w-screen-2xl mx-auto'>
-      <h1 className='text-4xl font-medium mb-4 capitalize'>
-        {data?.tour.title}
-      </h1>
-      <div className='flex items-center gap-x-4 mb-8'>
-        <Rating value={5} />
-        <p>(69 Reviews)</p>
-      </div>
-      <img
-        src={`.${data?.tour.image}`}
-        alt={data?.tour.title}
-        className='rounded-2xl w-full max-h-[450px] object-cover'
-      />
-      <div className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-0 gap-4 md:gap-y-0 mt-10'>
-        {/* duration */}
-        <TourFeature
-          icon={<BsClock className='w-5 h-5' />}
-          title='Duration'
-          text={data?.tour.duration!}
+      <section>
+        <h1 className='text-4xl font-medium mb-4 capitalize'>
+          {data?.tour.title}
+        </h1>
+        <div className='flex items-center gap-x-4 mb-8'>
+          <Rating value={5} />
+          <p>(69 Reviews)</p>
+        </div>
+        <img
+          src={`.${data?.tour.image}`}
+          alt={data?.tour.title}
+          className='rounded-2xl w-full max-h-[450px] object-cover'
         />
-        {/* tour type */}
-        <TourFeature
-          icon={<FaShoePrints className='w-5 h-5' />}
-          title='Tour Type'
-          text={data?.tour.tourType!}
-        />
-        {/* group size */}
-        <TourFeature
-          icon={<BsPeople className='w-5 h-5' />}
-          title='Group Size'
-          text={data?.tour.groupSize!}
-        />
-        {/* languages */}
-        <TourFeature
-          icon={<BsTranslate className='w-5 h-5' />}
-          title='Languages'
-          text={data?.tour.languages.join(', ')!}
-        />
-      </div>
+      </section>
+      <section>
+        <article className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-0 gap-4 md:gap-y-0 mt-10'>
+          {/* duration */}
+          <TourFeature
+            icon={<BsClock className='w-5 h-5' />}
+            title='Duration'
+            text={data?.tour.duration!}
+          />
+          {/* tour type */}
+          <TourFeature
+            icon={<FaShoePrints className='w-5 h-5' />}
+            title='Tour Type'
+            text={data?.tour.tourType!}
+          />
+          {/* group size */}
+          <TourFeature
+            icon={<BsPeople className='w-5 h-5' />}
+            title='Group Size'
+            text={data?.tour.groupSize!}
+          />
+          {/* languages */}
+          <TourFeature
+            icon={<BsTranslate className='w-5 h-5' />}
+            title='Languages'
+            text={data?.tour.languages.join(', ')!}
+          />
+        </article>
+        <hr />
+      </section>
     </div>
   );
 }

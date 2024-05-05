@@ -5,13 +5,14 @@ type Props = {
 function Rating({ value }: Props) {
   return (
     <div className='flex items-center my-2'>
-      <input
+      {/* <input
         type='checkbox'
         className='mr-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500focus:ring-2'
-      />
-      {Array.from(Array(value).keys()).map(() => {
+      /> */}
+      {Array.from(Array(value).keys()).map((_, index) => {
         return (
           <svg
+            key={index}
             className='w-4 h-4 text-yellow-500 ms-1'
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'

@@ -59,7 +59,7 @@ function SingleTour({}: Props) {
         <TourFeature
           icon={<BsTranslate className='w-5 h-5' />}
           title='Languages'
-          text={data?.tour.languages.slice(0, 2).toString()!}
+          text={data?.tour.languages.join(', ')!}
         />
       </div>
     </div>

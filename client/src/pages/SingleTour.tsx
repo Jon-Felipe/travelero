@@ -24,6 +24,7 @@ function SingleTour({}: Props) {
 
   return (
     <div className='px-6 py-14 max-w-screen-2xl mx-auto'>
+      {/* tour header */}
       <section>
         <h1 className='text-4xl font-medium mb-4 capitalize'>
           {data?.tour.title}
@@ -38,7 +39,9 @@ function SingleTour({}: Props) {
           className='rounded-2xl w-full max-h-[450px] object-cover'
         />
       </section>
+      {/* tour body */}
       <section>
+        {/* tour features */}
         <article className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-0 gap-4 md:gap-y-0 mt-10'>
           {/* duration */}
           <TourFeature
@@ -65,7 +68,12 @@ function SingleTour({}: Props) {
             text={data?.tour.languages.join(', ')!}
           />
         </article>
-        <hr />
+        <hr className='my-10' />
+        {/* tour description */}
+        <article>
+          <h2 className='font-bold text-2xl mb-5'>About this tour</h2>
+          <p>{data?.tour.description}</p>
+        </article>
       </section>
     </div>
   );

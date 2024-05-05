@@ -1,6 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { BsClock, BsPeople, BsTranslate } from 'react-icons/bs';
+import {
+  BsClock,
+  BsPeople,
+  BsTranslate,
+  BsCheckCircleFill,
+} from 'react-icons/bs';
 import { FaShoePrints } from 'react-icons/fa';
 import { useGetSingleTourQuery } from '../slices/tourSlice';
 
@@ -70,10 +75,29 @@ function SingleTour({}: Props) {
         </article>
         <hr className='my-10' />
         {/* tour description */}
-        <article>
+        <article className='mb-5'>
           <h2 className='font-bold text-2xl mb-5'>About this tour</h2>
           <p>{data?.tour.description}</p>
         </article>
+        {/* tour highlights */}
+        {data?.tour.highlights && (
+          <article>
+            <h2 className='font-bold text-2xl mb-5'>Highlights</h2>
+            <ul>
+              {data?.tour.highlights.map((highlight, index) => {
+                return (
+                  <div key={index} className='flex items-center gap-x-4 mb-4'>
+                    <BsCheckCircleFill className='w-5 h-5 text-green-400' />
+                    <li className='text-base font-normal text-slate-500'>
+                      {highlight}
+                    </li>
+                  </div>
+                );
+              })}
+            </ul>
+          </article>
+        )}
+        <hr className='my-10' />
       </section>
     </div>
   );

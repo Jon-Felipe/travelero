@@ -8,7 +8,12 @@ const tourApi = traveleroApi.injectEndpoints({
         url: '/tours',
       }),
     }),
+    getSingleTour: build.query<{ tour: Tour }, string>({
+      query: (id) => ({
+        url: `/tours/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetToursQuery } = tourApi;
+export const { useGetToursQuery, useGetSingleTourQuery } = tourApi;

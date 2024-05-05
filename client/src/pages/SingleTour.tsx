@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { BsClock, BsPeople, BsTranslate } from 'react-icons/bs';
 import { FaShoePrints } from 'react-icons/fa';
@@ -37,56 +38,52 @@ function SingleTour({}: Props) {
       />
       <div className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-0 gap-4 md:gap-y-0 mt-10'>
         {/* duration */}
-        <div className='flex items-center'>
-          <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
-            <BsClock className='w-5 h-5' />
-          </div>
-          <div>
-            <h4 className='text-base font-bold capitalize'>Duration</h4>
-            <p className='text-sm font-normal text-slate-500 capitalize'>
-              {data?.tour.duration}
-            </p>
-          </div>
-        </div>
+        <TourFeature
+          icon={<BsClock className='w-5 h-5' />}
+          title='Duration'
+          text={data?.tour.duration!}
+        />
         {/* tour type */}
-        <div className='flex items-center'>
-          <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
-            <FaShoePrints className='w-5 h-5' />
-          </div>
-          <div>
-            <h4 className='text-base font-bold capitalize'>Tour Type</h4>
-            <p className='text-sm font-normal text-slate-500 capitalize'>
-              {data?.tour.tourType}
-            </p>
-          </div>
-        </div>
+        <TourFeature
+          icon={<FaShoePrints className='w-5 h-5' />}
+          title='Tour Type'
+          text={data?.tour.tourType!}
+        />
         {/* group size */}
-        <div className='flex items-center'>
-          <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
-            <BsPeople className='w-5 h-5' />
-          </div>
-          <div>
-            <h4 className='text-base font-bold capitalize'>Group Size</h4>
-            <p className='text-sm font-normal text-slate-500 capitalize'>
-              {data?.tour.groupSize}
-            </p>
-          </div>
-        </div>
+        <TourFeature
+          icon={<BsPeople className='w-5 h-5' />}
+          title='Group Size'
+          text={data?.tour.groupSize!}
+        />
         {/* languages */}
-        <div className='flex items-center'>
-          <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
-            <BsTranslate className='w-5 h-5' />
-          </div>
-          <div>
-            <h4 className='text-base font-bold capitalize'>Languages</h4>
-            <p className='text-sm font-normal text-slate-500 capitalize'>
-              {data?.tour.languages.slice(0, 2).toString()}
-            </p>
-          </div>
-        </div>
+        <TourFeature
+          icon={<BsTranslate className='w-5 h-5' />}
+          title='Languages'
+          text={data?.tour.languages.slice(0, 2).toString()!}
+        />
       </div>
     </div>
   );
 }
 
 export default SingleTour;
+
+type FeatureProps = {
+  icon: React.ReactElement;
+  title: string;
+  text: string | number;
+};
+
+function TourFeature({ icon, title, text }: FeatureProps) {
+  return (
+    <div className='flex items-center'>
+      <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
+        {icon}
+      </div>
+      <div>
+        <h4 className='text-base font-bold capitalize'>{title}</h4>
+        <p className='text-sm font-normal text-slate-500 capitalize'>{text}</p>
+      </div>
+    </div>
+  );
+}

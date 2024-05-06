@@ -5,6 +5,7 @@ import {
   BsPeople,
   BsTranslate,
   BsCheckCircleFill,
+  BsFillXCircleFill,
 } from 'react-icons/bs';
 import { FaShoePrints } from 'react-icons/fa';
 import { useGetSingleTourQuery } from '../slices/tourSlice';
@@ -98,6 +99,38 @@ function SingleTour({}: Props) {
           </article>
         )}
         <hr className='my-10' />
+        {/* included/excluded */}
+        {data?.tour.included && data?.tour.excluded && (
+          <article>
+            <h2 className='font-bold text-2xl mb-5'>Included/Excluded</h2>
+            <div className='block md:flex md:items-center md:gap-x-16'>
+              <ul>
+                {data?.tour.included.map((item, index) => {
+                  return (
+                    <div key={index} className='flex items-center gap-x-4 mb-4'>
+                      <BsCheckCircleFill className='w-5 h-5 text-green-400' />
+                      <li className='text-base font-normal text-slate-500'>
+                        {item}
+                      </li>
+                    </div>
+                  );
+                })}
+              </ul>
+              <ul>
+                {data?.tour.excluded.map((item, index) => {
+                  return (
+                    <div key={index} className='flex items-center gap-x-4 mb-4'>
+                      <BsFillXCircleFill className='w-5 h-5 text-red-400' />
+                      <li className='text-base font-normal text-slate-500'>
+                        {item}
+                      </li>
+                    </div>
+                  );
+                })}
+              </ul>
+            </div>
+          </article>
+        )}
       </section>
     </div>
   );

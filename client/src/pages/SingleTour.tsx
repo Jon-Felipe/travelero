@@ -82,52 +82,26 @@ function SingleTour({}: Props) {
         </article>
         {/* tour highlights */}
         {data?.tour.highlights && (
-          <article>
-            <h2 className='font-bold text-2xl mb-5'>Highlights</h2>
-            <ul>
-              {data?.tour.highlights.map((highlight, index) => {
-                return (
-                  <div key={index} className='flex items-center gap-x-4 mb-4'>
-                    <BsCheckCircleFill className='w-5 h-5 text-green-400' />
-                    <li className='text-base font-normal text-slate-500'>
-                      {highlight}
-                    </li>
-                  </div>
-                );
-              })}
-            </ul>
-          </article>
+          <TourFeatureList
+            title='Highlights'
+            items={data?.tour.highlights}
+            icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
+          />
         )}
         <hr className='my-10' />
         {/* included/excluded */}
         {data?.tour.included && data?.tour.excluded && (
           <article>
-            <h2 className='font-bold text-2xl mb-5'>Included/Excluded</h2>
             <div className='block md:flex md:items-center md:gap-x-16'>
-              <ul>
-                {data?.tour.included.map((item, index) => {
-                  return (
-                    <div key={index} className='flex items-center gap-x-4 mb-4'>
-                      <BsCheckCircleFill className='w-5 h-5 text-green-400' />
-                      <li className='text-base font-normal text-slate-500'>
-                        {item}
-                      </li>
-                    </div>
-                  );
-                })}
-              </ul>
-              <ul>
-                {data?.tour.excluded.map((item, index) => {
-                  return (
-                    <div key={index} className='flex items-center gap-x-4 mb-4'>
-                      <BsFillXCircleFill className='w-5 h-5 text-red-400' />
-                      <li className='text-base font-normal text-slate-500'>
-                        {item}
-                      </li>
-                    </div>
-                  );
-                })}
-              </ul>
+              <TourFeatureList
+                title='Included/Excluded'
+                items={data?.tour.included}
+                icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
+              />
+              <TourFeatureList
+                items={data?.tour.excluded}
+                icon={<BsFillXCircleFill className='w-5 h-5 text-red-400' />}
+              />
             </div>
           </article>
         )}
@@ -155,5 +129,29 @@ function TourFeature({ icon, title, text }: FeatureProps) {
         <p className='text-sm font-normal text-slate-500 capitalize'>{text}</p>
       </div>
     </div>
+  );
+}
+
+type FeatureListProp = {
+  icon: React.ReactElement;
+  title?: string;
+  items: string[];
+};
+
+function TourFeatureList({ icon, title, items }: FeatureListProp) {
+  return (
+    <article>
+      <h2 className='font-bold text-2xl mb-5'>{title}</h2>
+      <ul>
+        {items.map((item, index) => {
+          return (
+            <div key={index} className='flex items-center gap-x-4 mb-4'>
+              {icon}
+              <li className='text-base font-normal text-slate-500'>{item}</li>
+            </div>
+          );
+        })}
+      </ul>
+    </article>
   );
 }

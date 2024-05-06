@@ -35,9 +35,13 @@ function SingleTour({}: Props) {
         <h1 className='text-4xl font-medium mb-4 capitalize'>
           {data?.tour.title}
         </h1>
-        <div className='flex items-center gap-x-4 mb-8'>
+        <div className='flex items-center gap-x-2 mb-8'>
           <Rating value={5} />
-          <p>(69 Reviews)</p>
+          <p className='text-slate-600'>(69 Reviews)</p>
+          <div className='inline-block h-1 w-1 bg-slate-600 rounded-full mx-1'></div>
+          <p className='text-slate-600'>
+            {data?.tour.city}, {data?.tour.country}
+          </p>
         </div>
         <img
           src={`.${data?.tour.image}`}

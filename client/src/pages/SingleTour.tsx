@@ -13,6 +13,7 @@ import { useGetSingleTourQuery } from '../slices/tourSlice';
 // components
 import Spinner from '../components/Spinner';
 import Rating from '../components/Rating';
+import BookForm from '../components/singletour/BookForm';
 import InquiryForm from '../components/singletour/InquiryForm';
 
 function SingleTour() {
@@ -161,8 +162,11 @@ function SingleTour() {
                 Inquiry
               </button>
             </div>
-            {/* inquiry form */}
-            <InquiryForm />
+            {isBookingActive ? (
+              <BookForm />
+            ) : (
+              isInquiryActive && <InquiryForm />
+            )}
           </article>
         </section>
       </div>

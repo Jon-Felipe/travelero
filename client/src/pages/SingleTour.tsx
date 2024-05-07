@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   BsClock,
@@ -15,9 +15,10 @@ import Spinner from '../components/Spinner';
 import Rating from '../components/Rating';
 import FormRow from '../components/FormRow';
 
-type Props = {};
+function SingleTour() {
+  const [isBookingActive, setIsBookingActive] = useState<boolean>(true);
+  const [isInquiryActive, setIsInquiryActive] = useState<boolean>(false);
 
-function SingleTour({}: Props) {
   const params = useParams();
   const { isLoading, data } = useGetSingleTourQuery(params.id!);
 
@@ -132,10 +133,31 @@ function SingleTour({}: Props) {
             </div>
             {/* book & inquiry buttons */}
             <div className='my-5 flex items-center justify-between gap-x-4'>
-              <button className='w-full bg-slate-200 text-black py-3 text-base font-medium rounded-full'>
+              <button
+                name='book'
+                className={`w-full ${
+                  isBookingActive
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-slate-200 text-black'
+                } py-3 text-base font-medium rounded-full`}
+                onClick={() => {
+                  setIsBookingActive(true);
+                  setIsInquiryActive(false);
+                }}
+              >
                 Book
               </button>
-              <button className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'>
+              <button
+                className={`w-full ${
+                  isInquiryActive
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-slate-200 text-black'
+                } py-3 text-base font-medium rounded-full`}
+                onClick={() => {
+                  setIsBookingActive(false);
+                  setIsInquiryActive(true);
+                }}
+              >
                 Inquiry
               </button>
             </div>

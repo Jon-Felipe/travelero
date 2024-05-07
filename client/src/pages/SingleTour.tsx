@@ -13,6 +13,7 @@ import { useGetSingleTourQuery } from '../slices/tourSlice';
 // components
 import Spinner from '../components/Spinner';
 import Rating from '../components/Rating';
+import FormRow from '../components/FormRow';
 
 type Props = {};
 
@@ -49,67 +50,134 @@ function SingleTour({}: Props) {
           className='rounded-2xl w-full max-h-[450px] object-cover'
         />
       </section>
-      {/* tour body */}
-      <section>
-        {/* tour features */}
-        <section className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-4 md:gap-y-0 mt-10'>
-          {/* duration */}
-          <TourFeature
-            icon={<BsClock className='w-5 h-5' />}
-            title='Duration'
-            text={data?.tour.duration!}
-          />
-          {/* tour type */}
-          <TourFeature
-            icon={<FaShoePrints className='w-5 h-5' />}
-            title='Tour Type'
-            text={data?.tour.tourType!}
-          />
-          {/* group size */}
-          <TourFeature
-            icon={<BsPeople className='w-5 h-5' />}
-            title='Group Size'
-            text={data?.tour.groupSize!}
-          />
-          {/* languages */}
-          <TourFeature
-            icon={<BsTranslate className='w-5 h-5' />}
-            title='Languages'
-            text={data?.tour.languages.join(', ')!}
-          />
-        </section>
-        <hr className='my-10' />
-        {/* tour description */}
-        <article className='mb-5'>
-          <h2 className='font-bold text-2xl mb-5'>About this tour</h2>
-          <p>{data?.tour.description}</p>
-        </article>
-        {/* tour highlights */}
-        {data?.tour.highlights && (
-          <TourFeatureList
-            title='Highlights'
-            items={data?.tour.highlights}
-            icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
-          />
-        )}
-        <hr className='my-10' />
-        {/* included/excluded */}
-        {data?.tour.included && data?.tour.excluded && (
-          <section>
-            <div className='block md:flex md:items-center md:gap-x-16'>
-              <TourFeatureList
-                title='Included/Excluded'
-                items={data?.tour.included}
-                icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
-              />
-              <TourFeatureList
-                items={data?.tour.excluded}
-                icon={<BsFillXCircleFill className='w-5 h-5 text-red-400' />}
-              />
-            </div>
+      <div className='grid lg:grid-cols-[1fr_300px] lg:gap-x-6 xl:gap-x-10 xl:grid-cols-[1fr_400px] mt-10'>
+        {/* tour body */}
+        <section>
+          {/* tour features */}
+          <section className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-4 md:gap-y-0'>
+            {/* duration */}
+            <TourFeature
+              icon={<BsClock className='w-5 h-5' />}
+              title='Duration'
+              text={data?.tour.duration!}
+            />
+            {/* tour type */}
+            <TourFeature
+              icon={<FaShoePrints className='w-5 h-5' />}
+              title='Tour Type'
+              text={data?.tour.tourType!}
+            />
+            {/* group size */}
+            <TourFeature
+              icon={<BsPeople className='w-5 h-5' />}
+              title='Group Size'
+              text={data?.tour.groupSize!}
+            />
+            {/* languages */}
+            <TourFeature
+              icon={<BsTranslate className='w-5 h-5' />}
+              title='Languages'
+              text={data?.tour.languages.join(', ')!}
+            />
           </section>
-        )}
-      </section>
+          <hr className='my-10' />
+          {/* tour description */}
+          <article className='mb-5'>
+            <h2 className='font-bold text-2xl mb-5'>About this tour</h2>
+            <p>{data?.tour.description}</p>
+          </article>
+          {/* tour highlights */}
+          {data?.tour.highlights && (
+            <TourFeatureList
+              title='Highlights'
+              items={data?.tour.highlights}
+              icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
+            />
+          )}
+          <hr className='my-10' />
+          {/* included/excluded */}
+          {data?.tour.included && data?.tour.excluded && (
+            <section>
+              <div className='block md:flex md:items-center md:gap-x-16'>
+                <TourFeatureList
+                  title='Included/Excluded'
+                  items={data?.tour.included}
+                  icon={
+                    <BsCheckCircleFill className='w-5 h-5 text-green-400' />
+                  }
+                />
+                <TourFeatureList
+                  items={data?.tour.excluded}
+                  icon={<BsFillXCircleFill className='w-5 h-5 text-red-400' />}
+                />
+              </div>
+            </section>
+          )}
+        </section>
+        {/* tour booking section */}
+        <section>
+          <article className='border rounded-2xl p-4'>
+            {/* price and rating */}
+            <div className='flex items-center justify-between'>
+              <p className='text-sm font-normal text-slate-500'>
+                From:{' '}
+                <span className='text-lg font-bold text-black ml-1'>
+                  ${data?.tour.price?.toFixed(2)}
+                </span>
+              </p>
+              <div className='flex items-center gap-x-2'>
+                <Rating value={5} />
+                <p className='text-slate-600'>(69 Reviews)</p>
+              </div>
+            </div>
+            {/* book & inquiry buttons */}
+            <div className='my-5 flex items-center justify-between gap-x-4'>
+              <button className='w-full bg-slate-200 text-black py-3 text-base font-medium rounded-full'>
+                Book
+              </button>
+              <button className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'>
+                Inquiry
+              </button>
+            </div>
+            {/* inquiry form */}
+            <form>
+              <div className='space-y-5'>
+                <FormRow
+                  type='text'
+                  name='name'
+                  value=''
+                  onChange={() => console.log('name')}
+                  placeholder='Name*'
+                />
+                <FormRow
+                  type='email'
+                  name='email'
+                  value=''
+                  onChange={() => console.log('email')}
+                  placeholder='Email*'
+                />
+                <FormRow
+                  type='number'
+                  name='phone'
+                  value=''
+                  onChange={() => console.log('phone')}
+                  placeholder='Phone*'
+                />
+                <textarea
+                  name='note'
+                  id='note'
+                  placeholder='Note*'
+                  rows={3}
+                  className='border-2 px-4 py-2 rounded-md w-full'
+                ></textarea>
+                <button className='w-full bg-blue-500 text-white py-2 text-base font-medium rounded-full'>
+                  Send
+                </button>
+              </div>
+            </form>
+          </article>
+        </section>
+      </div>
     </div>
   );
 }

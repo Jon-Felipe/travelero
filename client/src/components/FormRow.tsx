@@ -12,12 +12,14 @@ type Props = {
 function FormRow({ label, type, name, value, onChange, placeholder }: Props) {
   return (
     <>
-      <label
-        htmlFor={name}
-        className='block text-sm font-semibold tracking-wide capitalize'
-      >
-        {label || name}
-      </label>
+      {label && (
+        <label
+          htmlFor={name}
+          className='block text-sm font-semibold tracking-wide capitalize'
+        >
+          {label}
+        </label>
+      )}
       <input
         type={type}
         id={name}

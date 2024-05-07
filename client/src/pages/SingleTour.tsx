@@ -118,7 +118,7 @@ function SingleTour() {
         </section>
         {/* tour booking section */}
         <section>
-          <article className='border rounded-2xl p-4'>
+          <article className='border rounded-2xl p-4 shadow'>
             {/* price and rating */}
             <div className='flex items-center justify-between'>
               <p className='text-sm font-normal text-slate-500'>

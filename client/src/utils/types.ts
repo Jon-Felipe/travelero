@@ -51,6 +51,7 @@ export type AuthSliceState = {
 };
 
 export type Tour = {
+  _id: string;
   title: string;
   description: string;
   image: string;

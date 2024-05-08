@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   BsClock,
@@ -16,6 +16,7 @@ import QuickInfo from '../components/singletour/QuickInfo';
 import Rating from '../components/Rating';
 import BookForm from '../components/singletour/BookForm';
 import InquiryForm from '../components/singletour/InquiryForm';
+import FeatureList from '../components/singletour/FeatureList';
 
 function SingleTour() {
   const [isBookingActive, setIsBookingActive] = useState<boolean>(true);
@@ -91,7 +92,7 @@ function SingleTour() {
           </article>
           {/* tour highlights */}
           {data?.tour.highlights && (
-            <TourFeatureList
+            <FeatureList
               title='Highlights'
               items={data?.tour.highlights}
               icon={<BsCheckCircleFill className='w-5 h-5 text-green-400' />}
@@ -102,14 +103,14 @@ function SingleTour() {
           {data?.tour.included && data?.tour.excluded && (
             <section>
               <div className='block md:flex md:items-center md:gap-x-16'>
-                <TourFeatureList
+                <FeatureList
                   title='Included/Excluded'
                   items={data?.tour.included}
                   icon={
                     <BsCheckCircleFill className='w-5 h-5 text-green-400' />
                   }
                 />
-                <TourFeatureList
+                <FeatureList
                   items={data?.tour.excluded}
                   icon={<BsFillXCircleFill className='w-5 h-5 text-red-400' />}
                 />
@@ -176,27 +177,3 @@ function SingleTour() {
 }
 
 export default SingleTour;
-
-type FeatureListProp = {
-  icon: React.ReactElement;
-  title?: string;
-  items: string[];
-};
-
-function TourFeatureList({ icon, title, items }: FeatureListProp) {
-  return (
-    <article>
-      <h2 className='font-bold text-2xl mb-5'>{title}</h2>
-      <ul>
-        {items.map((item, index) => {
-          return (
-            <div key={index} className='flex items-center gap-x-4 mb-4'>
-              {icon}
-              <li className='text-base font-normal text-slate-500'>{item}</li>
-            </div>
-          );
-        })}
-      </ul>
-    </article>
-  );
-}

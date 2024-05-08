@@ -95,6 +95,7 @@ function Register() {
           </div>
           <div className='mt-4'>
             <FormRow
+              label='password'
               type='password'
               name='password'
               value={formData.password}

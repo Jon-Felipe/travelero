@@ -67,6 +67,7 @@ function Login() {
           </div>
           <div className='mt-4'>
             <FormRow
+              label='Password'
               type='password'
               name='password'
               value={formData.password}

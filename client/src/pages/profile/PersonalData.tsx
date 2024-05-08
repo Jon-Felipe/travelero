@@ -94,6 +94,7 @@ function PersonalData() {
         </div>
         <div className='w-full mt-4'>
           <FormRow
+            label='address'
             type='text'
             name='address'
             value={userInfo.address}
@@ -104,6 +105,7 @@ function PersonalData() {
         <div className='block md:flex md:items-center md:gap-x-4 mt-4'>
           <div className='w-full'>
             <FormRow
+              label='country'
               type='text'
               name='country'
               value={userInfo.country}
@@ -113,6 +115,7 @@ function PersonalData() {
           </div>
           <div className='w-full mt-4 md:mt-0'>
             <FormRow
+              label='city'
               type='text'
               name='city'
               value={userInfo.city}

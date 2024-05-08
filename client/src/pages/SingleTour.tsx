@@ -12,6 +12,7 @@ import { useGetSingleTourQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
+import QuickInfo from '../components/singletour/QuickInfo';
 import Rating from '../components/Rating';
 import BookForm from '../components/singletour/BookForm';
 import InquiryForm from '../components/singletour/InquiryForm';
@@ -58,25 +59,25 @@ function SingleTour() {
           {/* tour features */}
           <section className='grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-4 md:gap-y-0'>
             {/* duration */}
-            <TourFeature
+            <QuickInfo
               icon={<BsClock className='w-5 h-5' />}
               title='Duration'
               text={data?.tour.duration!}
             />
             {/* tour type */}
-            <TourFeature
+            <QuickInfo
               icon={<FaShoePrints className='w-5 h-5' />}
               title='Tour Type'
               text={data?.tour.tourType!}
             />
             {/* group size */}
-            <TourFeature
+            <QuickInfo
               icon={<BsPeople className='w-5 h-5' />}
               title='Group Size'
               text={data?.tour.groupSize!}
             />
             {/* languages */}
-            <TourFeature
+            <QuickInfo
               icon={<BsTranslate className='w-5 h-5' />}
               title='Languages'
               text={data?.tour.languages.join(', ')!}
@@ -175,26 +176,6 @@ function SingleTour() {
 }
 
 export default SingleTour;
-
-type FeatureProps = {
-  icon: React.ReactElement;
-  title: string;
-  text: string | number;
-};
-
-function TourFeature({ icon, title, text }: FeatureProps) {
-  return (
-    <article className='flex items-center'>
-      <div className='flex items-center justify-center border border-slate-200 rounded-xl p-3 w-12 h-12 mr-4'>
-        {icon}
-      </div>
-      <div>
-        <h4 className='text-base font-bold capitalize'>{title}</h4>
-        <p className='text-sm font-normal text-slate-500 capitalize'>{text}</p>
-      </div>
-    </article>
-  );
-}
 
 type FeatureListProp = {
   icon: React.ReactElement;

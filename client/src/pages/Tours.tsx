@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import { BsCaretDownFill } from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
 import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
-import Checkbox from '../components/Checkbox';
-import { tourCategories, tourLanguages } from '../utils/constants';
-import Rating from '../components/Rating';
+import FormRow from '../components/FormRow';
+import { durationList } from '../utils/constants';
+import FormRowSelect from '../components/FormRowSelect';
 
 type Props = {};
 
@@ -26,46 +26,55 @@ function Tours({}: Props) {
   return (
     <div className='grid md:grid-cols-[300px_1fr] md:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
       <section className='hidden md:block'>
-        {/* review score filter */}
-        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
-          <div className='flex items-center justify-between'>
-            <h3 className='text-xl font-medium'>Review Score</h3>
-            <BsCaretDownFill />
+        <div className='border rounded p-6'>
+          <div className='flex items-center gap-x-4 mb-8'>
+            <BsSearch className='w-5 h-5' />
+            <h3 className='font-bold text-lg text-blue-500'>Tour Search</h3>
           </div>
-          <div className='mt-4'>
-            <Rating value={5} />
-            <Rating value={4} />
-            <Rating value={3} />
-            <Rating value={2} />
-            <Rating value={1} />
+          {/* search filter */}
+          <div className='mb-4'>
+            <FormRow
+              type='text'
+              label='Search Tours'
+              name='search'
+              value=''
+              placeholder='Search'
+              onChange={() => console.log('search')}
+            />
           </div>
-        </article>
-        <br />
-        {/* category filter */}
-        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
-          <div className='flex items-center justify-between'>
-            <h3 className='text-xl font-medium'>Categories</h3>
-            <BsCaretDownFill />
+          {/* duration filter */}
+          <div className='mb-4'>
+            <FormRowSelect
+              label='Duration'
+              name='duration'
+              listItems={durationList}
+              onChange={() => console.log('duration')}
+            />
           </div>
-          <div className='mt-4'>
-            {tourCategories.map((category) => {
-              return <Checkbox key={category.id} label={category.text} />;
-            })}
+          {/* min/max price filter */}
+          <div className='flex items-center gap-x-4 mb-4'>
+            <div className='w-full'>
+              <FormRow
+                type='number'
+                label='Min Price'
+                name='priceMin'
+                value=''
+                placeholder='0'
+                onChange={() => console.log('min price')}
+              />
+            </div>
+            <div className='w-full'>
+              <FormRow
+                type='number'
+                label='Max Price'
+                name='priceMax'
+                value=''
+                placeholder='1000'
+                onChange={() => console.log('max price')}
+              />
+            </div>
           </div>
-        </article>
-        <br />
-        {/* languages filter */}
-        <article className='bg-slate-50 p-4 rounded-2xl shadow-sm'>
-          <div className='flex items-center justify-between'>
-            <h3 className='text-xl font-medium'>Languages</h3>
-            <BsCaretDownFill />
-          </div>
-          <div className='mt-4'>
-            {tourLanguages.map((language) => {
-              return <Checkbox key={language.id} label={language.text} />;
-            })}
-          </div>
-        </article>
+        </div>
       </section>
       <section>
         <div className='flex items-center justify-between mb-10'>

@@ -82,3 +82,9 @@ export type TourFilter = {
   id: number;
   text: string;
 };
+
+export type SelectItems = {
+  id: string | number;
+  text: string;
+  value: string;
+};

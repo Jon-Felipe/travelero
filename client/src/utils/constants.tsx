@@ -1,6 +1,12 @@
 import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
-import { ProfileLink, TopDestination, Tour, TourFilter } from './types';
+import {
+  ProfileLink,
+  SelectItems,
+  TopDestination,
+  Tour,
+  TourFilter,
+} from './types';
 
 export const topDestinations: TopDestination[] = [
   {
@@ -195,4 +201,11 @@ export const tourLanguages: TourFilter[] = [
     id: 5,
     text: 'japanese',
   },
+];
+
+export const durationList: SelectItems[] = [
+  { id: 1, text: '1 Day', value: '' },
+  { id: 2, text: '2-4 Days', value: '' },
+  { id: 3, text: '5-7 Days', value: '' },
+  { id: 4, text: '7+ Days', value: '' },
 ];

@@ -32,13 +32,11 @@ function TourCard({ tour }: Props) {
             </span>{' '}
             {tour.rating}
           </p>
-          <p className='font-normal text-sm text-gray-400'>
-            ({tour.reviews} Reviews)
-          </p>
+          <p className='font-normal text-sm text-gray-400'>(69 Review(s))</p>
         </div>
         <hr />
         <div className='flex items-center justify-between mt-5'>
-          <p className='text-base font-bold'>${tour.price.toFixed(2)}</p>
+          <p className='text-base font-bold'>${tour?.price?.toFixed(2)}</p>
           <p className='flex items-center gap-x-2 text-sm font-normal text-gray-400'>
             <span>
               <BsClock />

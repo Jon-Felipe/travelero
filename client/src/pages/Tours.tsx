@@ -74,6 +74,9 @@ function Tours({}: Props) {
               />
             </div>
           </div>
+          <button type='button' className='text-blue-500 text-sm font-medium'>
+            x Clear Filter
+          </button>
         </div>
       </section>
       <section>

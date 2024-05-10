@@ -58,16 +58,16 @@ export type Tour = {
   country: string;
   countryISO: string;
   city: string;
-  rating: number | undefined;
-  price: number | undefined;
+  rating?: number;
+  price?: number;
   duration: string;
-  highlights: string[] | undefined;
-  included: string[] | undefined;
-  excluded: string[] | undefined;
+  highlights?: string[];
+  included?: string[];
+  excluded?: string[];
   tourType: TourType;
   groupSize: number;
   languages: string[];
-  createdBy: mongoose.Types.ObjectId;
+  createdBy: mongoose.Types.ObjectId | string;
 };
 
 type TourType =

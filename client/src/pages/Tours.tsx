@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsSearch } from 'react-icons/bs';
+import { BsSearch, BsGrid3X3GapFill, BsListUl } from 'react-icons/bs';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
@@ -80,11 +80,19 @@ function Tours({}: Props) {
         </div>
       </section>
       <section>
-        <div className='flex items-center justify-between mb-10'>
-          <h5 className='font-light text-base text-gray-500'>
-            {data?.tours.length} tours found
-          </h5>
+        <h5 className='font-bold text-base text-gray-500'>
+          {data?.tours.length} tours found
+        </h5>
+        <div className='border rounded p-4 flex items-center justify-between my-5'>
           <Sort />
+          <div className='flex items-center gap-x-4'>
+            <button>
+              <BsListUl className='w-5 h-5' />
+            </button>
+            <button>
+              <BsGrid3X3GapFill className='w-5 h-5' />
+            </button>
+          </div>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-x-6'>
           {data?.tours?.map((tour) => {

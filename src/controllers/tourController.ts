@@ -5,6 +5,14 @@ import Tour from '../models/TourModel';
 import { ITour } from '../utils/types';
 import { NotFoundError } from '../errors/customErrors';
 
+declare module 'express-serve-static-core' {
+  interface Request {
+    user: {
+      userId: string;
+    };
+  }
+}
+
 // @desc    Get all tours
 // @route   GET /api/v1/tours
 // @access  Public

@@ -16,11 +16,11 @@ function Sort({}: Props) {
         <option value='default' disabled>
           Sort
         </option>
+        <option value='a-z'>Ascending</option>
+        <option value='z-a'>Descending</option>
         <option value='newest'>New Tours</option>
         <option value='price-highest'>Price Highest</option>
         <option value='price-lowest'>Price Lowest</option>
-        <option value='a-z'>A-Z</option>
-        <option value='z-a'>Z-A</option>
       </select>
     </form>
   );

@@ -1,6 +1,7 @@
 import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
 import {
+  CheckboxItem,
   ProfileLink,
   SelectItems,
   TopDestination,
@@ -238,4 +239,26 @@ export const durationList: SelectItems[] = [
   { id: 2, text: '2-4 Days', value: '' },
   { id: 3, text: '5-7 Days', value: '' },
   { id: 4, text: '7+ Days', value: '' },
+];
+
+export const tourAgeItems: CheckboxItem[] = [
+  { id: 1, text: '10+', value: '' },
+  { id: 2, text: '12+', value: '' },
+  { id: 3, text: '15+', value: '' },
+];
+
+export const tourActivityItems: CheckboxItem[] = [
+  { id: 1, text: 'City Tours', value: '' },
+  { id: 2, text: 'Family Friendly Tours', value: '' },
+  { id: 3, text: 'Outdoor Activities', value: '' },
+  { id: 4, text: 'Wild & Adventure Tours', value: '' },
+  { id: 5, text: 'Indulgence & Luxury Tours', value: '' },
+];
+
+export const tourTopLocationItems: CheckboxItem[] = [
+  { id: 1, text: 'America', value: '' },
+  { id: 2, text: 'Asia', value: '' },
+  { id: 3, text: 'Scandinavia', value: '' },
+  { id: 4, text: 'South Africa', value: '' },
+  { id: 5, text: 'Western Europe', value: '' },
 ];

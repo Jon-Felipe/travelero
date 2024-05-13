@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { BsSearch, BsGrid3X3GapFill, BsListUl } from 'react-icons/bs';
+import {
+  BsSearch,
+  BsGrid3X3GapFill,
+  BsListUl,
+  BsSliders,
+} from 'react-icons/bs';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
@@ -7,8 +12,16 @@ import Spinner from '../components/Spinner';
 import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
 import FormRow from '../components/FormRow';
-import { durationList } from '../utils/constants';
 import FormRowSelect from '../components/FormRowSelect';
+import CheckboxList from '../components/CheckboxList';
+
+// extras
+import {
+  durationList,
+  tourActivityItems,
+  tourAgeItems,
+  tourTopLocationItems,
+} from '../utils/constants';
 
 type Props = {};
 
@@ -25,8 +38,9 @@ function Tours({}: Props) {
 
   return (
     <div className='grid md:grid-cols-[300px_1fr] md:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
+      {/* filter section */}
       <section className='hidden md:block'>
-        <div className='border rounded p-6'>
+        <article className='border rounded-t p-6'>
           <div className='flex items-center gap-x-4 mb-8'>
             <BsSearch className='w-5 h-5' />
             <h3 className='font-bold text-lg text-blue-500'>Tour Search</h3>
@@ -77,7 +91,34 @@ function Tours({}: Props) {
           <button type='button' className='text-blue-500 text-sm font-medium'>
             x Clear Filter
           </button>
-        </div>
+        </article>
+        <article className='border rounded-b p-6'>
+          <div className='flex items-center gap-x-4 mb-8'>
+            <BsSliders className='w-5 h-5' />
+            <h3 className='font-bold text-lg text-blue-500'>Type Filter</h3>
+          </div>
+          {/* tour age filter */}
+          <CheckboxList
+            label='Tour Age'
+            name='tourAge'
+            listItems={tourAgeItems}
+          />
+          {/* activity filter */}
+          <CheckboxList
+            label='Activity'
+            name='activity'
+            listItems={tourActivityItems}
+          />
+          {/* destination filter */}
+          <CheckboxList
+            label='Destination'
+            name='destination'
+            listItems={tourTopLocationItems}
+          />
+          <button className='w-full bg-blue-500 text-white font-semibold p-2 rounded'>
+            Search
+          </button>
+        </article>
       </section>
       <section>
         <h5 className='font-bold text-base text-gray-500'>

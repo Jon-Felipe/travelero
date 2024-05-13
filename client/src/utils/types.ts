@@ -88,3 +88,9 @@ export type SelectItems = {
   text: string;
   value: string;
 };
+
+export type CheckboxItem = {
+  id: string | number;
+  text: string;
+  value: string;
+};

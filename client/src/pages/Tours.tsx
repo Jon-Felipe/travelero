@@ -84,7 +84,10 @@ function Tours({}: Props) {
           {data?.tours.length} tours found
         </h5>
         <div className='border rounded p-4 flex items-center justify-between my-5'>
-          <Sort />
+          <div className='flex items-center gap-x-6 w-96'>
+            <h5 className='font-semibold text-sm'>Sort by</h5>
+            <Sort />
+          </div>
           <div className='flex items-center gap-x-4'>
             <button>
               <BsListUl className='w-5 h-5' />

@@ -1,12 +1,12 @@
 import React from 'react';
 
 // extras
-import { SelectItems } from '../utils/types';
+import { SelectItem } from '../utils/types';
 
 type Props = {
   label?: string;
   name: React.SelectHTMLAttributes<HTMLSelectElement>['name'];
-  listItems: SelectItems[];
+  listItems: SelectItem[];
   onChange: React.SelectHTMLAttributes<HTMLSelectElement>['onChange'];
 };
 

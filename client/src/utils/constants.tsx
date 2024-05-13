@@ -3,7 +3,7 @@ import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 import {
   CheckboxItem,
   ProfileLink,
-  SelectItems,
+  SelectItem,
   TopDestination,
   Tour,
   TourFilter,
@@ -234,7 +234,7 @@ export const tourLanguages: TourFilter[] = [
   },
 ];
 
-export const durationList: SelectItems[] = [
+export const durationList: SelectItem[] = [
   { id: 1, text: '1 Day', value: '' },
   { id: 2, text: '2-4 Days', value: '' },
   { id: 3, text: '5-7 Days', value: '' },

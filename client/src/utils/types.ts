@@ -83,7 +83,7 @@ export type TourFilter = {
   text: string;
 };
 
-export type SelectItems = {
+export type SelectItem = {
   id: string | number;
   text: string;
   value: string;

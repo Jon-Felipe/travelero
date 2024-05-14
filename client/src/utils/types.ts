@@ -81,16 +81,5 @@ type TourType =
 export type TourFilter = {
   id: number;
   text: string;
-};
-
-export type SelectItem = {
-  id: string | number;
-  text: string;
-  value: string;
-};
-
-export type CheckboxItem = {
-  id: string | number;
-  text: string;
   value: string;
 };

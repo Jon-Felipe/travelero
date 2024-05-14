@@ -1,13 +1,6 @@
 import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
-import {
-  CheckboxItem,
-  ProfileLink,
-  SelectItem,
-  TopDestination,
-  Tour,
-  TourFilter,
-} from './types';
+import { ProfileLink, TopDestination, Tour, TourFilter } from './types';
 
 export const topDestinations: TopDestination[] = [
   {
@@ -188,66 +181,20 @@ export const dummy_tours: Tour[] = [
   },
 ];
 
-export const tourCategories: TourFilter[] = [
-  {
-    id: 1,
-    text: 'city trips',
-  },
-  {
-    id: 2,
-    text: 'ecotourism',
-  },
-  {
-    id: 3,
-    text: 'escorted tour',
-  },
-  {
-    id: 4,
-    text: 'group tour',
-  },
-  {
-    id: 5,
-    text: 'hosted tour',
-  },
-];
-
-export const tourLanguages: TourFilter[] = [
-  {
-    id: 1,
-    text: 'english',
-  },
-  {
-    id: 2,
-    text: 'espanol',
-  },
-  {
-    id: 3,
-    text: 'portuguese',
-  },
-  {
-    id: 4,
-    text: 'francais',
-  },
-  {
-    id: 5,
-    text: 'japanese',
-  },
-];
-
-export const durationList: SelectItem[] = [
+export const durationList: TourFilter[] = [
   { id: 1, text: '1 Day', value: '' },
   { id: 2, text: '2-4 Days', value: '' },
   { id: 3, text: '5-7 Days', value: '' },
   { id: 4, text: '7+ Days', value: '' },
 ];
 
-export const tourAgeItems: CheckboxItem[] = [
+export const tourAgeItems: TourFilter[] = [
   { id: 1, text: '10+', value: '' },
   { id: 2, text: '12+', value: '' },
   { id: 3, text: '15+', value: '' },
 ];
 
-export const tourActivityItems: CheckboxItem[] = [
+export const tourActivityItems: TourFilter[] = [
   { id: 1, text: 'City Tours', value: '' },
   { id: 2, text: 'Family Friendly Tours', value: '' },
   { id: 3, text: 'Outdoor Activities', value: '' },
@@ -255,7 +202,7 @@ export const tourActivityItems: CheckboxItem[] = [
   { id: 5, text: 'Indulgence & Luxury Tours', value: '' },
 ];
 
-export const tourTopLocationItems: CheckboxItem[] = [
+export const tourTopLocationItems: TourFilter[] = [
   { id: 1, text: 'America', value: '' },
   { id: 2, text: 'Asia', value: '' },
   { id: 3, text: 'Scandinavia', value: '' },

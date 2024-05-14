@@ -18,9 +18,9 @@ import CheckboxList from '../components/CheckboxList';
 // extras
 import {
   durationList,
-  tourActivityItems,
-  tourAgeItems,
-  tourTopLocationItems,
+  activityList,
+  ageList,
+  locationList,
 } from '../utils/constants';
 
 type Props = {};
@@ -98,22 +98,18 @@ function Tours({}: Props) {
             <h3 className='font-bold text-lg text-blue-500'>Type Filter</h3>
           </div>
           {/* tour age filter */}
-          <CheckboxList
-            label='Tour Age'
-            name='tourAge'
-            listItems={tourAgeItems}
-          />
+          <CheckboxList label='Tour Age' name='tourAge' listItems={ageList} />
           {/* activity filter */}
           <CheckboxList
             label='Activity'
             name='activity'
-            listItems={tourActivityItems}
+            listItems={activityList}
           />
           {/* destination filter */}
           <CheckboxList
             label='Destination'
             name='destination'
-            listItems={tourTopLocationItems}
+            listItems={locationList}
           />
           <button className='w-full bg-blue-500 text-white font-semibold p-2 rounded'>
             Search

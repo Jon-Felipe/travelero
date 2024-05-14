@@ -188,13 +188,13 @@ export const durationList: TourFilter[] = [
   { id: 4, text: '7+ Days', value: '' },
 ];
 
-export const tourAgeItems: TourFilter[] = [
+export const ageList: TourFilter[] = [
   { id: 1, text: '10+', value: '' },
   { id: 2, text: '12+', value: '' },
   { id: 3, text: '15+', value: '' },
 ];
 
-export const tourActivityItems: TourFilter[] = [
+export const activityList: TourFilter[] = [
   { id: 1, text: 'City Tours', value: '' },
   { id: 2, text: 'Family Friendly Tours', value: '' },
   { id: 3, text: 'Outdoor Activities', value: '' },
@@ -202,7 +202,7 @@ export const tourActivityItems: TourFilter[] = [
   { id: 5, text: 'Indulgence & Luxury Tours', value: '' },
 ];
 
-export const tourTopLocationItems: TourFilter[] = [
+export const locationList: TourFilter[] = [
   { id: 1, text: 'America', value: '' },
   { id: 2, text: 'Asia', value: '' },
   { id: 3, text: 'Scandinavia', value: '' },

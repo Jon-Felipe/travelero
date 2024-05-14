@@ -1,12 +1,12 @@
 import React from 'react';
 
 // extras
-import { CheckboxItem } from '../utils/types';
+import { TourFilter } from '../utils/types';
 
 type Props = {
   label: string;
   name: React.InputHTMLAttributes<HTMLInputElement>['name'];
-  listItems: CheckboxItem[];
+  listItems: TourFilter[];
 };
 
 function CheckboxList({ label, name, listItems }: Props) {

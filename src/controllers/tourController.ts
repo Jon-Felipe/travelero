@@ -1,9 +1,11 @@
 import { ParamsDictionary } from 'express-serve-static-core';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
+
+// extras
 import Tour from '../models/TourModel';
-import { ITour } from '../utils/types';
 import { NotFoundError } from '../errors/customErrors';
+import { GetAllToursQuery, ITour } from '../utils/types';
 
 declare module 'express-serve-static-core' {
   interface Request {
@@ -16,8 +18,24 @@ declare module 'express-serve-static-core' {
 // @desc    Get all tours
 // @route   GET /api/v1/tours
 // @access  Public
-async function getAllTours(req: Request, res: Response) {
-  const tours = await Tour.find({});
+async function getAllTours(
+  req: Request<ParamsDictionary, {}, {}, GetAllToursQuery>,
+  res: Response
+) {
+  const { sort } = req.query;
+
+  const sortOptions = {
+    asc: 'title',
+    desc: '-title',
+    newest: 'createdAt',
+    lowest: '-createdAt',
+    priceHighest: 'price',
+    priceLowest: 'price',
+  };
+
+  const sortKey = sortOptions[sort] || sortOptions.newest;
+
+  const tours = await Tour.find({}).sort(sortKey);
   res.status(200).json({ tours });
 }
 

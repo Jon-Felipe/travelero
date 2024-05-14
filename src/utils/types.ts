@@ -39,3 +39,7 @@ type TourType =
   | 'wildlife'
   | 'food & wine'
   | 'adventure';
+
+export type GetAllToursQuery = {
+  sort: 'asc' | 'desc' | 'newest' | 'lowest' | 'priceHighest' | 'priceLowest';
+};

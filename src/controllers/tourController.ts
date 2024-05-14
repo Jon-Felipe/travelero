@@ -27,9 +27,9 @@ async function getAllTours(
   const sortOptions = {
     asc: 'title',
     desc: '-title',
-    newest: 'createdAt',
-    lowest: '-createdAt',
-    priceHighest: 'price',
+    newest: '-createdAt',
+    lowest: 'createdAt',
+    priceHighest: '-price',
     priceLowest: 'price',
   };
 

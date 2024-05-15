@@ -28,7 +28,7 @@ async function getAllTours(
     asc: 'title',
     desc: '-title',
     newest: '-createdAt',
-    lowest: 'createdAt',
+    oldest: 'createdAt',
     priceHighest: '-price',
     priceLowest: 'price',
   };

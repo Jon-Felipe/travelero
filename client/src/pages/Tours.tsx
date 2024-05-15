@@ -29,7 +29,7 @@ type Props = {};
 function Tours({}: Props) {
   const [sortValue, setSortValue] = useState<string>('');
 
-  const { data, isLoading } = useGetToursQuery();
+  const { data, isLoading } = useGetToursQuery({ sort: sortValue });
 
   function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const value = e.target.value;

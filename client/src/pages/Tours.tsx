@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BsSearch,
@@ -26,7 +27,14 @@ import {
 type Props = {};
 
 function Tours({}: Props) {
+  const [sortValue, setSortValue] = useState<string>('');
+
   const { data, isLoading } = useGetToursQuery();
+
+  function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value = e.target.value;
+    setSortValue(value);
+  }
 
   if (isLoading) {
     return (
@@ -123,7 +131,7 @@ function Tours({}: Props) {
         <div className='border rounded p-4 flex items-center justify-between my-5'>
           <div className='flex items-center gap-x-6 w-96'>
             <h5 className='font-semibold text-sm'>Sort by</h5>
-            <Sort />
+            <Sort value={sortValue} onChange={handleSortOnChange} />
           </div>
           <div className='flex items-center gap-x-4'>
             <button>

@@ -19,7 +19,7 @@ function Sort({}: Props) {
         <option value='asc'>Ascending</option>
         <option value='desc'>Descending</option>
         <option value='newest'>Newest</option>
-        <option value='lowest'>Oldest</option>
+        <option value='oldest'>Oldest</option>
         <option value='priceHighest'>Price Highest</option>
         <option value='priceLowest'>Price Lowest</option>
       </select>

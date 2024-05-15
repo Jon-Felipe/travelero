@@ -41,5 +41,5 @@ type TourType =
   | 'adventure';
 
 export type GetAllToursQuery = {
-  sort: 'asc' | 'desc' | 'newest' | 'lowest' | 'priceHighest' | 'priceLowest';
+  sort: 'asc' | 'desc' | 'newest' | 'oldest' | 'priceHighest' | 'priceLowest';
 };

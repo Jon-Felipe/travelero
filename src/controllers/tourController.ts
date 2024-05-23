@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 // extras
 import Tour from '../models/TourModel';
 import { NotFoundError } from '../errors/customErrors';
-import { GetAllToursQuery, ITour } from '../utils/types';
+import { GetAllToursQuery, ITour, QueryObject } from '../utils/types';
 
 declare module 'express-serve-static-core' {
   interface Request {
@@ -22,7 +22,13 @@ async function getAllTours(
   req: Request<ParamsDictionary, {}, {}, GetAllToursQuery>,
   res: Response
 ) {
-  const { sort } = req.query;
+  const { sort, search } = req.query;
+
+  const queryObj: QueryObject = {};
+
+  if (search) {
+    queryObj.title = { $regex: search, $options: 'i' };
+  }
 
   const sortOptions = {
     asc: 'title',
@@ -35,7 +41,7 @@ async function getAllTours(
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
 
-  const tours = await Tour.find({}).sort(sortKey);
+  const tours = await Tour.find(queryObj).sort(sortKey);
   res.status(200).json({ tours });
 }
 

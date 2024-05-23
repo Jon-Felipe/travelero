@@ -42,4 +42,12 @@ type TourType =
 
 export type GetAllToursQuery = {
   sort: 'asc' | 'desc' | 'newest' | 'oldest' | 'priceHighest' | 'priceLowest';
+  search: string;
+};
+
+export type QueryObject = {
+  title?: {
+    $regex?: string | RegExp | undefined;
+    $options?: string | undefined;
+  };
 };

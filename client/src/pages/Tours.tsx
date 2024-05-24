@@ -31,13 +31,15 @@ type TourFilters = {
   priceMax: string;
 };
 
+const initialFilters: TourFilters = {
+  search: '',
+  duration: '',
+  priceMin: '',
+  priceMax: '',
+};
+
 function Tours() {
-  const [filters, setFilters] = useState<TourFilters>({
-    search: '',
-    duration: '',
-    priceMin: '',
-    priceMax: '',
-  });
+  const [filters, setFilters] = useState<TourFilters>(initialFilters);
   const [sortValue, setSortValue] = useState<string>('');
 
   const { data, isLoading } = useGetToursQuery({
@@ -125,14 +127,7 @@ function Tours() {
           <button
             type='button'
             className='text-blue-500 text-sm font-medium'
-            onClick={() =>
-              setFilters({
-                search: '',
-                duration: '',
-                priceMin: '',
-                priceMax: '',
-              })
-            }
+            onClick={() => setFilters(initialFilters)}
           >
             x Clear Filter
           </button>

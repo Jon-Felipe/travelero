@@ -3,10 +3,13 @@ import { traveleroApi } from './apiSlice';
 
 const tourApi = traveleroApi.injectEndpoints({
   endpoints: (build) => ({
-    getTours: build.query<{ tours: Tour[] }, { sort?: string }>({
-      query: ({ sort }) => ({
+    getTours: build.query<
+      { tours: Tour[] },
+      { sort?: string; search?: string }
+    >({
+      query: ({ sort, search }) => ({
         url: '/tours',
-        params: { sort },
+        params: { sort, search },
       }),
     }),
     getSingleTour: build.query<{ tour: Tour }, string>({

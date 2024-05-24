@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BsSearch,
@@ -24,12 +24,26 @@ import {
   locationList,
 } from '../utils/constants';
 
-type Props = {};
+type TourFilters = {
+  search: string;
+};
 
-function Tours({}: Props) {
+function Tours() {
+  const [filters, setFilters] = useState<TourFilters>({ search: '' });
   const [sortValue, setSortValue] = useState<string>('');
 
-  const { data, isLoading } = useGetToursQuery({ sort: sortValue });
+  const { data, isLoading } = useGetToursQuery({
+    sort: sortValue,
+    search: filters?.search,
+  });
+
+  function handleFilterOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFilters((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
 
   function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const value = e.target.value;
@@ -59,9 +73,9 @@ function Tours({}: Props) {
               type='text'
               label='Search Tours'
               name='search'
-              value=''
+              value={filters.search}
               placeholder='Search'
-              onChange={() => console.log('search')}
+              onChange={handleFilterOnChange}
             />
           </div>
           {/* duration filter */}

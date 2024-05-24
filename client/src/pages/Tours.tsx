@@ -122,7 +122,18 @@ function Tours() {
               />
             </div>
           </div>
-          <button type='button' className='text-blue-500 text-sm font-medium'>
+          <button
+            type='button'
+            className='text-blue-500 text-sm font-medium'
+            onClick={() =>
+              setFilters({
+                search: '',
+                duration: '',
+                priceMin: '',
+                priceMax: '',
+              })
+            }
+          >
             x Clear Filter
           </button>
         </article>

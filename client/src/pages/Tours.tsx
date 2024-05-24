@@ -26,10 +26,18 @@ import {
 
 type TourFilters = {
   search: string;
+  duration: string;
+  priceMin: string;
+  priceMax: string;
 };
 
 function Tours() {
-  const [filters, setFilters] = useState<TourFilters>({ search: '' });
+  const [filters, setFilters] = useState<TourFilters>({
+    search: '',
+    duration: '',
+    priceMin: '',
+    priceMax: '',
+  });
   const [sortValue, setSortValue] = useState<string>('');
 
   const { data, isLoading } = useGetToursQuery({
@@ -37,10 +45,13 @@ function Tours() {
     search: filters?.search,
   });
 
-  function handleFilterOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleFilterOnChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     const name = e.target.name;
     const value = e.target.value;
     setFilters((prevState) => {
+      console.log(prevState, 'prevState');
       return { ...prevState, [name]: value };
     });
   }
@@ -83,8 +94,9 @@ function Tours() {
             <FormRowSelect
               label='Duration'
               name='duration'
+              value={filters.duration}
               listItems={durationList}
-              onChange={() => console.log('duration')}
+              onChange={handleFilterOnChange}
             />
           </div>
           {/* min/max price filter */}
@@ -94,9 +106,9 @@ function Tours() {
                 type='number'
                 label='Min Price'
                 name='priceMin'
-                value=''
+                value={filters.priceMin}
                 placeholder='0'
-                onChange={() => console.log('min price')}
+                onChange={handleFilterOnChange}
               />
             </div>
             <div className='w-full'>
@@ -104,9 +116,9 @@ function Tours() {
                 type='number'
                 label='Max Price'
                 name='priceMax'
-                value=''
+                value={filters.priceMax}
                 placeholder='1000'
-                onChange={() => console.log('max price')}
+                onChange={handleFilterOnChange}
               />
             </div>
           </div>

@@ -182,10 +182,10 @@ export const dummy_tours: Tour[] = [
 ];
 
 export const durationList: TourFilter[] = [
-  { id: 1, text: '1 Day', value: '' },
-  { id: 2, text: '2-4 Days', value: '' },
-  { id: 3, text: '5-7 Days', value: '' },
-  { id: 4, text: '7+ Days', value: '' },
+  { id: 1, text: '1 Day', value: '1' },
+  { id: 2, text: '2-4 Days', value: '2-4' },
+  { id: 3, text: '5-7 Days', value: '5-7' },
+  { id: 4, text: '7+ Days', value: '7' },
 ];
 
 export const ageList: TourFilter[] = [

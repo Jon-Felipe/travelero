@@ -6,11 +6,12 @@ import { TourFilter } from '../utils/types';
 type Props = {
   label?: string;
   name: React.SelectHTMLAttributes<HTMLSelectElement>['name'];
+  value: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
   listItems: TourFilter[];
   onChange: React.SelectHTMLAttributes<HTMLSelectElement>['onChange'];
 };
 
-function FormRowSelect({ label, name, listItems, onChange }: Props) {
+function FormRowSelect({ label, name, value, listItems, onChange }: Props) {
   return (
     <>
       {label && (
@@ -24,6 +25,7 @@ function FormRowSelect({ label, name, listItems, onChange }: Props) {
       <select
         name={name}
         id={name}
+        value={value}
         onChange={onChange}
         className='mt-2 border-2 py-2 px-4 rounded-md w-full'
       >

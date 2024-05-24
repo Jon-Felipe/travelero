@@ -27,6 +27,7 @@ function FormRow({ label, type, name, value, onChange, placeholder }: Props) {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        min={0}
         className='mt-2 border-2 py-2 px-4 rounded-md w-full'
       />
     </>

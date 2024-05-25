@@ -174,10 +174,14 @@ function Tours() {
           </div>
           <div className='flex items-center gap-x-4'>
             <button onClick={() => setIsGridViewActive(false)}>
-              <BsListUl className='w-5 h-5' />
+              <BsListUl
+                className={`w-5 h-5 ${isGridViewActive ? '' : 'text-blue-500'}`}
+              />
             </button>
             <button onClick={() => setIsGridViewActive(true)}>
-              <BsGrid3X3GapFill className='w-5 h-5' />
+              <BsGrid3X3GapFill
+                className={`w-5 h-5 ${isGridViewActive ? 'text-blue-500' : ''}`}
+              />
             </button>
           </div>
         </div>

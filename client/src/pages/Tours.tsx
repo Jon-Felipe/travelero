@@ -42,7 +42,7 @@ const initialFilters: TourFilters = {
 function Tours() {
   const [filters, setFilters] = useState<TourFilters>(initialFilters);
   const [sortValue, setSortValue] = useState<string>('');
-  const [isGridViewActive, setIsGridViewActive] = useState<boolean>(true);
+  const [isGridViewActive, setIsGridViewActive] = useState<boolean>(false);
 
   const debounced = useDebouncedCallback((value: string) => {
     setFilters((prevState) => {

@@ -6,6 +6,7 @@ import {
   BsListUl,
   BsSliders,
 } from 'react-icons/bs';
+import { useDebouncedCallback } from 'use-debounce';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
@@ -42,9 +43,15 @@ function Tours() {
   const [filters, setFilters] = useState<TourFilters>(initialFilters);
   const [sortValue, setSortValue] = useState<string>('');
 
+  const debounced = useDebouncedCallback((value: string) => {
+    setFilters((prevState) => {
+      return { ...prevState, search: value };
+    });
+  }, 700);
+
   const { data, isLoading } = useGetToursQuery({
     sort: sortValue,
-    search: filters?.search,
+    search: filters.search,
   });
 
   function handleFilterOnChange(
@@ -53,7 +60,6 @@ function Tours() {
     const name = e.target.name;
     const value = e.target.value;
     setFilters((prevState) => {
-      console.log(prevState, 'prevState');
       return { ...prevState, [name]: value };
     });
   }
@@ -88,7 +94,7 @@ function Tours() {
               name='search'
               value={filters.search}
               placeholder='Search'
-              onChange={handleFilterOnChange}
+              onChange={(e) => debounced(e.target.value)}
             />
           </div>
           {/* duration filter */}

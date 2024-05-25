@@ -24,7 +24,7 @@ function FormRow({ label, type, name, value, onChange, placeholder }: Props) {
         type={type}
         id={name}
         name={name}
-        value={value}
+        defaultValue={value}
         onChange={onChange}
         placeholder={placeholder}
         min={0}

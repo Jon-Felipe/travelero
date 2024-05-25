@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   BsSearch,
   BsGrid3X3GapFill,
@@ -11,11 +10,11 @@ import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
-import TourCard from '../components/TourCard';
 import Sort from '../components/Sort';
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 import CheckboxList from '../components/CheckboxList';
+import TourGridView from '../components/TourGridView';
 
 // extras
 import {
@@ -180,15 +179,7 @@ function Tours() {
             </button>
           </div>
         </div>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-x-6'>
-          {data?.tours?.map((tour) => {
-            return (
-              <Link key={tour._id} to={`/tours/${tour._id}`}>
-                <TourCard tour={tour} />
-              </Link>
-            );
-          })}
-        </div>
+        <TourGridView tours={data?.tours} />
       </section>
     </div>
   );

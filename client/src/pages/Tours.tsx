@@ -188,7 +188,7 @@ function Tours() {
         {isGridViewActive ? (
           <TourGridView tours={data?.tours} />
         ) : (
-          <TourListView />
+          <TourListView tours={data?.tours} />
         )}
       </section>
     </div>

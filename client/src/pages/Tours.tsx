@@ -23,6 +23,7 @@ import {
   ageList,
   locationList,
 } from '../utils/constants';
+import TourListView from '../components/TourListView';
 
 type TourFilters = {
   search: string;
@@ -41,6 +42,7 @@ const initialFilters: TourFilters = {
 function Tours() {
   const [filters, setFilters] = useState<TourFilters>(initialFilters);
   const [sortValue, setSortValue] = useState<string>('');
+  const [isGridViewActive, setIsGridViewActive] = useState<boolean>(true);
 
   const debounced = useDebouncedCallback((value: string) => {
     setFilters((prevState) => {
@@ -171,15 +173,19 @@ function Tours() {
             <Sort value={sortValue} onChange={handleSortOnChange} />
           </div>
           <div className='flex items-center gap-x-4'>
-            <button>
+            <button onClick={() => setIsGridViewActive(false)}>
               <BsListUl className='w-5 h-5' />
             </button>
-            <button>
+            <button onClick={() => setIsGridViewActive(true)}>
               <BsGrid3X3GapFill className='w-5 h-5' />
             </button>
           </div>
         </div>
-        <TourGridView tours={data?.tours} />
+        {isGridViewActive ? (
+          <TourGridView tours={data?.tours} />
+        ) : (
+          <TourListView />
+        )}
       </section>
     </div>
   );

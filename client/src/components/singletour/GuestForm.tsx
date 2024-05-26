@@ -45,7 +45,16 @@ function GuestForm() {
           <label htmlFor='date' className='block font-medium'>
             Date
           </label>
-          <input type='date' className='text-slate-400' />
+          <input
+            type='date'
+            className='text-slate-400'
+            value={guestForm.date}
+            onChange={(e) =>
+              setGuestForm((prevState) => {
+                return { ...prevState, date: e.target.value };
+              })
+            }
+          />
         </div>
         <hr />
         {/* adults input */}
@@ -84,6 +93,7 @@ function GuestForm() {
         <button
           type='button'
           className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'
+          onClick={() => console.log(guestForm, 'guestForm')}
         >
           Book now
         </button>

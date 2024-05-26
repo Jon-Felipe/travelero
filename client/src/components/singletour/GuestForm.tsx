@@ -18,6 +18,26 @@ const initialGuestDetails: GuestForm = {
 function GuestForm() {
   const [guestForm, setGuestForm] = useState<GuestForm>(initialGuestDetails);
 
+  function handleDecreaseClick(guest: string) {
+    setGuestForm((prevState) => {
+      return {
+        ...prevState,
+        [guest]:
+          prevState[guest as keyof typeof GuestForm] === 0
+            ? 0
+            : prevState[guest as keyof typeof GuestForm] - 1,
+      };
+    });
+  }
+  function handleIncreaseClick(guest: string) {
+    setGuestForm((prevState) => {
+      return {
+        ...prevState,
+        [guest]: prevState[guest as keyof typeof GuestForm] + 1,
+      };
+    });
+  }
+
   return (
     <form>
       <div className='border rounded-xl'>
@@ -33,6 +53,8 @@ function GuestForm() {
           label='Adults'
           subLabel='Over 18+'
           amountOfGuests={guestForm.adults}
+          onClickDecrease={() => handleDecreaseClick('adults')}
+          onClickIncrease={() => handleIncreaseClick('adults')}
         />
         <hr />
         {/* children input */}
@@ -40,6 +62,8 @@ function GuestForm() {
           label='Children'
           subLabel='Under 12'
           amountOfGuests={guestForm.children}
+          onClickDecrease={() => handleDecreaseClick('children')}
+          onClickIncrease={() => handleIncreaseClick('children')}
         />
         <hr />
         {/* infant input */}
@@ -47,6 +71,8 @@ function GuestForm() {
           label='Infants'
           subLabel='Under 3'
           amountOfGuests={guestForm.infants}
+          onClickDecrease={() => handleDecreaseClick('infants')}
+          onClickIncrease={() => handleIncreaseClick('infants')}
         />
       </div>
       {/* total */}
@@ -55,7 +81,10 @@ function GuestForm() {
         <p className='text-lg font-bold'>$250.00</p>
       </div>
       <div className='w-11/12 mx-auto'>
-        <button className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'>
+        <button
+          type='button'
+          className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'
+        >
           Book now
         </button>
       </div>
@@ -69,9 +98,17 @@ type GuestPickerProps = {
   label: string;
   subLabel: string;
   amountOfGuests: number;
+  onClickDecrease: React.MouseEventHandler<HTMLButtonElement>;
+  onClickIncrease: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-function GuestPicker({ label, subLabel, amountOfGuests }: GuestPickerProps) {
+function GuestPicker({
+  label,
+  subLabel,
+  amountOfGuests,
+  onClickDecrease,
+  onClickIncrease,
+}: GuestPickerProps) {
   return (
     <div className='p-4 flex items-center justify-between'>
       <div>
@@ -81,11 +118,11 @@ function GuestPicker({ label, subLabel, amountOfGuests }: GuestPickerProps) {
         <p>{subLabel}</p>
       </div>
       <div className='flex items-center justify-between gap-x-4'>
-        <button>
+        <button type='button' onClick={onClickDecrease}>
           <BsDashCircle className='w-6 h-6' />
         </button>
         <p>{amountOfGuests}</p>
-        <button>
+        <button type='button' onClick={onClickIncrease}>
           <BsPlusCircle className='w-6 h-6' />
         </button>
       </div>

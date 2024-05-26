@@ -1,6 +1,24 @@
+import { useState } from 'react';
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs';
 
+type BookingForm = {
+  date: string;
+  adults: number;
+  children: number;
+  infants: number;
+};
+
+const initialBookingForm: BookingForm = {
+  date: '',
+  adults: 0,
+  children: 0,
+  infants: 0,
+};
+
 function BookForm() {
+  const [bookingForm, setBookingForm] =
+    useState<BookingForm>(initialBookingForm);
+
   return (
     <form>
       <div className='border rounded-xl'>
@@ -23,7 +41,7 @@ function BookForm() {
             <button>
               <BsDashCircle className='w-6 h-6' />
             </button>
-            <p>0</p>
+            <p>{bookingForm.adults}</p>
             <button>
               <BsPlusCircle className='w-6 h-6' />
             </button>
@@ -42,7 +60,7 @@ function BookForm() {
             <button>
               <BsDashCircle className='w-6 h-6' />
             </button>
-            <p>0</p>
+            <p>{bookingForm.children}</p>
             <button>
               <BsPlusCircle className='w-6 h-6' />
             </button>
@@ -61,7 +79,7 @@ function BookForm() {
             <button>
               <BsDashCircle className='w-6 h-6' />
             </button>
-            <p>0</p>
+            <p>{bookingForm.infants}</p>
             <button>
               <BsPlusCircle className='w-6 h-6' />
             </button>

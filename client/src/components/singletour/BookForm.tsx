@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs';
 
-type BookingForm = {
+type GuestForm = {
   date: string;
   adults: number;
   children: number;
   infants: number;
 };
 
-const initialBookingForm: BookingForm = {
+const initialGuestInput: GuestForm = {
   date: '',
   adults: 0,
   children: 0,
@@ -16,8 +16,7 @@ const initialBookingForm: BookingForm = {
 };
 
 function BookForm() {
-  const [bookingForm, setBookingForm] =
-    useState<BookingForm>(initialBookingForm);
+  const [bookingForm, setBookingForm] = useState<GuestForm>(initialGuestInput);
 
   return (
     <form>

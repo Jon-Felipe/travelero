@@ -14,7 +14,7 @@ import { useGetSingleTourQuery } from '../slices/tourSlice';
 import Spinner from '../components/Spinner';
 import QuickInfo from '../components/singletour/QuickInfo';
 import Rating from '../components/Rating';
-import BookForm from '../components/singletour/BookForm';
+import GuestForm from '../components/singletour/GuestForm';
 import InquiryForm from '../components/singletour/InquiryForm';
 import FeatureList from '../components/singletour/FeatureList';
 
@@ -165,7 +165,7 @@ function SingleTour() {
               </button>
             </div>
             {isBookingActive ? (
-              <BookForm />
+              <GuestForm />
             ) : (
               isInquiryActive && <InquiryForm />
             )}

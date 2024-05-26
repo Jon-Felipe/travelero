@@ -15,7 +15,7 @@ const initialGuestDetails: GuestForm = {
   infants: 0,
 };
 
-function BookForm() {
+function GuestForm() {
   const [guestForm, setGuestForm] = useState<GuestForm>(initialGuestDetails);
 
   return (
@@ -63,7 +63,7 @@ function BookForm() {
   );
 }
 
-export default BookForm;
+export default GuestForm;
 
 type GuestPickerProps = {
   label: string;

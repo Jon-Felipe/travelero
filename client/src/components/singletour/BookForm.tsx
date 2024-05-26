@@ -8,7 +8,7 @@ type GuestForm = {
   infants: number;
 };
 
-const initialGuestInput: GuestForm = {
+const initialGuestDetails: GuestForm = {
   date: '',
   adults: 0,
   children: 0,
@@ -16,7 +16,7 @@ const initialGuestInput: GuestForm = {
 };
 
 function BookForm() {
-  const [bookingForm, setBookingForm] = useState<GuestForm>(initialGuestInput);
+  const [guestForm, setGuestForm] = useState<GuestForm>(initialGuestDetails);
 
   return (
     <form>
@@ -29,61 +29,25 @@ function BookForm() {
         </div>
         <hr />
         {/* adults input */}
-        <div className='p-4 flex items-center justify-between'>
-          <div>
-            <label htmlFor='date' className='block font-medium'>
-              Adults
-            </label>
-            <p>Over 18+</p>
-          </div>
-          <div className='flex items-center justify-between gap-x-4'>
-            <button>
-              <BsDashCircle className='w-6 h-6' />
-            </button>
-            <p>{bookingForm.adults}</p>
-            <button>
-              <BsPlusCircle className='w-6 h-6' />
-            </button>
-          </div>
-        </div>
+        <GuestPicker
+          label='Adults'
+          subLabel='Over 18+'
+          amountOfGuests={guestForm.adults}
+        />
         <hr />
         {/* children input */}
-        <div className='p-4 flex items-center justify-between'>
-          <div>
-            <label htmlFor='date' className='block font-medium'>
-              Children
-            </label>
-            <p>Under 12</p>
-          </div>
-          <div className='flex items-center justify-between gap-x-4'>
-            <button>
-              <BsDashCircle className='w-6 h-6' />
-            </button>
-            <p>{bookingForm.children}</p>
-            <button>
-              <BsPlusCircle className='w-6 h-6' />
-            </button>
-          </div>
-        </div>
+        <GuestPicker
+          label='Children'
+          subLabel='Under 12'
+          amountOfGuests={guestForm.children}
+        />
         <hr />
         {/* infant input */}
-        <div className='p-4 flex items-center justify-between'>
-          <div>
-            <label htmlFor='date' className='block font-medium'>
-              Infant
-            </label>
-            <p>Under 3</p>
-          </div>
-          <div className='flex items-center justify-between gap-x-4'>
-            <button>
-              <BsDashCircle className='w-6 h-6' />
-            </button>
-            <p>{bookingForm.infants}</p>
-            <button>
-              <BsPlusCircle className='w-6 h-6' />
-            </button>
-          </div>
-        </div>
+        <GuestPicker
+          label='Infants'
+          subLabel='Under 3'
+          amountOfGuests={guestForm.infants}
+        />
       </div>
       {/* total */}
       <div className='p-4 flex items-center justify-between'>
@@ -100,3 +64,31 @@ function BookForm() {
 }
 
 export default BookForm;
+
+type GuestPickerProps = {
+  label: string;
+  subLabel: string;
+  amountOfGuests: number;
+};
+
+function GuestPicker({ label, subLabel, amountOfGuests }: GuestPickerProps) {
+  return (
+    <div className='p-4 flex items-center justify-between'>
+      <div>
+        <label htmlFor='date' className='block font-medium'>
+          {label}
+        </label>
+        <p>{subLabel}</p>
+      </div>
+      <div className='flex items-center justify-between gap-x-4'>
+        <button>
+          <BsDashCircle className='w-6 h-6' />
+        </button>
+        <p>{amountOfGuests}</p>
+        <button>
+          <BsPlusCircle className='w-6 h-6' />
+        </button>
+      </div>
+    </div>
+  );
+}

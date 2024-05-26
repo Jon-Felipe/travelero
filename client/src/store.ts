@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { traveleroApi } from './slices/apiSlice';
 import userReducer from './slices/userSlice';
+import cartReducer from './slices/cartSlice';
 
 export const store = configureStore({
   reducer: {
     [traveleroApi.reducerPath]: traveleroApi.reducer,
     user: userReducer,
+    cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(traveleroApi.middleware),

@@ -46,8 +46,23 @@ export type User = {
   postalCode: string;
 };
 
+export type Cart = {
+  product: Partial<Tour>;
+  date: string;
+  guests: {
+    adults: number;
+    children: number;
+    infants: number;
+  };
+};
+
 export type AuthSliceState = {
   user: User | null;
+};
+
+export type CartSliceState = {
+  cart: Cart[] | null;
+  totalPrice: number;
 };
 
 export type Tour = {

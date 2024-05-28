@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { CartSliceState } from '../utils/types';
 // import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface CartState {}
-
-const initialState: CartState = {};
+const initialState: CartSliceState = {
+  cart: null,
+  totalPrice: 0,
+};
 
 export const cartSlice = createSlice({
   name: 'cart',

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs';
 import { useAppDispatch } from '../../hooks/hooks';
 import { addToCart } from '../../slices/cartSlice';
@@ -30,6 +31,7 @@ function GuestForm({ tour }: Props) {
   const [guestForm, setGuestForm] = useState<GuestForm>(initialGuestDetails);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   function handleDecreaseClick(guest: string) {
     setGuestForm((prevState) => {
@@ -71,6 +73,7 @@ function GuestForm({ tour }: Props) {
       guests: guestForm.guests,
     };
     dispatch(addToCart({ cart }));
+    navigate('/cart');
   }
 
   return (

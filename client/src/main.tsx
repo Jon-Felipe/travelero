@@ -17,6 +17,7 @@ import ChangePassword from './pages/profile/ChangePassword.tsx';
 import Login from './pages/Login.tsx';
 import Register from './pages/Register.tsx';
 import SingleTour from './pages/SingleTour.tsx';
+import Cart from './pages/Cart.tsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/tours/:id',
         element: <SingleTour />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
       {
         path: '/profile',

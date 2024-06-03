@@ -1,41 +1,76 @@
 import { useState } from 'react';
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs';
+import { useAppDispatch } from '../../hooks/hooks';
+import { addToCart } from '../../slices/cartSlice';
+import { Tour } from '../../utils/types';
 
 type GuestForm = {
   date: string;
-  adults: number;
-  children: number;
-  infants: number;
+  guests: {
+    adults: number;
+    children: number;
+    infants: number;
+  };
 };
 
 const initialGuestDetails: GuestForm = {
   date: '',
-  adults: 0,
-  children: 0,
-  infants: 0,
+  guests: {
+    adults: 0,
+    children: 0,
+    infants: 0,
+  },
 };
 
-function GuestForm() {
+type Props = {
+  tour: Tour | undefined;
+};
+
+function GuestForm({ tour }: Props) {
   const [guestForm, setGuestForm] = useState<GuestForm>(initialGuestDetails);
+
+  const dispatch = useAppDispatch();
 
   function handleDecreaseClick(guest: string) {
     setGuestForm((prevState) => {
       return {
         ...prevState,
-        [guest]:
-          prevState[guest as keyof typeof GuestForm] === 0
-            ? 0
-            : prevState[guest as keyof typeof GuestForm] - 1,
+        guests: {
+          ...prevState.guests,
+          [guest]:
+            prevState.guests[guest as keyof typeof GuestForm] === 0
+              ? 0
+              : prevState.guests[guest as keyof typeof GuestForm] - 1,
+        },
       };
     });
   }
   function handleIncreaseClick(guest: string) {
+    console.log(guest, 'guest');
     setGuestForm((prevState) => {
       return {
         ...prevState,
-        [guest]: prevState[guest as keyof typeof GuestForm] + 1,
+        guests: {
+          ...prevState.guests,
+          [guest]: prevState.guests[guest as keyof typeof GuestForm] + 1,
+        },
       };
     });
+  }
+
+  function handleAddToCart() {
+    const cart = {
+      tour: {
+        name: tour?.title,
+        image: tour?.image,
+        price: tour?.price,
+        rating: 4,
+        reviews: 69,
+      },
+      date: guestForm.date,
+      guests: guestForm.guests,
+    };
+    dispatch(addToCart({ cart }));
   }
 
   return (
@@ -61,7 +96,7 @@ function GuestForm() {
         <GuestPicker
           label='Adults'
           subLabel='Over 18+'
-          amountOfGuests={guestForm.adults}
+          amountOfGuests={guestForm.guests.adults}
           onClickDecrease={() => handleDecreaseClick('adults')}
           onClickIncrease={() => handleIncreaseClick('adults')}
         />
@@ -70,7 +105,7 @@ function GuestForm() {
         <GuestPicker
           label='Children'
           subLabel='Under 12'
-          amountOfGuests={guestForm.children}
+          amountOfGuests={guestForm.guests.children}
           onClickDecrease={() => handleDecreaseClick('children')}
           onClickIncrease={() => handleIncreaseClick('children')}
         />
@@ -79,7 +114,7 @@ function GuestForm() {
         <GuestPicker
           label='Infants'
           subLabel='Under 3'
-          amountOfGuests={guestForm.infants}
+          amountOfGuests={guestForm.guests.infants}
           onClickDecrease={() => handleDecreaseClick('infants')}
           onClickIncrease={() => handleIncreaseClick('infants')}
         />
@@ -93,7 +128,7 @@ function GuestForm() {
         <button
           type='button'
           className='w-full bg-blue-500 text-white py-3 text-base font-medium rounded-full'
-          onClick={() => console.log(guestForm, 'guestForm')}
+          onClick={handleAddToCart}
         >
           Book now
         </button>

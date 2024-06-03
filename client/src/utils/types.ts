@@ -47,7 +47,7 @@ export type User = {
 };
 
 export type Cart = {
-  product: Partial<Tour>;
+  tour: Partial<Tour>;
   date: string;
   guests: {
     adults: number;
@@ -61,7 +61,7 @@ export type AuthSliceState = {
 };
 
 export type CartSliceState = {
-  cart: Cart[] | null;
+  cart: Cart[] | [];
   totalPrice: number;
 };
 

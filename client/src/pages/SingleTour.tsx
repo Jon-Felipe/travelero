@@ -165,7 +165,7 @@ function SingleTour() {
               </button>
             </div>
             {isBookingActive ? (
-              <GuestForm />
+              <GuestForm tour={data?.tour} />
             ) : (
               isInquiryActive && <InquiryForm />
             )}

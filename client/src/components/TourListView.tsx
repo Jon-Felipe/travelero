@@ -16,21 +16,21 @@ function TourListView({ tours }: Props) {
         return (
           <article
             key={tour._id}
-            className='grid grid-cols-[400px_1fr] rounded-xl overflow-hidden border shadow-md'
+            className='grid grid-cols-[150px_1fr] lg:grid-cols-[200px_1fr] xl:grid-cols-[300px_1fr] rounded-xl overflow-hidden border shadow-md'
           >
             <img
               src={tour.image}
               alt={tour.title}
               className='w-full h-[250px] object-cover'
             />
-            <div className='flex gap-x-4 p-8'>
+            <div className='flex gap-x-4 p-6'>
               <div className='basis-2/3'>
                 <div className='flex items-center gap-x-1 mb-2'>
                   <BsGeoAlt className='w-3 h-3 text-slate-500' />
                   <p className='text-xs text-slate-500'>{tour.city}</p>
                 </div>
                 <h3 className='font-semibold text-lg'>{tour.title}</h3>
-                <div className='flex items-center gap-x-2 my-4'>
+                <div className='flex items-center gap-x-2 my-1'>
                   <BsStarFill className='w-4 h-4 text-orange-500' />
                   <p className='font-bold'>4</p>
                   <p className='text-xs text-slate-500'>(2 Reviews)</p>

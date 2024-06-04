@@ -79,7 +79,7 @@ function Tours() {
   }
 
   return (
-    <div className='grid md:grid-cols-[300px_1fr] md:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
+    <div className='grid lg:grid-cols-[300px_1fr] lg:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
       {/* filter section */}
       <section className='hidden md:block'>
         <article className='border rounded-t p-6'>

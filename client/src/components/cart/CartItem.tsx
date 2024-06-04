@@ -4,6 +4,8 @@ import { BsClock, BsPeople, BsPencil, BsTrash } from 'react-icons/bs';
 import Rating from '../Rating';
 
 // extras
+import { useAppDispatch } from '../../hooks/hooks';
+import { removeFromCart } from '../../slices/cartSlice';
 import { Cart } from '../../utils/types';
 
 type Props = {
@@ -11,6 +13,8 @@ type Props = {
 };
 
 function CartItem({ cartItem: { tour, date, guests } }: Props) {
+  const dispatch = useAppDispatch();
+
   return (
     <article className='border rounded-xl p-4 mb-4'>
       <div className='flex gap-x-4'>
@@ -48,7 +52,10 @@ function CartItem({ cartItem: { tour, date, guests } }: Props) {
             <button className='flex items-center gap-x-2 bg-slate-200 py-2 px-4 rounded-2xl text-sm font-semibold shadow-sm'>
               <BsPencil /> Edit
             </button>
-            <button className='p-3 bg-slate-200 rounded-full shadow-sm'>
+            <button
+              className='p-3 bg-slate-200 rounded-full shadow-sm'
+              onClick={() => dispatch(removeFromCart({ id: tour?._id! }))}
+            >
               <BsTrash className='w-4 h-4' />
             </button>
           </div>

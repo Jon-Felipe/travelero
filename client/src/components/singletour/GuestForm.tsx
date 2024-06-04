@@ -63,6 +63,7 @@ function GuestForm({ tour }: Props) {
   function handleAddToCart() {
     const cart = {
       tour: {
+        _id: tour?._id,
         title: tour?.title,
         image: tour?.image,
         price: tour?.price,

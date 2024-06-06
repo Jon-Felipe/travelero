@@ -19,9 +19,10 @@ function TourCard({ tour }: Props) {
           <p className='text-base capitalize font-medium text-slate-600'>
             {tour.tourType}
           </p>
-          <h3 className='text-base font-bold mb-4 capitalize mt-1'>
+          <h3 className='text-base font-bold capitalize mt-1 mb-2'>
             {tour.city}: {tour.title}
           </h3>
+          <p className='text-sm font-medium'>{tour.duration}</p>
         </div>
         <div>
           <div className='flex items-center gap-x-2 mb-1'>

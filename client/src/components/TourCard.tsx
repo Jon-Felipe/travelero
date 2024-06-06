@@ -1,7 +1,6 @@
-import { BsFillStarFill } from 'react-icons/bs';
-
 // extras
 import { Tour } from '../utils/types';
+import Rating from './Rating';
 
 type Props = {
   tour: Tour;
@@ -26,10 +25,8 @@ function TourCard({ tour }: Props) {
         </div>
         <div>
           <div className='flex items-center gap-x-2 mb-1'>
-            <p className='flex items-center gap-x-1 font-medium text-sm'>
-              <BsFillStarFill className='text-yellow-400 w-4 h-4' />
-              {tour.rating}
-            </p>
+            <Rating value={tour.rating!} />
+            <p className='gap-x-1 font-medium text-sm'>{tour.rating}</p>
             <p className='font-normal text-xs text-gray-600'>(69 Review(s))</p>
           </div>
           <p className='text-sm font-medium'>

@@ -24,10 +24,7 @@ function Navbar() {
           icon={<BsHeart className='md:w-5 md:h-5' />}
           text='Wishlist'
         />
-        <NavbarLink
-          icon={<BsCart2 className='md:w-5 md:h-5' />}
-          text='Wishlist'
-        />
+        <NavbarLink icon={<BsCart2 className='md:w-5 md:h-5' />} text='Cart' />
         <NavbarLink
           icon={<BsPerson className='md:w-5 md:h-5' />}
           text='Profile'

@@ -30,7 +30,7 @@ function Navbar() {
         />
         <NavbarLink
           icon={<BsPerson className='md:w-5 md:h-5' />}
-          text='Wishlist'
+          text='Profile'
         />
       </div>
     </header>

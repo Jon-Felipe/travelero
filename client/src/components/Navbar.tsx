@@ -13,10 +13,12 @@ function Navbar() {
 
   return (
     <header className='h-20 flex items-center justify-between px-8 max-w-screen-xl mx-auto'>
-      <div>
+      <div className='lg:flex lg:items-center lg:gap-10 lg:w-full'>
         <h1 className='text-2xl md:text-4xl font-bold'>Travelero</h1>
+        <div className='hidden lg:block w-full lg:max-w-md'>
+          <Search />
+        </div>
       </div>
-      <Search />
       <div className='flex items-center gap-x-6 md:gap-x-8'>
         <NavbarLink
           icon={<BsHeart className='md:w-5 md:h-5' />}

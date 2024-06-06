@@ -3,6 +3,9 @@ import { BsPerson, BsCart2, BsHeart } from 'react-icons/bs';
 // import { Link } from 'react-router-dom';
 // import { useAppSelector } from '../hooks/hooks';
 
+// components
+import Search from './Search';
+
 function Navbar() {
   // const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
@@ -13,6 +16,7 @@ function Navbar() {
       <div>
         <h1 className='text-2xl md:text-4xl font-bold'>Travelero</h1>
       </div>
+      <Search />
       <div className='flex items-center gap-x-6 md:gap-x-8'>
         <NavbarLink
           icon={<BsHeart className='md:w-5 md:h-5' />}

@@ -8,7 +8,7 @@ type Props = {
 
 function TourCard({ tour }: Props) {
   return (
-    <article className='grid grid-rows-[200px_250px] overflow-hidden rounded border'>
+    <article className='grid grid-rows-[200px_200px] overflow-hidden rounded border'>
       <img
         src={tour.image}
         alt={tour.title}

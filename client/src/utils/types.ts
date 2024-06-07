@@ -1,12 +1,5 @@
 import mongoose from 'mongoose';
 
-export type TopDestination = {
-  id: number;
-  image: string;
-  title: string;
-  toursTotal: number;
-};
-
 export type ProfileLink = {
   id: number;
   text: string;

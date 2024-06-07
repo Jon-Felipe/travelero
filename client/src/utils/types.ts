@@ -62,29 +62,19 @@ export type Tour = {
   _id: string;
   title: string;
   description: string;
-  image: string;
-  country: string;
-  countryISO: string;
-  city: string;
+  price: number;
+  location: {
+    city: string;
+    country: string;
+  };
   rating?: number;
-  price?: number;
-  duration: string;
-  highlights?: string[];
-  included?: string[];
-  excluded?: string[];
-  tourType: TourType;
-  groupSize: number;
-  languages: string[];
+  numOfReviews?: number;
+  included: string[];
+  excluded: string[];
+  image: string;
+  duration: number;
   createdBy: mongoose.Types.ObjectId | string;
 };
-
-type TourType =
-  | 'bus'
-  | 'group'
-  | 'luxury'
-  | 'wildlife'
-  | 'food & wine'
-  | 'adventure';
 
 export type TourFilter = {
   id: number;

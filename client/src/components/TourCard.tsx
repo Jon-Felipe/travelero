@@ -25,7 +25,9 @@ function TourCard({ tour }: Props) {
           <div className='flex items-center gap-x-2 mb-1'>
             <Rating value={tour.rating!} />
             <p className='gap-x-1 font-medium text-sm'>{tour.rating}</p>
-            <p className='font-normal text-xs text-gray-600'>(69 Review(s))</p>
+            <p className='font-normal text-xs text-gray-600'>
+              ({tour.numOfReviews} Review(s))
+            </p>
           </div>
           <p className='text-sm font-medium'>
             From ${tour.price?.toFixed(2)}{' '}

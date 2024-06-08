@@ -6,7 +6,7 @@ import { dummy_tours } from '../utils/constants';
 
 type Props = {};
 
-function FeaturedTrips({}: Props) {
+function TopTours({}: Props) {
   return (
     <section className='mt-10'>
       <h2 className='text-2xl md:text-4xl font-bold'>
@@ -21,4 +21,4 @@ function FeaturedTrips({}: Props) {
   );
 }
 
-export default FeaturedTrips;
+export default TopTours;

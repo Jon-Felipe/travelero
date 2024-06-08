@@ -58,6 +58,13 @@ export type CartSliceState = {
   totalPrice: number;
 };
 
+export type TopDestination = {
+  id: number;
+  text: string;
+  image: string;
+  link: string;
+};
+
 export type Tour = {
   _id: string;
   title: string;

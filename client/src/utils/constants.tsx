@@ -1,6 +1,6 @@
 import { BsBoxSeam, BsHeart, BsPerson, BsLock } from 'react-icons/bs';
 
-import { ProfileLink, Tour, TourFilter } from './types';
+import { ProfileLink, TopDestination, Tour, TourFilter } from './types';
 
 export const profileLinks: ProfileLink[] = [
   {
@@ -26,6 +26,57 @@ export const profileLinks: ProfileLink[] = [
     text: 'Change password',
     link: 'change-password',
     icon: <BsLock className='w-6 h-6' />,
+  },
+];
+
+export const topDestinations: TopDestination[] = [
+  {
+    id: 1,
+    text: 'amsterdam',
+    image: './images/amsterdam.jpg',
+    link: '/tours/amsterdam',
+  },
+  {
+    id: 2,
+    text: 'barcelona',
+    image: './images/barcelona.jpg',
+    link: '/tours/barcelona',
+  },
+  {
+    id: 3,
+    text: 'california',
+    image: './images/california.jpg',
+    link: '/tours/california',
+  },
+  {
+    id: 4,
+    text: 'cape town',
+    image: './images/cape-town.jpg',
+    link: '/tours/cape-town',
+  },
+  {
+    id: 5,
+    text: 'dusseldorf',
+    image: './images/dusseldorf.jpg',
+    link: '/tours/dusseldorf',
+  },
+  {
+    id: 6,
+    text: 'london',
+    image: './images/london.jpg',
+    link: '/tours/london',
+  },
+  {
+    id: 7,
+    text: 'madeira',
+    image: './images/madeira.jpg',
+    link: '/tours/madeira',
+  },
+  {
+    id: 8,
+    text: 'munich',
+    image: './images/munich.jpg',
+    link: '/tours/munich',
   },
 ];
 

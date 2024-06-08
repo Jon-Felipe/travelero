@@ -9,7 +9,7 @@ type Props = {};
 function TopTours({}: Props) {
   return (
     <section className='mt-10'>
-      <h2 className='text-2xl md:text-4xl font-bold'>
+      <h2 className='text-2xl md:text-3xl font-bold'>
         Unforgettable experiences around the world
       </h2>
       <div className='grid grid-cols-2 gap-4 xl:grid-cols-4 mt-4'>

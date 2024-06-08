@@ -1,8 +1,8 @@
 // components
-import TourCard from './TourCard';
+import TourCard from '../TourCard';
 
 // extras
-import { dummy_tours } from '../utils/constants';
+import { dummy_tours } from '../../utils/constants';
 
 type Props = {};
 

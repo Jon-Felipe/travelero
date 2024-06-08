@@ -1,6 +1,6 @@
 // components
-import TopDestinations from '../components/TopDestinations';
-import TopTours from '../components/TopTours';
+import TopDestinations from '../components/home/TopDestinations';
+import TopTours from '../components/home/TopTours';
 
 type Props = {};
 

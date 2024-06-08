@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { topDestinations } from '../utils/constants';
+import { topDestinations } from '../../utils/constants';
 
 type Props = {};
 

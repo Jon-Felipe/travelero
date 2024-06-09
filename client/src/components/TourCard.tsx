@@ -17,7 +17,7 @@ function TourCard({ tour }: Props) {
       <div className='flex flex-col justify-between py-2 px-4'>
         <div>
           <h3 className='text-base font-bold capitalize mt-1 mb-2'>
-            {tour.location.city}: {tour.title}
+            {tour?.location?.city}: {tour.title}
           </h3>
           <p className='text-sm font-medium'>{tour.duration / 60} Hours</p>
         </div>

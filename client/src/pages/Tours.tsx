@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import {
-  BsSearch,
-  BsGrid3X3GapFill,
-  BsListUl,
-  BsSliders,
-} from 'react-icons/bs';
+import { BsSearch, BsSliders } from 'react-icons/bs';
 import { useDebouncedCallback } from 'use-debounce';
 import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
-import Sort from '../components/Sort';
+// import Sort from '../components/Sort';
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 import CheckboxList from '../components/CheckboxList';
@@ -23,7 +18,6 @@ import {
   ageList,
   locationList,
 } from '../utils/constants';
-import TourListView from '../components/TourListView';
 
 type TourFilters = {
   search: string;
@@ -42,7 +36,6 @@ const initialFilters: TourFilters = {
 function Tours() {
   const [filters, setFilters] = useState<TourFilters>(initialFilters);
   const [sortValue, setSortValue] = useState<string>('');
-  const [isGridViewActive, setIsGridViewActive] = useState<boolean>(false);
 
   const debounced = useDebouncedCallback((value: string) => {
     setFilters((prevState) => {
@@ -65,10 +58,10 @@ function Tours() {
     });
   }
 
-  function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    const value = e.target.value;
-    setSortValue(value);
-  }
+  // function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
+  //   const value = e.target.value;
+  //   setSortValue(value);
+  // }
 
   if (isLoading) {
     return (
@@ -79,7 +72,7 @@ function Tours() {
   }
 
   return (
-    <div className='grid lg:grid-cols-[300px_1fr] lg:gap-x-8 p-4 max-w-screen-2xl mx-auto mt-12'>
+    <div className='grid lg:grid-cols-[300px_1fr] lg:gap-x-8 px-8 max-w-screen-xl mx-auto mt-12'>
       {/* filter section */}
       <section className='hidden md:block'>
         <article className='border rounded-t p-6'>
@@ -167,29 +160,13 @@ function Tours() {
         <h5 className='font-bold text-base text-gray-500'>
           {data?.tours.length} tours found
         </h5>
-        <div className='border rounded p-4 flex items-center justify-between my-5'>
+        {/* <div className='border rounded p-4 flex items-center justify-between my-5'>
           <div className='flex items-center gap-x-6 w-96'>
             <h5 className='font-semibold text-sm'>Sort by</h5>
             <Sort value={sortValue} onChange={handleSortOnChange} />
           </div>
-          <div className='flex items-center gap-x-4'>
-            <button onClick={() => setIsGridViewActive(false)}>
-              <BsListUl
-                className={`w-5 h-5 ${isGridViewActive ? '' : 'text-blue-500'}`}
-              />
-            </button>
-            <button onClick={() => setIsGridViewActive(true)}>
-              <BsGrid3X3GapFill
-                className={`w-5 h-5 ${isGridViewActive ? 'text-blue-500' : ''}`}
-              />
-            </button>
-          </div>
-        </div>
-        {isGridViewActive ? (
-          <TourGridView tours={data?.tours} />
-        ) : (
-          <TourListView tours={data?.tours} />
-        )}
+        </div> */}
+        <TourGridView tours={data?.tours} />
       </section>
     </div>
   );

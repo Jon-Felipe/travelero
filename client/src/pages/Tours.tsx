@@ -5,7 +5,7 @@ import { useGetToursQuery } from '../slices/tourSlice';
 
 // components
 import Spinner from '../components/Spinner';
-// import Sort from '../components/Sort';
+import Sort from '../components/Sort';
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 import CheckboxList from '../components/CheckboxList';
@@ -58,10 +58,10 @@ function Tours() {
     });
   }
 
-  // function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
-  //   const value = e.target.value;
-  //   setSortValue(value);
-  // }
+  function handleSortOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value = e.target.value;
+    setSortValue(value);
+  }
 
   if (isLoading) {
     return (
@@ -157,15 +157,12 @@ function Tours() {
         </article>
       </section>
       <section>
-        <h5 className='font-bold text-base text-gray-500'>
-          {data?.tours.length} tours found
-        </h5>
-        {/* <div className='border rounded p-4 flex items-center justify-between my-5'>
-          <div className='flex items-center gap-x-6 w-96'>
-            <h5 className='font-semibold text-sm'>Sort by</h5>
-            <Sort value={sortValue} onChange={handleSortOnChange} />
-          </div>
-        </div> */}
+        <div className='flex items-center justify-between mb-4'>
+          <h5 className='font-bold text-base text-gray-500'>
+            {data?.tours.length} tours found
+          </h5>
+          <Sort value={sortValue} onChange={handleSortOnChange} />
+        </div>
         <TourGridView tours={data?.tours} />
       </section>
     </div>

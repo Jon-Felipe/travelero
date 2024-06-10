@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { topDestinations } from '../../utils/constants';
 
 type Props = {};
@@ -7,12 +5,7 @@ type Props = {};
 function TopDestinations({}: Props) {
   return (
     <section className='mt-10'>
-      <div className='flex items-center justify-between'>
-        <h2 className='text-2xl md:text-3xl font-bold'>Top Destinations</h2>
-        <Link to='/tours' className='font-semibold text-xl'>
-          Browse Tours
-        </Link>
-      </div>
+      <h2 className='text-2xl md:text-3xl font-bold'>Top Destinations</h2>
       <div className='grid gap-y-4 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 lg:grid-cols-5 mt-4'>
         {topDestinations.map((destination) => {
           return (

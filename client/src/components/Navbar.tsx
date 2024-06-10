@@ -1,20 +1,16 @@
-// import { useState } from 'react';
 import { BsPerson, BsCart2, BsHeart } from 'react-icons/bs';
-// import { Link } from 'react-router-dom';
-// import { useAppSelector } from '../hooks/hooks';
+import { Link } from 'react-router-dom';
 
 // components
 import Search from './Search';
 
 function Navbar() {
-  // const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
-
-  // const { user } = useAppSelector((store) => store.user);
-
   return (
     <header className='h-20 flex items-center justify-between px-8 max-w-screen-xl mx-auto'>
       <div className='lg:flex lg:items-center lg:gap-10 lg:w-full'>
-        <h1 className='text-2xl md:text-4xl font-bold'>Travelero</h1>
+        <Link to='/'>
+          <h1 className='text-2xl md:text-4xl font-bold'>Travelero</h1>
+        </Link>
         <div className='hidden lg:block w-full lg:max-w-md'>
           <Search />
         </div>

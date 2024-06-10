@@ -184,7 +184,7 @@ export const dummy_tours: Tour[] = [
     createdBy: '6620cd4a216876fa0945c751',
   },
   {
-    _id: '9f4712c5-0ec6-4ac6-9d5c-4c7c42613926',
+    _id: '9f4712c5-0ec6-4ac6-9d5c-4c7c42613925',
     title: 'dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo',
     description: '',
     price: 1010,
@@ -201,7 +201,7 @@ export const dummy_tours: Tour[] = [
     createdBy: '6620cd4a216876fa0945c751',
   },
   {
-    _id: '9f4712c5-0ec6-4ac6-9d5c-4c7c42613926',
+    _id: '9f4712c5-0ec6-4ac6-9d5c-4c7c42613927',
     title: 'dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo',
     description: '',
     price: 60.55,

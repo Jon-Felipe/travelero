@@ -19,11 +19,17 @@ function Navbar() {
         <NavbarLink
           icon={<BsHeart className='md:w-5 md:h-5' />}
           text='Wishlist'
+          url='/'
         />
-        <NavbarLink icon={<BsCart2 className='md:w-5 md:h-5' />} text='Cart' />
+        <NavbarLink
+          icon={<BsCart2 className='md:w-5 md:h-5' />}
+          text='Cart'
+          url='/cart'
+        />
         <NavbarLink
           icon={<BsPerson className='md:w-5 md:h-5' />}
           text='Profile'
+          url='/profile'
         />
       </div>
     </header>
@@ -35,13 +41,14 @@ export default Navbar;
 type NavbarLinkProp = {
   icon: React.ReactElement;
   text: string;
+  url: string;
 };
 
-function NavbarLink({ icon, text }: NavbarLinkProp) {
+function NavbarLink({ icon, text, url }: NavbarLinkProp) {
   return (
-    <div className='flex flex-col items-center'>
+    <Link to={url} className='flex flex-col items-center'>
       {icon}
       <p className='text-sm md:text-base'>{text}</p>
-    </div>
+    </Link>
   );
 }

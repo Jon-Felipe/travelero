@@ -61,7 +61,7 @@ async function getSingleTour(req: Request<{ id: string }>, res: Response) {
 // @route   POST /api/v1/tours
 // @access  Private
 async function createTour(
-  req: Request<ParamsDictionary, any, Omit<ITour, 'rating'>>,
+  req: Request<ParamsDictionary, any, Omit<ITour, 'rating' | 'numOfReviews'>>,
   res: Response
 ) {
   req.body.createdBy = new mongoose.Types.ObjectId(req.user.userId);

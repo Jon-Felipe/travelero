@@ -117,7 +117,7 @@ function SingleTour() {
         </section>
       </div>
       {/* tour body */}
-      <section className='mt-6 max-w-screen-md'>
+      <section className='max-w-screen-md'>
         <h3 className='text-xl md:text-3xl font-semibold mb-4'>Overview</h3>
         <p className='text-sm md:text-base'>{data?.tour.description}</p>
       </section>

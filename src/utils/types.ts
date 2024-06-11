@@ -16,17 +16,14 @@ export interface IUser {
 export interface ITour {
   title: string;
   description: string;
+  image: string;
   price: number;
   location: {
     city: string;
     country: string;
   };
-  ticketType: string;
   rating?: number;
   numOfReviews?: number;
-  included: string[];
-  excluded: string[];
-  image: string;
   durations: [
     {
       duration: number;

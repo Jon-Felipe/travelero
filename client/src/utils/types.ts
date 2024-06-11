@@ -68,17 +68,14 @@ export type TopDestination = {
 export type Tour = {
   title: string;
   description: string;
+  image: string;
   price: number;
   location: {
     city: string;
     country: string;
   };
-  ticketType: string;
   rating?: number;
   numOfReviews?: number;
-  included: string[];
-  excluded: string[];
-  image: string;
   durations: [
     {
       duration: number;
@@ -86,7 +83,7 @@ export type Tour = {
     }
   ];
   availableLanguages: string[];
-  createdBy: mongoose.Types.ObjectId | string;
+  createdBy: mongoose.Types.ObjectId;
 };
 
 export type TourFilter = {

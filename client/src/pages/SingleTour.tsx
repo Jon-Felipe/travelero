@@ -40,8 +40,8 @@ function SingleTour() {
           </p>
         </div>
       </section>
-      {/* tour gallery */}
       <div className='grid lg:grid-cols-[1fr_400px] gap-y-4 lg:gap-y-0 lg:gap-x-4'>
+        {/* tour gallery */}
         <section>
           <img
             src={`.${data?.tour.image}`}
@@ -50,7 +50,7 @@ function SingleTour() {
           />
           <div className='mt-4'>
             <hr />
-            <div className='flex items-center gap-x-6 my-6'>
+            <div className='flex items-center gap-x-4 md:gap-x-6 my-6'>
               {data?.tour.durations.map((item, index) => {
                 return (
                   <div key={index} className='flex items-center gap-x-2'>
@@ -116,6 +116,11 @@ function SingleTour() {
           </article>
         </section>
       </div>
+      {/* tour body */}
+      <section className='mt-6 max-w-screen-md'>
+        <h3 className='text-xl md:text-3xl font-semibold mb-4'>Overview</h3>
+        <p className='text-sm md:text-base'>{data?.tour.description}</p>
+      </section>
     </div>
   );
 }

@@ -28,15 +28,17 @@ function SingleTour() {
   return (
     <div className='p-8 max-w-screen-xl mx-auto'>
       {/* tour header */}
-      <section className='flex items-center justify-between'>
+      <section className='flex items-center justify-between gap-x-6'>
         <div>
-          <h3 className='text-xl md:text-2xl font-semibold capitalize'>
+          <h3 className='text-lg md:text-2xl font-semibold capitalize max-w-xl lg:max-w-3xl'>
             {data?.tour.title}
           </h3>
-          <div className='flex items-center gap-x-2 mb-8'>
-            <Rating value={5} />
-            <p className='text-xs capitalize'>69 Reviews</p>
-            <div className='inline-block mx-1'>|</div>
+          <div className='flex flex-col md:flex-row md:items-center mb-8'>
+            <div className='flex items-center gap-x-2'>
+              <Rating value={5} />
+              <p className='text-xs capitalize'>69 Reviews</p>
+            </div>
+            <div className='hidden md:inline-block mx-1'>|</div>
             <p className='text-sm text-slate-600 capitalize'>
               {data?.tour.location.city}, {data?.tour.location.country}
             </p>
@@ -44,7 +46,7 @@ function SingleTour() {
         </div>
         <button
           onClick={() => navigate(-1)}
-          className='border border-blue-500 text-blue-500 font-bold py-2 px-4 rounded-lg'
+          className='border md:border-2 border-blue-500 text-blue-500 text-xs md:text-base font-bold py-1 md:py-2 px-2 md:px-4 rounded-lg min-w-16'
         >
           Go Back
         </button>

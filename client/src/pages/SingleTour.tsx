@@ -36,10 +36,10 @@ function SingleTour() {
           <div className='flex flex-col md:flex-row md:items-center mb-8'>
             <div className='flex items-center gap-x-2'>
               <Rating value={5} />
-              <p className='text-xs capitalize'>69 Reviews</p>
+              <p className='text-xs md:text-base capitalize'>69 Reviews</p>
             </div>
             <div className='hidden md:inline-block mx-1'>|</div>
-            <p className='text-sm text-slate-600 capitalize'>
+            <p className='text-sm md:text-base text-slate-600 capitalize'>
               {data?.tour.location.city}, {data?.tour.location.country}
             </p>
           </div>

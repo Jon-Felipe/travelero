@@ -66,7 +66,6 @@ export type TopDestination = {
 };
 
 export type Tour = {
-  _id: string;
   title: string;
   description: string;
   price: number;
@@ -74,12 +73,19 @@ export type Tour = {
     city: string;
     country: string;
   };
+  ticketType: string;
   rating?: number;
   numOfReviews?: number;
   included: string[];
   excluded: string[];
   image: string;
-  duration: number;
+  durations: [
+    {
+      duration: number;
+      unit: string;
+    }
+  ];
+  availableLanguages: string[];
   createdBy: mongoose.Types.ObjectId | string;
 };
 

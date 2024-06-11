@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { BsClock, BsChatLeft } from 'react-icons/bs';
 import { useGetSingleTourQuery } from '../slices/tourSlice';
 
@@ -14,6 +14,7 @@ function SingleTour() {
   const [isInquiryActive, setIsInquiryActive] = useState<boolean>(false);
 
   const params = useParams();
+  const navigate = useNavigate();
   const { isLoading, data } = useGetSingleTourQuery(params.id!);
 
   if (isLoading) {
@@ -27,18 +28,26 @@ function SingleTour() {
   return (
     <div className='p-8 max-w-screen-xl mx-auto'>
       {/* tour header */}
-      <section>
-        <h3 className='text-xl md:text-2xl font-semibold capitalize'>
-          {data?.tour.title}
-        </h3>
-        <div className='flex items-center gap-x-2 mb-8'>
-          <Rating value={5} />
-          <p className='text-xs capitalize'>69 Reviews</p>
-          <div className='inline-block mx-1'>|</div>
-          <p className='text-sm text-slate-600 capitalize'>
-            {data?.tour.location.city}, {data?.tour.location.country}
-          </p>
+      <section className='flex items-center justify-between'>
+        <div>
+          <h3 className='text-xl md:text-2xl font-semibold capitalize'>
+            {data?.tour.title}
+          </h3>
+          <div className='flex items-center gap-x-2 mb-8'>
+            <Rating value={5} />
+            <p className='text-xs capitalize'>69 Reviews</p>
+            <div className='inline-block mx-1'>|</div>
+            <p className='text-sm text-slate-600 capitalize'>
+              {data?.tour.location.city}, {data?.tour.location.country}
+            </p>
+          </div>
         </div>
+        <button
+          onClick={() => navigate(-1)}
+          className='border border-blue-500 text-blue-500 font-bold py-2 px-4 rounded-lg'
+        >
+          Go Back
+        </button>
       </section>
       <div className='grid lg:grid-cols-[1fr_400px] gap-y-4 lg:gap-y-0 lg:gap-x-4'>
         {/* tour gallery */}
